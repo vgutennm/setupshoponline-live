@@ -1,0 +1,18 @@
+---
+  deployment:
+    tasks:
+      - export DEPLOYPATH=/home/aha7hfr64vl1/public_html/
+      - /bin/cp -R assets $DEPLOYPATH
+      - /bin/cp -R images $DEPLOYPATH 2>/dev/null || true
+      - /bin/cp index.html $DEPLOYPATH
+      - /bin/cp favicon.ico $DEPLOYPATH
+      - /bin/cp favicon-16x16.png $DEPLOYPATH
+      - /bin/cp favicon-32x32.png $DEPLOYPATH
+      - /bin/cp apple-touch-icon.png $DEPLOYPATH
+      - /bin/cp favicon.jpg $DEPLOYPATH 2>/dev/null || true
+      - /bin/cp favicon.svg $DEPLOYPATH 2>/dev/null || true
+      - /bin/cp opengraph.jpg $DEPLOYPATH 2>/dev/null || true
+      - /bin/cp robots.txt $DEPLOYPATH 2>/dev/null || true
+      - /bin/cp sitemap.xml $DEPLOYPATH 2>/dev/null || true
+      - /bin/cp .htaccess $DEPLOYPATH
+  
