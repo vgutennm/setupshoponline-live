@@ -1,3 +1,5 @@
 User-agent: *
 Allow: /
+Disallow: /thank-you/
+
 Sitemap: https://setupshoponline.com/sitemap.xml
