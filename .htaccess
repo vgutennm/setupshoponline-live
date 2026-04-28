@@ -22,6 +22,7 @@ RedirectMatch 301 ^/about-us/?$ /why-setupshoponline
 RedirectMatch 301 ^/contact/?$ /contact-us
 RedirectMatch 301 ^/book/?$ /book-a-call
 RedirectMatch 301 ^/booking/?$ /book-a-call
+RedirectMatch 301 ^/case-studies/rapid-app-delivery-business-systems/?$ /case-studies/pinnacle-cts-ai-search-visibility
 
 # SPA fallback - serve index.html for all routes that aren't real files
 RewriteCond %{REQUEST_FILENAME} !-f
