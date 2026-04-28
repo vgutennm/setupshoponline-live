@@ -10,9 +10,9 @@ Site: https://setupshoponline.com
 Focus: AI Automation Consulting, Workflow Automation, Custom Business Apps,
        Systems Integration, Internal Tools, Digital Transformation Strategy,
        AI Search Optimization (AEO / GEO)
-Address: 638 Main Street, Stroudsburg, PA 18360
+Address: 205 Applegate Road Suite 100 #1087, Stroudsburg, PA 18360
 Phone: +1-201-757-0134
-Email: info@setupshoponline.com
+Email: vlad@setupshoponline.com
 
 /* SITE */
 Standards: HTML5, CSS3, JSON-LD (Schema.org), WAI-ARIA
