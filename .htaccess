@@ -3,6 +3,26 @@ RewriteEngine On
 RewriteCond %{HTTPS} off
 RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 
+# Canonical host: redirect non-www to apex (already apex; redirect www -> apex)
+RewriteCond %{HTTP_HOST} ^www\.setupshoponline\.com$ [NC]
+RewriteRule ^(.*)$ https://setupshoponline.com/$1 [L,R=301]
+
+# 301 redirects for legacy / removed paths
+# Old service pages -> Home (where current services are presented)
+RedirectMatch 301 ^/services/?$ /
+RedirectMatch 301 ^/services/.*$ /
+RedirectMatch 301 ^/web-design/?$ /
+RedirectMatch 301 ^/seo/?$ /ai-search-optimization
+RedirectMatch 301 ^/search-engine-optimization/?$ /ai-search-optimization
+RedirectMatch 301 ^/hosting/?$ /
+RedirectMatch 301 ^/blog/?$ /
+RedirectMatch 301 ^/blog/.*$ /
+RedirectMatch 301 ^/about/?$ /why-setupshoponline
+RedirectMatch 301 ^/about-us/?$ /why-setupshoponline
+RedirectMatch 301 ^/contact/?$ /contact-us
+RedirectMatch 301 ^/book/?$ /book-a-call
+RedirectMatch 301 ^/booking/?$ /book-a-call
+
 # SPA fallback - serve index.html for all routes that aren't real files
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
@@ -33,4 +53,9 @@ RewriteRule ^ index.html [L]
   Header set Cache-Control "no-cache, no-store, must-revalidate"
   Header set Pragma "no-cache"
   Header set Expires "0"
+</FilesMatch>
+
+# humans.txt, llms.txt, robots.txt, sitemap.xml as text
+<FilesMatch "\.(txt|xml)$">
+  Header set Cache-Control "public, max-age=3600"
 </FilesMatch>
