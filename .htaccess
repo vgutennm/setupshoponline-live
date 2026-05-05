@@ -60,3 +60,40 @@ RewriteRule ^ index.html [L]
 <FilesMatch "\.(txt|xml)$">
   Header set Cache-Control "public, max-age=3600"
 </FilesMatch>
+
+# ---------------------------------------------------------------------------
+# Security headers
+# Applied to all responses. Tightened for a public, frontend-only marketing
+# site that uses Calendly, Zoho Bigin, Google Maps, and Google Fonts.
+# ---------------------------------------------------------------------------
+<IfModule mod_headers.c>
+  # Force HTTPS for one year (no preload until all subdomains verified).
+  Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains"
+
+  # Prevent MIME sniffing.
+  Header always set X-Content-Type-Options "nosniff"
+
+  # Send origin only on cross-origin and never downgrade to HTTP.
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+
+  # Disable powerful APIs the site does not use, plus FLoC.
+  Header always set Permissions-Policy "camera=(), microphone=(), geolocation=(), payment=(), usb=(), interest-cohort=()"
+
+  # Legacy clickjacking protection. CSP frame-ancestors below is authoritative
+  # for modern browsers.
+  Header always set X-Frame-Options "SAMEORIGIN"
+
+  # Content Security Policy
+  # default-src locked to self.
+  # script-src allows Calendly widget loader and inline JSON-LD blocks
+  # (react-helmet-async injects schema as inline <script type=ld+json>).
+  # style-src allows Google Fonts and inline styles used by Calendly/Tailwind.
+  # img-src is broad (https:) so social previews, partner logos, and Bigin QR
+  # codes load without per-domain whitelisting.
+  # frame-src whitelists Calendly, Zoho Bigin, and Google Maps embeds only.
+  # connect-src allows Calendly's API + analytics calls.
+  # form-action keeps native form posts on same origin (Bigin form posts inside
+  # the iframe and is therefore not constrained by the parent's form-action).
+  # frame-ancestors 'self' replaces X-Frame-Options on modern browsers.
+  Header always set Content-Security-Policy "default-src 'self'; base-uri 'self'; object-src 'none'; script-src 'self' 'unsafe-inline' https://assets.calendly.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://assets.calendly.com; font-src 'self' https://fonts.gstatic.com https://assets.calendly.com data:; img-src 'self' data: blob: https:; frame-src 'self' https://calendly.com https://*.calendly.com https://us.bigin.online https://bigin.zoho.com https://www.google.com https://maps.google.com; connect-src 'self' https://calendly.com https://*.calendly.com; form-action 'self'; frame-ancestors 'self'; upgrade-insecure-requests"
+</IfModule>
