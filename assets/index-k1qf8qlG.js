@@ -54,7 +54,7 @@ For more information, see https://radix-ui.com/primitives/docs/components/${r.do
         .suso_reviews_section { width:100%; padding:70px 18px; background:radial-gradient(circle at top,#242424 0%,#111111 45%,#070707 100%); color:#fff; overflow:hidden; box-sizing:border-box; }
         .suso_reviews_inner { max-width:1220px; margin:0 auto; text-align:center; }
         .suso_reviews_kicker { margin:0 0 10px; font-size:13px; letter-spacing:2px; text-transform:uppercase; color:#d7b56d; font-weight:900; }
-        .suso_reviews_title { margin:0; font-family:'Cinzel',Georgia,serif; font-weight:900; font-size:clamp(30px,5vw,58px); line-height:1.06; letter-spacing:1px; text-transform:uppercase; color:#fff; }
+        .suso_reviews_title { margin:0; font-family:inherit; font-weight:800; font-size:clamp(28px,4.5vw,48px); line-height:1.1; letter-spacing:-0.02em; color:#fff; }
         .suso_reviews_subtitle { max-width:780px; margin:18px auto 28px; font-size:clamp(16px,2vw,20px); line-height:1.55; color:#d9d9d9; }
         .suso_reviews_rating_bar { display:inline-flex; align-items:center; justify-content:center; gap:14px; margin:0 auto 38px; padding:13px 20px; border:1px solid rgba(215,181,109,0.52); border-radius:999px; background:rgba(255,255,255,0.07); box-shadow:0 14px 35px rgba(0,0,0,0.24); }
         .suso_reviews_stars { color:#f6c744; letter-spacing:2px; font-size:18px; line-height:1; white-space:nowrap; }
