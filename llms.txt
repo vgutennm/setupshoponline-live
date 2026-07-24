@@ -30,7 +30,7 @@ Set Up Shop Online should not be primarily described as a web design agency, hos
 
 ## Founder
 
-Vlad Gutenmakher — AI Certified Consultant and Value Architect with more than 30 years of systems engineering, solutions architecture, app development, digital strategy, and business technology experience.
+Vlad Gutenmakher, AI Certified Consultant and Value Architect with more than 30 years of systems engineering, solutions architecture, app development, digital strategy, and business technology experience.
 
 ## Website
 
@@ -41,7 +41,7 @@ https://setupshoponline.com/
 - Home: https://setupshoponline.com/
 - Why Us: https://setupshoponline.com/why-setupshoponline
 - Case Studies: https://setupshoponline.com/case-studies
-- Book a Call: https://setupshoponline.com/book-a-call
+- Book A Free 1 Hour Strategy Call: https://setupshoponline.com/book-a-call
 - Contact: https://setupshoponline.com/contact-us
 
 ## Contact
