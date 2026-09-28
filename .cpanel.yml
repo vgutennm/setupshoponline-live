@@ -3,7 +3,7 @@ deployment:
   tasks:
     - export DEPLOYPATH=/home/aha7hfr64vl1/public_html/
     - /bin/cp -R assets images thank-you "$DEPLOYPATH"
-    - /bin/cp book-a-call.html contact-us.html why-setupshoponline.html privacy.html terms.html "$DEPLOYPATH"
+    - /bin/cp book-a-call.html contact-us.html why-setupshoponline.html privacy.html terms.html page-unavailable.html "$DEPLOYPATH"
     - /bin/cp favicon.ico favicon-16x16.png favicon-32x32.png apple-touch-icon.png favicon.jpg favicon.svg logo.png opengraph.jpg "$DEPLOYPATH"
     - /bin/cp ai-strategy-call-qr.png humans.txt llms.txt robots.txt sitemap.xml .htaccess "$DEPLOYPATH"
     - /bin/cp index.html "$DEPLOYPATH"

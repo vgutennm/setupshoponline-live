@@ -1,5 +1,6 @@
 User-agent: *
 Allow: /
-Disallow: /thank-you/
+# Crawlers must reach retired URLs to see their 410/404 responses, and reach
+# thank-you pages to read their existing noindex tags.
 
 Sitemap: https://setupshoponline.com/sitemap.xml

@@ -13,7 +13,19 @@ Repository: https://github.com/vgutennm/setupshoponline-live.git
 
 The existing deployment destination is preserved: `/home/aha7hfr64vl1/public_html/`.
 
-The checked-in `.cpanel.yml` copies assets, all eight page files, QR codes, search summaries, and Apache routing. It copies `index.html` last. It does not delete unrelated files from the hosting account.
+The checked-in `.cpanel.yml` copies assets, all eight current page files, the error page, QR codes, search summaries, and Apache routing. It copies `index.html` last. It does not delete unrelated files from the hosting account.
+
+## Removed pages and search engines
+
+The Apache configuration is maintained in this deployment repository. Preserve `.htaccess`, `robots.txt`, `page-unavailable.html`, and `.cpanel.yml` when importing future builds.
+
+- Retired page families return **410 Gone**: `/case-studies`, `/ai-growth-strategy`, `/ai-search-optimization`, `/services`, `/web-design`, `/seo`, `/search-engine-optimization`, `/hosting`, and `/blog`. Descendants, trailing slashes, case variants and `.html`, `.htm`, or `.php` variants are covered.
+- Only the eight current pages are routed to website HTML. Unknown URLs and leftover HTML/PHP pages return a real **404 Not Found**, even if their files still exist on the hosting account. There is no catch-all homepage fallback.
+- Genuine renamed pages, such as `/about`, `/contact`, and `/book`, retain permanent redirects to their current equivalents.
+- The sitemap lists only the six current indexable pages. The two thank-you pages and the error page have `noindex` tags. Crawling stays allowed so search engines can read those tags and removal responses.
+- Existing static resources, certificate challenges, and Google/Bing ownership verification files remain accessible.
+
+After deployment, check removed URLs for 410 and an unknown URL for 404. Search listings disappear after search engines recrawl them; deployment does not remove existing listings instantly. Google's Search Console Removals tool can accelerate hiding a specific outdated listing if needed.
 
 ## Included copy update
 
