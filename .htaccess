@@ -1,12 +1,18 @@
 # Only the current site's pages are routable. Disable implicit file matching
 # and directory listings so leftover files cannot bring retired pages back.
-Options -MultiViews -Indexes
-DirectoryIndex index.html
-ErrorDocument 404 /page-unavailable.html
-ErrorDocument 410 /page-unavailable.html
+<If "%{HTTP_HOST} =~ m#^(?:www\.)?setupshoponline\.com(?::[0-9]+)?$#">
+  Options -MultiViews -Indexes
+  ErrorDocument 404 /page-unavailable.html
+  ErrorDocument 410 /page-unavailable.html
+</If>
+
+RewriteEngine On
+# This public_html directory also contains a separate assistant subdomain.
+# Apply the marketing-site route policy only to its own hostname.
+RewriteCond %{HTTP_HOST} !^(?:www\.)?setupshoponline\.com(?::[0-9]+)?$ [NC]
+RewriteRule ^ - [L]
 
 # Force HTTPS
-RewriteEngine On
 RewriteCond %{HTTPS} off
 RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 
