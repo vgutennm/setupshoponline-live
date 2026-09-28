@@ -8,12 +8,15 @@ RewriteCond %{HTTP_HOST} ^www\.setupshoponline\.com$ [NC]
 RewriteRule ^(.*)$ https://setupshoponline.com/$1 [L,R=301]
 
 # 301 redirects for legacy / removed paths
+RedirectMatch 301 ^/case-studies(/.*)?$ /
+RedirectMatch 301 ^/ai-growth-strategy/?$ /
+RedirectMatch 301 ^/ai-search-optimization/?$ /
 # Old service pages -> Home (where current services are presented)
 RedirectMatch 301 ^/services/?$ /
 RedirectMatch 301 ^/services/.*$ /
 RedirectMatch 301 ^/web-design/?$ /
-RedirectMatch 301 ^/seo/?$ /ai-search-optimization
-RedirectMatch 301 ^/search-engine-optimization/?$ /ai-search-optimization
+RedirectMatch 301 ^/seo/?$ /
+RedirectMatch 301 ^/search-engine-optimization/?$ /
 RedirectMatch 301 ^/hosting/?$ /
 RedirectMatch 301 ^/blog/?$ /
 RedirectMatch 301 ^/blog/.*$ /
@@ -22,7 +25,11 @@ RedirectMatch 301 ^/about-us/?$ /why-setupshoponline
 RedirectMatch 301 ^/contact/?$ /contact-us
 RedirectMatch 301 ^/book/?$ /book-a-call
 RedirectMatch 301 ^/booking/?$ /book-a-call
-RedirectMatch 301 ^/case-studies/rapid-app-delivery-business-systems/?$ /case-studies/pinnacle-cts-ai-search-visibility
+
+# Serve route-specific metadata while preserving the existing extensionless URLs.
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}.html -f
+RewriteRule ^(.+)$ $1.html [L]
 
 # SPA fallback - serve index.html for all routes that aren't real files
 RewriteCond %{REQUEST_FILENAME} !-f
