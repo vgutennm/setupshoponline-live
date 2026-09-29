@@ -32,10 +32,11 @@ function wb_access_token(): string {
         wb_store_tokens($t,$row['refresh_token']);return $t['access_token'];
     } finally {flock($lock,LOCK_UN);fclose($lock);}
 }
-function wb_oauth_page(string $message, bool $form=false): void {
+function wb_oauth_page(string $message, bool $form=false, ?string $authorizeUrl=null): void {
     header('Content-Type: text/html; charset=UTF-8'); header('Cache-Control: no-store');header('Referrer-Policy: no-referrer');
     echo '<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Connect Outlook — Set Up Shop Online</title><body style="font:18px system-ui;max-width:680px;margin:60px auto;padding:24px"><h1>Connect Outlook</h1><p>'.htmlspecialchars($message,ENT_QUOTES,'UTF-8').'</p>';
     if($form)echo '<form method="post" action="/api/workbook/connect"><label>Private setup code<br><input type="password" name="setup_key" required autocomplete="off" style="width:100%;padding:12px;margin:12px 0"></label><button style="padding:12px">Connect vlad@setupshoponline.com</button></form><p>Use the setup code in your private cPanel setup-key.txt file. Microsoft will ask you to approve sending email from your mailbox.</p>';
+    if($authorizeUrl!==null)echo '<p><a href="'.htmlspecialchars($authorizeUrl,ENT_QUOTES,'UTF-8').'" style="display:inline-block;padding:12px;background:#165bd8;color:white;border-radius:6px">Continue to Microsoft</a></p>';
     echo '</body></html>';exit;
 }
 function wb_oauth_route(string $path,string $method): void {
@@ -53,7 +54,9 @@ function wb_oauth_route(string $path,string $method): void {
         wb_query('INSERT INTO oauth_states VALUES(?,?,?,?)',[hash('sha256',$state),hash('sha256',$browser),$verifier,time()+600]);
         setcookie('outlook_setup',$browser,['expires'=>time()+600,'path'=>'/api/workbook/','secure'=>true,'httponly'=>true,'samesite'=>'Lax']);
         $params=['client_id'=>$c['M365_CLIENT_ID'],'response_type'=>'code','redirect_uri'=>WB_REDIRECT,'response_mode'=>'query','scope'=>WB_SCOPES,'state'=>$state,'code_challenge'=>rtrim(strtr(base64_encode(hash('sha256',$verifier,true)),'+/','-_'),'='),'code_challenge_method'=>'S256','login_hint'=>WB_SENDER,'prompt'=>'consent'];
-        header('Location: https://login.microsoftonline.com/'.rawurlencode($c['M365_TENANT_ID']).'/oauth2/v2.0/authorize?'.http_build_query($params));exit;
+        // A normal navigation avoids CSP form-action restrictions on cross-origin
+        // redirects after POST while keeping the site's same-origin form policy.
+        wb_oauth_page('Setup code accepted. Continue to Microsoft to authorize vlad@setupshoponline.com.',false,'https://login.microsoftonline.com/'.rawurlencode($c['M365_TENANT_ID']).'/oauth2/v2.0/authorize?'.http_build_query($params));
     }
     if($path==='/api/workbook/outlook-callback') {
         if($method!=='GET'){http_response_code(405);exit;}
