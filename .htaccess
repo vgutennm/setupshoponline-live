@@ -1,5 +1,18 @@
-# Force HTTPS
+# Only the current site's pages are routable. Disable implicit file matching
+# and directory listings so leftover files cannot bring retired pages back.
+<If "%{HTTP_HOST} =~ m#^(?:www\.)?setupshoponline\.com(?::[0-9]+)?$#">
+  Options -MultiViews -Indexes
+  ErrorDocument 404 /page-unavailable.html
+  ErrorDocument 410 /page-unavailable.html
+</If>
+
 RewriteEngine On
+# This public_html directory also contains a separate assistant subdomain.
+# Apply the marketing-site route policy only to its own hostname.
+RewriteCond %{HTTP_HOST} !^(?:www\.)?setupshoponline\.com(?::[0-9]+)?$ [NC]
+RewriteRule ^ - [L]
+
+# Force HTTPS
 RewriteCond %{HTTPS} off
 RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 
@@ -7,34 +20,43 @@ RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 RewriteCond %{HTTP_HOST} ^www\.setupshoponline\.com$ [NC]
 RewriteRule ^(.*)$ https://setupshoponline.com/$1 [L,R=301]
 
-# 301 redirects for legacy / removed paths
-RedirectMatch 301 ^/case-studies(/.*)?$ /
-RedirectMatch 301 ^/ai-growth-strategy/?$ /
-RedirectMatch 301 ^/ai-search-optimization/?$ /
-# Old service pages -> Home (where current services are presented)
-RedirectMatch 301 ^/services/?$ /
-RedirectMatch 301 ^/services/.*$ /
-RedirectMatch 301 ^/web-design/?$ /
-RedirectMatch 301 ^/seo/?$ /
-RedirectMatch 301 ^/search-engine-optimization/?$ /
-RedirectMatch 301 ^/hosting/?$ /
-RedirectMatch 301 ^/blog/?$ /
-RedirectMatch 301 ^/blog/.*$ /
-RedirectMatch 301 ^/about/?$ /why-setupshoponline
-RedirectMatch 301 ^/about-us/?$ /why-setupshoponline
-RedirectMatch 301 ^/contact/?$ /contact-us
-RedirectMatch 301 ^/book/?$ /book-a-call
-RedirectMatch 301 ^/booking/?$ /book-a-call
+# Workbook API is handled by PHP; backend/data stay outside public_html.
+RewriteRule ^api/workbook/(?:config|subscribe|session|access|download|connect|outlook-callback|connected)$ api/workbook/index.php [END]
+RewriteRule ^api/workbook/index\.php$ - [END]
+RewriteRule ^server(?:/|$) - [F,L]
 
-# Serve route-specific metadata while preserving the existing extensionless URLs.
-RewriteCond %{REQUEST_FILENAME} !-d
-RewriteCond %{REQUEST_FILENAME}.html -f
-RewriteRule ^(.+)$ $1.html [L]
+# Retired pages have no replacement. Return 410 even if old files/directories
+# remain in public_html. Cover descendants, case variants and old extensions.
+RewriteRule ^(?:case-studies|ai-growth-strategy|ai-search-optimization|services|web-design|seo|search-engine-optimization|hosting|blog)(?:\.(?:html?|php))?(?:/.*)?$ - [G,NC]
 
-# SPA fallback - serve index.html for all routes that aren't real files
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule ^ index.html [L]
+# Keep genuine renamed-page links working.
+RewriteRule ^(?:about|about-us)(?:\.html?)?/?$ /why-setupshoponline [R=301,L,NC]
+RewriteRule ^contact(?:\.html?)?/?$ /contact-us [R=301,L,NC]
+RewriteRule ^(?:book|booking)(?:\.html?)?/?$ /book-a-call [R=301,L,NC]
+
+# Canonicalize current page URLs, without redirecting internal HTML rewrites.
+RewriteCond %{THE_REQUEST} \s/+index\.html[?\s] [NC]
+RewriteRule ^index\.html$ / [R=301,L]
+RewriteCond %{THE_REQUEST} \s/+[^?\s]+\.html[?\s] [NC]
+RewriteRule ^(products-services-solutions|why-setupshoponline|contact-us|book-a-call|privacy|terms|free-workbook|workbook-access|thank-you/workbook|thank-you/booking|thank-you/contact)\.html$ /$1 [R=301,L]
+RewriteRule ^(products-services-solutions|why-setupshoponline|contact-us|book-a-call|privacy|terms|free-workbook|workbook-access|thank-you/workbook|thank-you/booking|thank-you/contact)/+$ /$1 [R=301,L]
+
+# Explicit current-page list. Do not restore the catch-all SPA fallback.
+RewriteRule ^$ index.html [END]
+RewriteRule ^(products-services-solutions|why-setupshoponline|contact-us|book-a-call|privacy|terms|free-workbook|workbook-access|thank-you/workbook|thank-you/booking|thank-you/contact)$ $1.html [END]
+RewriteRule ^(?:index|products-services-solutions|why-setupshoponline|contact-us|book-a-call|privacy|terms|free-workbook|workbook-access|thank-you/workbook|thank-you/booking|thank-you/contact|page-unavailable)\.html$ - [END]
+
+# Allow certificate challenges and existing search ownership verification files.
+RewriteCond %{REQUEST_FILENAME} -f
+RewriteRule ^(?:\.well-known/.*|google[a-zA-Z0-9]+\.html|BingSiteAuth\.xml)$ - [END]
+
+# Keep real static resources working. HTML, scripts on the server, extensionless
+# legacy files and directory index pages are intentionally not allowed here.
+RewriteCond %{REQUEST_FILENAME} -f
+RewriteRule \.(?:css|js|mjs|json|png|jpe?g|gif|webp|avif|svg|ico|woff2?|ttf|eot|pdf|txt|xml|webmanifest|mp4|webm|mp3|ogg)$ - [END,NC]
+
+# Unknown URLs must be real 404s, including leftover HTML/PHP files on the host.
+RewriteRule ^ - [R=404,L]
 
 # Gzip compression
 <IfModule mod_deflate.c>
@@ -102,5 +124,5 @@ RewriteRule ^ index.html [L]
   # form-action keeps native form posts on same origin (Bigin form posts inside
   # the iframe and is therefore not constrained by the parent's form-action).
   # frame-ancestors 'self' replaces X-Frame-Options on modern browsers.
-  Header always set Content-Security-Policy "default-src 'self'; base-uri 'self'; object-src 'none'; script-src 'self' 'unsafe-inline' https://assets.calendly.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://assets.calendly.com; font-src 'self' https://fonts.gstatic.com https://assets.calendly.com data:; img-src 'self' data: blob: https:; frame-src 'self' https://calendly.com https://*.calendly.com https://us.bigin.online https://bigin.zoho.com https://www.google.com https://maps.google.com; connect-src 'self' https://calendly.com https://*.calendly.com; form-action 'self'; frame-ancestors 'self'; upgrade-insecure-requests"
+  Header always set Content-Security-Policy "default-src 'self'; base-uri 'self'; object-src 'none'; script-src 'self' 'unsafe-inline' https://assets.calendly.com https://www.google.com/recaptcha/ https://www.gstatic.com/recaptcha/; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://assets.calendly.com; font-src 'self' https://fonts.gstatic.com https://assets.calendly.com data:; img-src 'self' data: blob: https:; frame-src 'self' https://calendly.com https://*.calendly.com https://us.bigin.online https://bigin.zoho.com https://www.google.com https://maps.google.com https://recaptcha.google.com/recaptcha/; connect-src 'self' https://calendly.com https://*.calendly.com https://www.google.com/recaptcha/; form-action 'self'; frame-ancestors 'self'; upgrade-insecure-requests"
 </IfModule>
