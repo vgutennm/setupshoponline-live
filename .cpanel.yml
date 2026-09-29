@@ -6,6 +6,7 @@ deployment:
     - /bin/mkdir -p "$PRIVATEPATH/app" "$PRIVATEPATH/data" "$DEPLOYPATH/api/workbook"
     - /bin/chmod 700 "$PRIVATEPATH" "$PRIVATEPATH/data"
     - /bin/cp -R server/. "$PRIVATEPATH/app/"
+    - if [ -x /opt/alt/php83/usr/bin/php ]; then /opt/alt/php83/usr/bin/php "$PRIVATEPATH/app/init.php"; else /usr/local/bin/php "$PRIVATEPATH/app/init.php"; fi
     - /bin/cp api/workbook/index.php "$DEPLOYPATH/api/workbook/"
     - /bin/cp -R assets images thank-you workbook "$DEPLOYPATH"
     - /bin/cp free-workbook.html workbook-access.html book-a-call.html contact-us.html why-setupshoponline.html privacy.html terms.html page-unavailable.html "$DEPLOYPATH"

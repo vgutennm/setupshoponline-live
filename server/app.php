@@ -3,6 +3,7 @@ declare(strict_types=1);
 // All configuration, lead records and email jobs live outside public_html.
 const WB_SENDER = 'vlad@setupshoponline.com';
 const WB_FILENAME = 'More_Clients_Less_Busywork_Workbook_Simple.pdf';
+require_once __DIR__.'/oauth.php';
 function wb_config(): array {
     static $config;
     if ($config !== null) return $config;
@@ -13,7 +14,7 @@ function wb_config(): array {
 }
 function wb_enabled(): bool {
     $c = wb_config();
-    return ($c['EMAIL_ENABLED'] ?? false) === true && !empty($c['M365_TENANT_ID']) && !empty($c['M365_CLIENT_ID']) && !empty($c['M365_CLIENT_SECRET']) && function_exists('curl_init');
+    return ($c['EMAIL_ENABLED'] ?? false) === true && !empty($c['M365_TENANT_ID']) && !empty($c['M365_CLIENT_ID']) && !empty($c['M365_CLIENT_SECRET']) && function_exists('curl_init') && wb_connected();
 }
 function wb_db(): PDO {
     static $db;
@@ -129,10 +130,8 @@ function wb_process(int $limit=4): void {
         if (!$lock->rowCount()) continue;
         $status='manual_review'; $error='send_unconfirmed'; $delay=3600;
         try {
-            $c=wb_config();
-            [$code,$body]=wb_http('https://login.microsoftonline.com/'.rawurlencode($c['M365_TENANT_ID']).'/oauth2/v2.0/token',http_build_query(['client_id'=>$c['M365_CLIENT_ID'],'client_secret'=>$c['M365_CLIENT_SECRET'],'scope'=>'https://graph.microsoft.com/.default','grant_type'=>'client_credentials']),['Content-Type: application/x-www-form-urlencoded']);
-            $token=json_decode($body,true)['access_token'] ?? null;
-            if ($code!==200 || !$token) {$status='retry';$error='m365_auth_'.$code;}
+            try { $token=wb_access_token(); } catch (Throwable $authError) { $token=null; }
+            if (!$token) {$status='retry';$error='m365_authorization_required';}
             else {
                 $row=wb_query('SELECT * FROM leads WHERE id=?',[$job['lead_id']])->fetch();
                 $msg=wb_message($job,$row);
@@ -149,6 +148,7 @@ function wb_dispatch(): void {
     header('Cache-Control: private, no-store'); header('X-Content-Type-Options: nosniff'); header('Referrer-Policy: no-referrer');
     try {
         $path=parse_url($_SERVER['REQUEST_URI'],PHP_URL_PATH); $method=$_SERVER['REQUEST_METHOD'];
+        if(in_array($path,['/api/workbook/connect','/api/workbook/outlook-callback','/api/workbook/connected'],true))wb_oauth_route($path,$method);
         if ($path==='/api/workbook/config' && $method==='GET') wb_json(['emailEnabled'=>wb_enabled()]);
         if ($path==='/api/workbook/subscribe' && $method==='POST') {
             wb_origin(); $r=wb_subscribe(wb_body()); if (isset($r[2])) wb_cookie($r[2]);

@@ -21,7 +21,7 @@ RewriteCond %{HTTP_HOST} ^www\.setupshoponline\.com$ [NC]
 RewriteRule ^(.*)$ https://setupshoponline.com/$1 [L,R=301]
 
 # Workbook API is handled by PHP; backend/data stay outside public_html.
-RewriteRule ^api/workbook/(?:config|subscribe|session|access|download)$ api/workbook/index.php [END]
+RewriteRule ^api/workbook/(?:config|subscribe|session|access|download|connect|outlook-callback|connected)$ api/workbook/index.php [END]
 RewriteRule ^api/workbook/index\.php$ - [END]
 RewriteRule ^server(?:/|$) - [F,L]
 
