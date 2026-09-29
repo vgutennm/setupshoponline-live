@@ -20,6 +20,11 @@ RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 RewriteCond %{HTTP_HOST} ^www\.setupshoponline\.com$ [NC]
 RewriteRule ^(.*)$ https://setupshoponline.com/$1 [L,R=301]
 
+# Workbook API is handled by PHP; backend/data stay outside public_html.
+RewriteRule ^api/workbook/(?:config|subscribe|session|access|download)$ api/workbook/index.php [END]
+RewriteRule ^api/workbook/index\.php$ - [END]
+RewriteRule ^server(?:/|$) - [F,L]
+
 # Retired pages have no replacement. Return 410 even if old files/directories
 # remain in public_html. Cover descendants, case variants and old extensions.
 RewriteRule ^(?:case-studies|ai-growth-strategy|ai-search-optimization|services|web-design|seo|search-engine-optimization|hosting|blog)(?:\.(?:html?|php))?(?:/.*)?$ - [G,NC]
@@ -33,13 +38,13 @@ RewriteRule ^(?:book|booking)(?:\.html?)?/?$ /book-a-call [R=301,L,NC]
 RewriteCond %{THE_REQUEST} \s/+index\.html[?\s] [NC]
 RewriteRule ^index\.html$ / [R=301,L]
 RewriteCond %{THE_REQUEST} \s/+[^?\s]+\.html[?\s] [NC]
-RewriteRule ^(why-setupshoponline|contact-us|book-a-call|privacy|terms|thank-you/booking|thank-you/contact)\.html$ /$1 [R=301,L]
-RewriteRule ^(why-setupshoponline|contact-us|book-a-call|privacy|terms|thank-you/booking|thank-you/contact)/+$ /$1 [R=301,L]
+RewriteRule ^(why-setupshoponline|contact-us|book-a-call|privacy|terms|free-workbook|workbook-access|thank-you/workbook|thank-you/booking|thank-you/contact)\.html$ /$1 [R=301,L]
+RewriteRule ^(why-setupshoponline|contact-us|book-a-call|privacy|terms|free-workbook|workbook-access|thank-you/workbook|thank-you/booking|thank-you/contact)/+$ /$1 [R=301,L]
 
 # Explicit current-page list. Do not restore the catch-all SPA fallback.
 RewriteRule ^$ index.html [END]
-RewriteRule ^(why-setupshoponline|contact-us|book-a-call|privacy|terms|thank-you/booking|thank-you/contact)$ $1.html [END]
-RewriteRule ^(?:index|why-setupshoponline|contact-us|book-a-call|privacy|terms|thank-you/booking|thank-you/contact|page-unavailable)\.html$ - [END]
+RewriteRule ^(why-setupshoponline|contact-us|book-a-call|privacy|terms|free-workbook|workbook-access|thank-you/workbook|thank-you/booking|thank-you/contact)$ $1.html [END]
+RewriteRule ^(?:index|why-setupshoponline|contact-us|book-a-call|privacy|terms|free-workbook|workbook-access|thank-you/workbook|thank-you/booking|thank-you/contact|page-unavailable)\.html$ - [END]
 
 # Allow certificate challenges and existing search ownership verification files.
 RewriteCond %{REQUEST_FILENAME} -f

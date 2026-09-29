@@ -1,0 +1,6 @@
+.env
+.env.*
+!*.example
+config.php
+*.sqlite
+*.sqlite-*
