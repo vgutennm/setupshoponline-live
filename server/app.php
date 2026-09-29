@@ -63,7 +63,6 @@ function wb_subscribe(array $d): array {
     if (!empty($d['website']) || !is_numeric($d['started_at'] ?? null) || $now-$d['started_at'] < 1200 || $now-$d['started_at'] > 86400000) return [400,['error'=>'Please wait a moment and submit again.']];
     $str = static fn($k) => is_string($d[$k] ?? null) ? trim($d[$k]) : '';
     $name=$str('full_name'); $email=strtolower($str('email')); $phone=$str('phone'); $id=$str('submission_id'); $fields=[];
-    if (($d['human_confirmed'] ?? false) !== true) $fields['human_confirmed']='Please confirm that you are human.';
     if (strlen($name)<2 || strlen($name)>120 || preg_match('/[\x00-\x1f\x7f]/',$name)) $fields['full_name']='Please enter your full name.';
     if (strlen($email)>254 || !filter_var($email,FILTER_VALIDATE_EMAIL)) $fields['email']='Please enter a valid email address.';
     $digits=preg_replace('/\D/','',$phone);
@@ -71,6 +70,14 @@ function wb_subscribe(array $d): array {
     if ($fields) return [400,['error'=>'Please check the highlighted fields.','fields'=>$fields]];
     if (!preg_match('/^[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}$/iD',$id)) return [400,['error'=>'Please refresh the form and try again.']];
     $requestHash=hash('sha256',json_encode([$name,$email,$phone]));
+    // A retry of an already verified request may reuse its download access.
+    $existing=wb_query('SELECT * FROM leads WHERE id=?',[$id])->fetch();
+    if ($existing) {
+        if (!hash_equals($existing['request_hash'],$requestHash)) return [409,['error'=>'Please refresh the form before changing your details.']];
+        return [200,['saved'=>true],$existing['download_token']];
+    }
+    $captcha=wb_captcha_verify($str('recaptcha_token'));
+    if ($captcha!==null) return $captcha;
     $db=wb_db(); $db->exec('BEGIN IMMEDIATE');
     try {
         $old=wb_query('SELECT * FROM leads WHERE id=?',[$id])->fetch();
@@ -94,6 +101,24 @@ function wb_subscribe(array $d): array {
         wb_query('DELETE FROM rate_limits WHERE expires_at<?',[time()]);
         $db->exec('COMMIT'); return [200,['saved'=>true,'email_status'=>$status],$token];
     } catch (Throwable $e) { $db->exec('ROLLBACK'); throw $e; }
+}
+function wb_captcha_response_valid(array $data): bool {
+    $time=is_string($data['challenge_ts']??null)?strtotime($data['challenge_ts']):false;
+    return ($data['success']??false)===true
+        && in_array($data['hostname']??'', ['setupshoponline.com','www.setupshoponline.com'],true)
+        && $time!==false && $time<=time()+30 && $time>=time()-120;
+}
+function wb_captcha_verify(string $token): ?array {
+    if ($token==='' || strlen($token)>4096) return [400,['error'=>'Please check the “I’m not a robot” box.','fields'=>['human_confirmed'=>'Please complete the CAPTCHA.']]];
+    $c=wb_config();
+    if(empty($c['RECAPTCHA_SITE_KEY']) || empty($c['RECAPTCHA_SECRET_KEY'])) return [503,['error'=>'Verification is temporarily unavailable. Please try again shortly.']];
+    try {
+        [$code,$raw]=wb_http('https://www.google.com/recaptcha/api/siteverify',http_build_query(['secret'=>$c['RECAPTCHA_SECRET_KEY'],'response'=>$token]),['Content-Type: application/x-www-form-urlencoded']);
+        $result=json_decode($raw,true);
+        if($code!==200 || !is_array($result)) return [503,['error'=>'Verification is temporarily unavailable. Please try again shortly.']];
+        if(!wb_captcha_response_valid($result)) return [400,['error'=>'Verification expired or was not accepted. Please check the box again.','fields'=>['human_confirmed'=>'Please complete the CAPTCHA again.']]];
+        return null;
+    } catch(Throwable $e) { return [503,['error'=>'Verification is temporarily unavailable. Please try again shortly.']]; }
 }
 function wb_http(string $url, string $body, array $headers): array {
     $ch=curl_init($url);
@@ -149,7 +174,7 @@ function wb_dispatch(): void {
     try {
         $path=parse_url($_SERVER['REQUEST_URI'],PHP_URL_PATH); $method=$_SERVER['REQUEST_METHOD'];
         if(in_array($path,['/api/workbook/connect','/api/workbook/outlook-callback','/api/workbook/connected'],true))wb_oauth_route($path,$method);
-        if ($path==='/api/workbook/config' && $method==='GET') wb_json(['emailEnabled'=>wb_enabled()]);
+        if ($path==='/api/workbook/config' && $method==='GET') wb_json(['emailEnabled'=>wb_enabled(),'recaptchaSiteKey'=>!empty(wb_config()['RECAPTCHA_SECRET_KEY'])?(wb_config()['RECAPTCHA_SITE_KEY']??''):'']);
         if ($path==='/api/workbook/subscribe' && $method==='POST') {
             wb_origin(); $r=wb_subscribe(wb_body()); if (isset($r[2])) wb_cookie($r[2]);
             if ($r[0]===200 && wb_enabled()) register_shutdown_function(static function() { if(function_exists('fastcgi_finish_request')) fastcgi_finish_request(); wb_process(2); });
