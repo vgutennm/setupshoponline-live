@@ -34,5 +34,13 @@ function growth_mail_route(string $method): void {
     $file=dirname(__DIR__).'/growth-runner-config.php';$config=is_file($file)?require $file:[];
     $key=$config['runner_key']??'';$supplied=$_SERVER['HTTP_X_GROWTH_RUNNER_KEY']??'';
     if(strlen($key)<48||!is_string($supplied)||!hash_equals($key,$supplied))wb_json(['error'=>'Unauthorized.'],401);
-    wb_json(growth_mail_send(wb_body(8100000)));
+    $data=wb_body(8100000);
+    if(($data['action']??'')==='status'){
+        $id=$data['id']??'';
+        if(!is_string($id)||!preg_match('/^[a-f0-9-]{36}-(?:report-user|report-copy|abandoned)$/D',$id))wb_json(['error'=>'Invalid message ID.'],400);
+        $exists=wb_query("SELECT name FROM sqlite_master WHERE type='table' AND name='growth_mail_receipts'")->fetchColumn();
+        $row=$exists?wb_query('SELECT status,error FROM growth_mail_receipts WHERE id=?',[$id])->fetch():false;
+        wb_json(['recorded'=>(bool)$row,'status'=>$row['status']??null,'error'=>$row['error']??null]);
+    }
+    wb_json(growth_mail_send($data));
 }
