@@ -50,7 +50,7 @@ function growth_public_dispatch(): void {
         [$code,$raw,$headers]=growth_public_request($action,$method,$data,$verified);
         if(isset($headers['set-cookie'])&&preg_match('/^growth_access=([a-f0-9]{64}|);/D',$headers['set-cookie'],$m))setcookie('growth_access',$m[1],['expires'=>$m[1]===''?time()-3600:time()+86400,'path'=>'/','secure'=>true,'httponly'=>true,'samesite'=>'Strict']);
         http_response_code($code);
-        if($action==='download'&&$code===200){header('Content-Type: application/pdf');header('Content-Disposition: attachment; filename=Your_Business_Strategy_Report.pdf');}
+        if($action==='download'&&$code===200){header('Content-Type: application/pdf');header('Content-Disposition: inline; filename=Your_Business_Strategy_Report.pdf');}
         else {header('Content-Type: application/json');if($action==='config'&&$code===200){$v=json_decode($raw,true);if(is_array($v)){$v['recaptchaSiteKey']=!empty(wb_config()['RECAPTCHA_SECRET_KEY'])?(wb_config()['RECAPTCHA_SITE_KEY']??''):'';$raw=json_encode($v);}}}
         if($method!=='HEAD')echo $raw;
     }catch(Throwable $e){wb_json(['error'=>'The assessment is temporarily unavailable. Your saved progress is safe. Please try again shortly.'],503);}
