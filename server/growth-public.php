@@ -23,9 +23,9 @@ function growth_public_dispatch(): void {
         $isPage=$path==='/growth-assessment'||$path==='/growth-assessment/'||$path==='/growth-assessment.html';
         if($isPage){
             if($method!=='GET'&&$method!=='HEAD')wb_json(['error'=>'Method not allowed.'],405);
-            if(empty($_COOKIE['growth_access'])){header('Location: /free-growth-strategy',true,302);exit;}
+            if(empty($_COOKIE['growth_access'])){header('Location: /free-business-strategy',true,302);exit;}
             [$code,$raw]=growth_public_request('session','GET');$data=json_decode($raw,true);
-            if($code!==200||empty($data['session'])){header('Location: /free-growth-strategy',true,302);exit;}
+            if($code!==200||empty($data['session'])){header('Location: /free-business-strategy',true,302);exit;}
             header('Content-Type: text/html; charset=UTF-8');if($method==='GET')readfile(dirname(__DIR__,2).'/public_html/growth-assessment.html');exit;
         }
         $action=substr($path,strlen('/api/growth/'));
