@@ -21,6 +21,13 @@ RewriteCond %{HTTP_HOST} ^www\.setupshoponline\.com$ [NC]
 RewriteRule ^(.*)$ https://setupshoponline.com/$1 [L,R=301]
 
 # Workbook API is handled by PHP; backend/data stay outside public_html.
+# Growth assessment: explicit API allowlist and server-side page/session gate.
+RewriteRule ^api/growth/(?:config|session|start|category|answers|generate|status|download|new|retry)$ api/growth/index.php [END]
+RewriteRule ^api/growth/index\.php$ - [END]
+RewriteRule ^growth-assessment(?:\.html)?/?$ api/growth/index.php [END]
+RewriteRule ^free-workbook(?:\.html)?/?$ /free-growth-strategy [R=302,L]
+RewriteRule ^free-growth-strategy/?$ free-growth-strategy.html [END]
+RewriteRule ^free-growth-strategy\.html$ - [END]
 RewriteRule ^api/workbook/(?:config|subscribe|session|access|download|connect|outlook-callback|connected|growth-mail)$ api/workbook/index.php [END]
 RewriteRule ^api/workbook/index\.php$ - [END]
 RewriteRule ^server(?:/|$) - [F,L]

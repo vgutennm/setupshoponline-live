@@ -1,5 +1,7 @@
 User-agent: *
 Allow: /
+Disallow: /api/growth/
+Disallow: /growth-assessment
 # Crawlers must reach retired URLs to see their 410/404 responses, and reach
 # thank-you pages to read their existing noindex tags.
 
