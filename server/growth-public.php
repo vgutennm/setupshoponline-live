@@ -9,7 +9,7 @@ function growth_public_request(string $action,string $method,?array $data=null,b
     $cookie=$_COOKIE['growth_access']??'';
     if(is_string($cookie)&&preg_match('/^[a-f0-9]{64}$/D',$cookie))$headers[]='Cookie: growth_access='.$cookie;
     $received=[];$ch=curl_init('https://setupshoponline.vlad554726.chatgpt.site/api/growth/public/'.$action);
-    curl_setopt_array($ch,[CURLOPT_CUSTOMREQUEST=>$method,CURLOPT_RETURNTRANSFER=>true,CURLOPT_CONNECTTIMEOUT=>8,CURLOPT_TIMEOUT=>55,CURLOPT_FOLLOWLOCATION=>false,CURLOPT_PROTOCOLS=>CURLPROTO_HTTPS,CURLOPT_SSL_VERIFYPEER=>true,CURLOPT_SSL_VERIFYHOST=>2,CURLOPT_HTTPHEADER=>$headers,CURLOPT_HEADERFUNCTION=>static function($ch,$line)use(&$received){$parts=explode(':',$line,2);if(count($parts)===2)$received[strtolower(trim($parts[0]))]=trim($parts[1]);return strlen($line);}]);
+    curl_setopt_array($ch,[CURLOPT_CUSTOMREQUEST=>$method,CURLOPT_RETURNTRANSFER=>true,CURLOPT_CONNECTTIMEOUT=>8,CURLOPT_TIMEOUT=>55,CURLOPT_FOLLOWLOCATION=>false,CURLOPT_PROTOCOLS=>CURLPROTO_HTTPS,CURLOPT_SSL_VERIFYPEER=>true,CURLOPT_SSL_VERIFYHOST=>2,CURLOPT_HTTPHEADER=>$headers,CURLOPT_HEADERFUNCTION=>static function($ch,$line)use(&$received){$parts=explode(':',$line,2);if(count($parts)===2){$name=strtolower(trim($parts[0]));$value=trim($parts[1]);if($name!=='set-cookie'||str_starts_with($value,'growth_access='))$received[$name]=$value;}return strlen($line);}]);
     if($data!==null)curl_setopt($ch,CURLOPT_POSTFIELDS,json_encode($data));
     $raw=curl_exec($ch);$code=(int)curl_getinfo($ch,CURLINFO_HTTP_CODE);curl_close($ch);
     if($raw===false||$code<200||$code>=500)throw new RuntimeException('Assessment connection unavailable');
