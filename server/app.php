@@ -106,7 +106,8 @@ function wb_captcha_response_valid(array $data): bool {
     $time=is_string($data['challenge_ts']??null)?strtotime($data['challenge_ts']):false;
     return ($data['success']??false)===true
         && in_array($data['hostname']??'', ['setupshoponline.com','www.setupshoponline.com'],true)
-        && $time!==false && $time<=time()+30 && $time>=time()-120;
+        // Google enforces token expiry/single use. challenge_ts is challenge LOAD time.
+        && $time!==false && $time<=time()+30;
 }
 function wb_captcha_verify(string $token): ?array {
     if ($token==='' || strlen($token)>4096) return [400,['error'=>'Please check the “I’m not a robot” box.','fields'=>['human_confirmed'=>'Please complete the CAPTCHA.']]];
