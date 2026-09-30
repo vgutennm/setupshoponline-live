@@ -3,7 +3,7 @@ declare(strict_types=1);
 // Existing delegated Outlook credentials stay in private hosting storage.
 function growth_mail_send(array $data): array {
     $id=$data['id']??'';$mime=$data['mime']??'';
-    if(!is_string($id)||!preg_match('/^[a-f0-9-]{36}-(?:report-user|report-copy|abandoned)$/D',$id)||!is_string($mime)||strlen($mime)>8000000)return ['status'=>'failed','error'=>'invalid_message'];
+    if(!is_string($id)||!preg_match('/^[a-f0-9-]{36}-(?:report-user|report-copy|report-summary|abandoned)$/D',$id)||!is_string($mime)||strlen($mime)>8000000)return ['status'=>'failed','error'=>'invalid_message'];
     $decoded=base64_decode($mime,true);
     if($decoded===false||!str_starts_with($decoded,"From: Vlad Gutenmakher <vlad@setupshoponline.com>\r\n")||!str_contains($decoded,"\r\nMessage-ID: <".$id."@setupshoponline.com>\r\n"))return ['status'=>'failed','error'=>'invalid_sender'];
     $db=wb_db();$db->exec('CREATE TABLE IF NOT EXISTS growth_mail_receipts (id TEXT PRIMARY KEY, digest TEXT NOT NULL, status TEXT NOT NULL, error TEXT, updated_at INTEGER NOT NULL)');
@@ -37,7 +37,7 @@ function growth_mail_route(string $method): void {
     $data=wb_body(8100000);
     if(($data['action']??'')==='status'){
         $id=$data['id']??'';
-        if(!is_string($id)||!preg_match('/^[a-f0-9-]{36}-(?:report-user|report-copy|abandoned)$/D',$id))wb_json(['error'=>'Invalid message ID.'],400);
+        if(!is_string($id)||!preg_match('/^[a-f0-9-]{36}-(?:report-user|report-copy|report-summary|abandoned)$/D',$id))wb_json(['error'=>'Invalid message ID.'],400);
         $exists=wb_query("SELECT name FROM sqlite_master WHERE type='table' AND name='growth_mail_receipts'")->fetchColumn();
         $row=$exists?wb_query('SELECT status,error FROM growth_mail_receipts WHERE id=?',[$id])->fetch():false;
         wb_json(['recorded'=>(bool)$row,'status'=>$row['status']??null,'error'=>$row['error']??null]);
