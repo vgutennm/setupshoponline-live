@@ -173,6 +173,7 @@ function wb_dispatch(): void {
     header('Cache-Control: private, no-store'); header('X-Content-Type-Options: nosniff'); header('Referrer-Policy: no-referrer');
     try {
         $path=parse_url($_SERVER['REQUEST_URI'],PHP_URL_PATH); $method=$_SERVER['REQUEST_METHOD'];
+        if($path==='/api/workbook/growth-mail'){require_once __DIR__.'/growth-mail.php';growth_mail_route($method);}
         if(in_array($path,['/api/workbook/connect','/api/workbook/outlook-callback','/api/workbook/connected'],true))wb_oauth_route($path,$method);
         if ($path==='/api/workbook/config' && $method==='GET') wb_json(['emailEnabled'=>wb_enabled(),'recaptchaSiteKey'=>!empty(wb_config()['RECAPTCHA_SECRET_KEY'])?(wb_config()['RECAPTCHA_SITE_KEY']??''):'']);
         if ($path==='/api/workbook/subscribe' && $method==='POST') {
