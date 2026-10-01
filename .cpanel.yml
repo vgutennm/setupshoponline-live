@@ -1,0 +1,17 @@
+---
+deployment:
+  tasks:
+    - export DEPLOYPATH=/home/aha7hfr64vl1/public_html/
+    - export PRIVATEPATH=/home/aha7hfr64vl1/.setupshoponline-workbook
+    - /bin/mkdir -p "$PRIVATEPATH/app" "$PRIVATEPATH/data" "$DEPLOYPATH/api/workbook" "$DEPLOYPATH/api/growth"
+    - /bin/chmod 700 "$PRIVATEPATH" "$PRIVATEPATH/data"
+    - /bin/cp -R server/. "$PRIVATEPATH/app/"
+    - if [ -x /opt/alt/php83/usr/bin/php ]; then /opt/alt/php83/usr/bin/php "$PRIVATEPATH/app/init.php"; else /usr/local/bin/php "$PRIVATEPATH/app/init.php"; fi
+    - /bin/cp api/workbook/index.php "$DEPLOYPATH/api/workbook/"
+    - /bin/cp api/growth/index.php "$DEPLOYPATH/api/growth/"
+    - /bin/cp free-business-strategy.html growth-assessment.html "$DEPLOYPATH"
+    - /bin/cp -R assets images thank-you workbook "$DEPLOYPATH"
+    - /bin/cp products-services-solutions.html free-workbook.html workbook-access.html book-a-call.html contact-us.html why-setupshoponline.html privacy.html terms.html page-unavailable.html "$DEPLOYPATH"
+    - /bin/cp favicon.ico favicon-16x16.png favicon-32x32.png apple-touch-icon.png favicon.jpg favicon.svg logo.png opengraph.jpg "$DEPLOYPATH"
+    - /bin/cp ai-strategy-call-qr.png humans.txt llms.txt robots.txt sitemap.xml .htaccess "$DEPLOYPATH"
+    - /bin/cp index.html "$DEPLOYPATH"
