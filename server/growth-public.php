@@ -39,14 +39,14 @@ function growth_public_dispatch(): void {
         if($action==='start'){
             $now=(int)round(microtime(true)*1000);
             if(!empty($data['website'])||!is_numeric($data['started_at']??null)||$now-$data['started_at']<1200||$now-$data['started_at']>86400000)wb_json(['error'=>'Please wait a moment and submit again.'],400);
-            // Temporary six-path QA allowance; normal limits resume automatically.
-            $testRun=time()<strtotime('2026-10-01T04:00:00Z')&&strtolower(trim((string)($data['email']??'')))==='vgutenm@yahoo.com';
+            // Owner testing allowance; all other email limits remain unchanged.
+            $testRun=strtolower(trim((string)($data['email']??'')))==='vlad@setupshoponline.com';
             if(!wb_rate('growth-start:'.$ip,$testRun?20:8,3600))wb_json(['error'=>'Please resume your saved assessment or try again later.'],429);
             $captcha=wb_captcha_verify(is_string($data['recaptcha_token']??null)?$data['recaptcha_token']:'');
             if($captcha!==null)wb_json($captcha[1],$captcha[0]);
             $email=is_string($data['email']??null)?strtolower(trim($data['email'])):'';
             if(!filter_var($email,FILTER_VALIDATE_EMAIL))wb_json(['error'=>'Please enter a valid email address.'],400);
-            if(!wb_rate('growth-email:'.hash('sha256',$email),$testRun?12:3,86400))wb_json(['error'=>'Please resume your saved assessment or try again tomorrow.'],429);
+            if(!wb_rate('growth-email:'.hash('sha256',$email),$testRun?10:3,86400))wb_json(['error'=>'Please resume your saved assessment or try again tomorrow.'],429);
             $data=array_intersect_key($data,array_flip(['full_name','email','phone','business_name','submission_id']));$data['email']=$email;$verified=true;
         }
         [$code,$raw,$headers]=growth_public_request($action,$method,$data,$verified);
