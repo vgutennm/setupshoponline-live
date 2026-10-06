@@ -1,8 +1,9 @@
 User-agent: *
 Allow: /
-Disallow: /api/growth/
+Disallow: /api/
+Disallow: /server/
 Disallow: /growth-assessment
-# Crawlers must reach retired URLs to see their 410/404 responses, and reach
-# thank-you pages to read their existing noindex tags.
+# Public confirmation and retired pages remain crawlable so robots can read
+# their noindex tags or HTTP status. Private reports are not in the sitemap.
 
 Sitemap: https://setupshoponline.com/sitemap.xml

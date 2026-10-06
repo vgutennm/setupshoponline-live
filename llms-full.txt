@@ -1,0 +1,551 @@
+# Set Up Shop Online
+
+> Business diagnosis, AI consulting, solution architecture, and implementation guidance for established service businesses. Handle more work profitably, create capacity, and reduce owner dependence.
+
+Vlad Gutenmakher is the founder of Set Up Shop Online Inc. and an AI Consultant and Value Architect. He brings more than 35 years of experience across technology, engineering, solution architecture, technical sales, consulting, and implementation, plus approximately 20 years of entrepreneurship.
+
+The approach is Diagnose, Prioritize, Architect, Implement, and Measure. AI and agentic systems are used where they create meaningful business value. Service scope and success measures are agreed for each engagement.
+
+## Business and services
+
+- [Home](https://setupshoponline.com/): Positioning, approach, and who we help.
+- [Products](https://setupshoponline.com/products-services-solutions#products): Practical business resources, including the free Business Strategy Report.
+- [Services](https://setupshoponline.com/products-services-solutions#services): Assessment, architecture, coaching, training, implementation leadership, and ongoing advisory.
+- [Solutions](https://setupshoponline.com/products-services-solutions#solutions): The SUSO Framework, agentic workflows, business knowledge systems, integrations, analytics, governance, security, and marketing solutions.
+- [Why Vlad](https://setupshoponline.com/why-setupshoponline): Background, experience, and consulting approach.
+
+## Getting started
+
+- [Free Business Strategy Report](https://setupshoponline.com/free-business-strategy): Choose one of six business priorities and answer ten questions for an AI-generated report with findings and a 30–60–90-day plan. No purchase or call required.
+- [15-minute intro](https://setupshoponline.com/book-a-call): Share a priority, ask questions, and discuss fit and the next step. The intro does not include a written assessment or implementation. A one-hour AI Strategy Session is a separate service.
+- [Book an intro](https://calendly.com/meet_with_setupshoponline/15-minute-intro): Scheduling for products, services, and solutions.
+- [Contact](https://setupshoponline.com/contact-us): Inquiry form and business contact information.
+
+## Reference files
+
+- [Complete service descriptions](https://setupshoponline.com/llms-full.txt): Plain-text companion to the website's public content.
+- [Structured business and service data](https://setupshoponline.com/llms.json): Schema.org JSON-LD describing the organization, founder, services, and images.
+- [Sitemap](https://setupshoponline.com/sitemap.xml): Canonical public pages and their images.
+
+## Contact
+
+Email: vlad@setupshoponline.com
+Phone: 201-757-0134
+Address: 205 Applegate Road Suite 100 #1087, Stroudsburg, PA 18360, United States
+
+The canonical website is https://setupshoponline.com/. Private reports, customer responses, and account data are not included in these reference files.
+
+
+
+## Products, Services, and Solutions
+
+
+## Products
+
+Practical resources that help you choose a business problem, take action, and build momentum.
+
+### Your Free Business Strategy Report
+
+https://setupshoponline.com/products-services-solutions#workbook
+
+Choose your priority. Answer ten questions. Get clear findings and a 30–60–90-day roadmap.
+
+Find a practical next step for getting more leads, improving lead quality, closing deals, saving time, increasing repeat business, or improving profitability. Your personalized AI-generated report includes key findings and a focused 90-day plan, delivered by email and available to download. Bring it to an optional free Strategy Review.
+
+Best for: Business owners who want a focused plan for improving their business.
+
+Value to measure: Personalized findings, prioritized actions, and a 30–60–90-day roadmap.
+
+Choose your priority and answer ten questions to get your personalized strategy report. No call is needed to get started.
+
+Next step: https://setupshoponline.com/free-business-strategy
+
+
+
+## Services
+
+Expert guidance and practical implementation to identify valuable opportunities, put your business knowledge to work, and help your people use AI with confidence.
+
+### 1 on 1 Team Member Training: Build AI Skills Around Real Work
+
+https://setupshoponline.com/products-services-solutions#individual-ai-training
+
+Help each employee apply AI to their actual responsibilities with practical skills, confidence, and clear review habits.
+
+Training focuses on the tasks the person performs, the standards their work must meet, and the tools they can use. We practice relevant examples, develop reusable approaches, and show how to check results before relying on them.
+
+The employee leaves with techniques they can apply in their role and a clearer understanding of when human judgment is needed.
+
+Best for: Employees who need individual practice tied to their role and quality standards.
+
+Value to measure: Task completion time, output quality, rework, and sustained use of the new skills.
+
+Start with a 15 minute intro call to discuss the tasks, skills, and confidence your team member wants to build. Choose a time on the next screen.
+
+Next step: https://calendly.com/meet_with_setupshoponline/15-minute-intro
+
+
+
+### AI Strategy Session: Choose Your Next Business Improvement
+
+https://setupshoponline.com/products-services-solutions#ai-strategy-session
+
+Get focused guidance on where AI, automation, or better ways of working could create meaningful value.
+
+Bring a business goal and the challenge getting in its way. In one hour, we explore the priority problem, consider a practical opportunity, and identify what needs to be understood before you commit further resources.
+
+You receive an AI Opportunity Summary with the desired outcome, an initial success measure, and recommended next steps. Those steps may involve coaching, training, a coordinated workflow, or deeper assessment through the SUSO Framework.
+
+Best for: Owners who need help choosing a priority before committing more time, money, or team effort.
+
+Value to measure: A clearer investment decision, a defined priority, and a next step connected to a business outcome.
+
+Start with a 15 minute intro call to discuss your priority and whether a focused strategy session is the right next step. Choose a time on the next screen.
+
+Next step: https://calendly.com/meet_with_setupshoponline/15-minute-intro
+
+
+
+### Business Context Integration and Prompt Systems: Turn What Your Business Knows Into Better Results
+
+https://setupshoponline.com/products-services-solutions#business-context-prompt-systems
+
+Connect existing information with practical AI systems and tested prompts to reduce research, repeated explanations, and rework.
+
+Your business already holds valuable context in documents, meeting notes, customer records, procedures, and everyday decisions. We identify the sources that matter to a selected workflow, organize the relevant information, and integrate it into a practical system your team can use.
+
+We build reusable prompts and instructions around your standards, customers, and goals, then test them against real tasks such as preparing proposals, responding to clients, onboarding employees, or producing reports.
+
+Within the agreed scope, you receive a source and context map, a working context-supported workflow, a tested prompt library, and guidance for reviewing outputs and keeping information current.
+
+The focus is making your existing knowledge useful at the moment work happens, with clear ownership of updates and appropriate access to source material.
+
+Best for: Businesses whose teams repeatedly search for information, explain the same context to AI, or correct generic outputs.
+
+Value to measure: Time spent finding and preparing information, task completion time, output quality, review effort, rework, and adoption of the shared system.
+
+Start with a 15 minute intro call to talk through where your team needs better information and more useful AI outputs. Choose a time on the next screen.
+
+Next step: https://calendly.com/meet_with_setupshoponline/15-minute-intro
+
+
+
+### Group Trainings and Workshops: Turn Shared Learning Into Better Ways of Working
+
+https://setupshoponline.com/products-services-solutions#group-ai-workshops
+
+Give teams practical experience using AI together on problems that matter to the business.
+
+Workshops bring people around relevant use cases, shared expectations, and hands-on practice. We help the team identify useful applications, compare approaches, and develop clearer habits for using and reviewing AI-assisted work.
+
+Participants leave with practical examples and agreed next steps they can bring into their roles. Focused individual training can support team members who need more help afterward.
+
+Best for: Teams that need shared skills, consistent practices, and a coordinated starting point.
+
+Value to measure: Participation, demonstrated skills, adoption of agreed practices, and improvements in the selected workflows.
+
+Start with a 15 minute intro call to discuss your team, their work, and the outcomes you want from training. Choose a time on the next screen.
+
+Next step: https://calendly.com/meet_with_setupshoponline/15-minute-intro
+
+
+
+### Ongoing AI and Operational Systems Advisory
+
+https://setupshoponline.com/products-services-solutions#ongoing-ai-and-operational-systems-advisory
+
+You want a continuing partner to review results and guide the next operating improvements.
+
+Periodic reviews examine workflow performance, business outcomes, new constraints, technology decisions, and roadmap priorities. We consider whether existing systems need refinement and where new capabilities are justified.
+
+This is strategic guidance around operating capacity and business value. The cadence, responsibilities, and any implementation work are agreed for the engagement.
+
+Start with a 15-minute intro to discuss your priority and whether this is the right next step.
+
+Next step: https://calendly.com/meet_with_setupshoponline/15-minute-intro
+
+
+
+### Operational Workflow and Agentic Systems Architecture
+
+https://setupshoponline.com/products-services-solutions#operational-workflow-and-agentic-systems-architecture
+
+You understand the problem and need a coherent design for how the improved workflow should operate.
+
+We map the future workflow and define its trigger, objective, inputs, steps, decisions, systems, handoffs, exceptions, and completion criteria. We specify what stays with people, what follows fixed automation rules, and where AI or an agent may be useful.
+
+The design addresses information access, permitted actions, approvals, escalation routes, integration requirements, ownership, and measurement. It gives your team and implementation partners a shared basis for building and testing.
+
+This offer develops the workflow and system design. Existing Agentic Orchestration Enablement remains available for enabling coordinated agents and workflows.
+
+Start with a 15-minute intro to discuss your priority and whether this is the right next step.
+
+Next step: https://calendly.com/meet_with_setupshoponline/15-minute-intro
+
+
+
+### Personal Executive AI Coaching: Create More Capacity to Lead
+
+https://setupshoponline.com/products-services-solutions#executive-ai-coaching
+
+Use AI in your own working day to improve preparation, communication, prioritization, and decision support.
+
+Coaching starts with the work competing for your attention: planning, research, meetings, communication, and follow-through. We develop practical ways to use AI around your responsibilities and refine them through use.
+
+You build repeatable habits for preparing information, reviewing outputs, and applying your judgment. The focus is more usable leadership capacity and greater confidence guiding AI adoption across the business.
+
+Best for: Owners and executives who want practical AI support in their own work.
+
+Value to measure: Time spent on preparation, quality of decision inputs, consistent follow-through, and time available for leadership.
+
+Start with a 15 minute intro call to discuss your leadership priorities and what you want to accomplish with AI. Choose a time on the next screen.
+
+Next step: https://calendly.com/meet_with_setupshoponline/15-minute-intro
+
+
+
+### Profitable Growth and AI Opportunity Assessment
+
+https://setupshoponline.com/products-services-solutions#profitable-growth-and-ai-opportunity-assessment
+
+You know the business needs to operate differently, but you are unsure what to fix first or where AI belongs.
+
+We examine your goals, workflows, systems, information flows, bottlenecks, and current measures. We compare opportunities by potential value, readiness, feasibility, cost, and risk.
+
+Within the agreed scope, the assessment produces a current-state view, constraint analysis, prioritized opportunities, business-value hypotheses, an AI and agentic suitability assessment, a recommended roadmap, and success measures.
+
+You leave with a clearer investment decision and an evidence-based direction for deeper design. Any business-value estimates remain hypotheses until validated against your operating data.
+
+This is a scoped consulting assessment. It is separate from the free self-service Business Strategy Report and from the current SUSO Framework package, which retains its existing prototype commitment.
+
+Start with a 15-minute intro to discuss your priority and whether this is the right next step.
+
+Next step: https://calendly.com/meet_with_setupshoponline/15-minute-intro
+
+
+
+### Solution Architecture and Implementation Leadership
+
+https://setupshoponline.com/products-services-solutions#solution-architecture-and-implementation-leadership
+
+You need someone to keep business priorities connected to technical delivery.
+
+I work across leadership, operational teams, developers, vendors, and specialists to clarify requirements and guide implementation decisions. The scope can include a phased roadmap, partner coordination, prototype reviews, acceptance criteria, implementation reviews, and outcome validation.
+
+The value is continuity of judgment from the original business problem through implementation and adoption. Responsibilities, build scope, and acceptance criteria are agreed before delivery work begins.
+
+Start with a 15-minute intro to discuss your priority and whether this is the right next step.
+
+Next step: https://calendly.com/meet_with_setupshoponline/15-minute-intro
+
+
+
+### SUSO Framework: Map Business Value, Design the Solution, Build the First Version
+
+https://setupshoponline.com/products-services-solutions#suso-framework
+
+Turn a priority opportunity into a business case, solution architecture, and a Phase 1 or MVP prototype.
+
+Our Value Mapping and Solution Architecture process connects your goals to the people, workflows, and information that shape results. We establish a baseline, identify opportunities, and prioritize them by value, cost, effort, and feasibility.
+
+Within the agreed scope, you receive a value map, phased plan, solution architecture, and a working Phase 1 or minimum viable product prototype, with testing and handoff guidance. Depending on complexity, we may also publish a live version if testing and client acceptance can be completed within the agreed timeframe.
+
+Best for: Businesses ready for deeper assessment, solution design, and a first working prototype.
+
+Value to measure: A documented business case, a testable first version, and agreed measures for capacity, quality, customer experience, or financial performance.
+
+Start with a 15 minute intro call to discuss your business challenge and whether the SUSO Framework fits your goals. Choose a time on the next screen.
+
+Next step: https://calendly.com/meet_with_setupshoponline/15-minute-intro
+
+
+
+## Solutions
+
+Connected capabilities that help your business win work, improve operations, protect information, turn knowledge into reusable assets, and make better decisions.
+
+### Agentic Orchestration Enablement: Move Work Forward Across People and Systems
+
+https://setupshoponline.com/products-services-solutions#agentic-orchestration
+
+Coordinate AI agents and workflows to reduce manual handoffs while keeping responsibilities and approvals clear.
+
+When a process spans several tools or teams, useful work can stall between steps. We help design and enable coordinated agents and workflows with defined tasks, connections, human approval points, and monitoring.
+
+Start with a bounded use case and build on what testing shows. The result is a clearer path for information and work to move, with people retaining control over the decisions assigned to them.
+
+Best for: Businesses with a defined process that would benefit from coordinated agents and systems.
+
+Value to measure: Workflow completion time, manual handoffs, exception rates, and human review effort.
+
+Start with a 15 minute intro call to discuss a workflow you want to improve and where human review needs to stay involved. Choose a time on the next screen.
+
+Next step: https://calendly.com/meet_with_setupshoponline/15-minute-intro
+
+
+
+### Agentic Workflow Pilot
+
+https://setupshoponline.com/products-services-solutions#agentic-workflow-pilot
+
+A promising workflow needs practical evidence before a larger commitment.
+
+We select one bounded use case, establish a baseline, and test a controlled version with defined information sources, permissions, human review, exception handling, and success measures.
+
+Possible starting points include service-request coordination, information retrieval, customer-update preparation, service-report processing, follow-up management, and exception identification. The right choice depends on your workflow and readiness.
+
+The pilot tests usefulness, reliability, review effort, adoption, and business value. Its results inform whether to improve, expand, or stop.
+
+This pilot tests one agreed use case. It complements existing Agentic Orchestration Enablement and does not replace the Phase 1 or MVP included in an agreed SUSO Framework package.
+
+Start with a 15-minute intro to discuss your priority and whether this is the right next step.
+
+Next step: https://calendly.com/meet_with_setupshoponline/15-minute-intro
+
+
+
+### AI and Data Governance: Give People Clear Rules and Responsibilities
+
+https://setupshoponline.com/products-services-solutions#ai-data-governance
+
+Define who owns decisions, how information should be used, and where review or approval is needed.
+
+Teams can move forward more confidently when expectations are clear. We help establish practical ownership, approved uses, review responsibilities, and escalation paths for AI and data.
+
+The work is shaped around your business and the way people actually operate. Clear guidance supports consistent adoption, while training and security controls help put that guidance into practice.
+
+Best for: Leaders who need clear ownership and practical expectations for AI and data use.
+
+Value to measure: Coverage of agreed responsibilities, adoption of approved practices, and resolution of ownership or approval gaps.
+
+Start with a 15 minute intro call to discuss where your team needs clearer guidance, ownership, and oversight. Choose a time on the next screen.
+
+Next step: https://calendly.com/meet_with_setupshoponline/15-minute-intro
+
+
+
+### AI Business Brains and Marketplace Knowledge Products: Put Your Expertise to Work Inside Your Business and Beyond
+
+https://setupshoponline.com/products-services-solutions#ai-business-brains
+
+Build a reusable AI brain that helps your team apply company knowledge, or package your expertise into a knowledge product designed for marketplace sales.
+
+Your experience, methods, and business knowledge can become an asset people use repeatedly. Building on our work with Mygentic, we help turn approved source material into a focused AI brain with a clear audience, useful capabilities, and a practical plan for testing and ongoing improvement.
+
+Internal Business Brain
+
+Give employees a consistent way to find and apply your processes, service standards, product knowledge, training, and lessons learned.
+
+We organize the knowledge around real questions and tasks, define how the brain should respond, and test its usefulness with the people who will use it. The aim is faster onboarding, fewer repeated questions, more consistent work, and less dependence on one person holding all the answers.
+
+Marketplace Knowledge Product
+
+Turn expertise you own or are authorized to commercialize into a focused brain for a defined buyer and business problem.
+
+We help shape the offer, organize the knowledge, develop useful prompts and guided experiences, test representative tasks, and prepare product descriptions, demonstrations, and onboarding materials.
+
+Marketplace preparation includes planning access, support, and updates. Publication follows the selected platform’s requirements and your approval. Private company and client information stays separate from the material intended for sale.
+
+Within the agreed scope, the work includes an audience and use-case brief, a knowledge map, a working brain prototype, testing criteria, and an ownership and update plan. The internal path focuses on business adoption. The marketplace path also considers buyer demand, delivery costs, and the effort required to support customers.
+
+Best for: Businesses that want to preserve and share institutional knowledge, and experts or firms that want to turn authorized expertise into a repeatable product.
+
+Value to measure: For internal use: time to find answers, onboarding effort, answer quality, adoption, and expert time recovered.
+
+Value to measure: For marketplace products: validated buyer interest, activation, repeat use, sales conversion, revenue, support costs, and contribution margin.
+
+Start with a 15 minute intro call to discuss how your expertise could support your team or become a knowledge product. Choose a time on the next screen.
+
+Next step: https://calendly.com/meet_with_setupshoponline/15-minute-intro
+
+
+
+### Business Analytics: Turn Operational Information Into Useful Decisions
+
+https://setupshoponline.com/products-services-solutions#business-analytics
+
+Create meaningful measures, dashboards, and reports that show what is happening and where to improve.
+
+Reporting is most useful when it answers a decision-maker’s question. We define the measures that matter, connect the relevant information, and create views people can use to monitor performance.
+
+Focus areas may include customer response, service delivery, quality, workload, and process bottlenecks. Clear definitions and review habits help the business act on what it learns. Margin-focused questions can be developed through Profitability Analytics.
+
+Best for: Leaders who need a clearer view of operating performance and what to improve.
+
+Value to measure: Reporting effort, consistency of measures, visibility into bottlenecks, and decisions supported by the reporting.
+
+Start with a 15 minute intro call to discuss the decisions your reporting needs to support. Choose a time on the next screen.
+
+Next step: https://calendly.com/meet_with_setupshoponline/15-minute-intro
+
+
+
+### CRM Integration: Keep Leads, Follow-Up, and Customer Relationships Moving
+
+https://setupshoponline.com/products-services-solutions#crm-integration
+
+Connect customer information and sales activity so your team can see each opportunity and its next step.
+
+When contacts, inquiries, and follow-up live in different places, opportunities can lose momentum. We connect the customer-facing workflows around lead capture, records, ownership, and sales progression.
+
+The scope may include website inquiries, reminders, handoffs, and visibility into the pipeline. Your team gains a more consistent way to manage relationships and act on the information it already has.
+
+Best for: Teams managing customer opportunities across disconnected tools or inconsistent follow-up.
+
+Value to measure: Lead response time, follow-up completion, record completeness, and pipeline progression.
+
+Start with a 15 minute intro call to discuss how leads, follow up, and customer information move through your business. Choose a time on the next screen.
+
+Next step: https://calendly.com/meet_with_setupshoponline/15-minute-intro
+
+
+
+### Custom Integration: Connect Your Systems and Reduce Duplicate Work
+
+https://setupshoponline.com/products-services-solutions#custom-integration
+
+Help information move between applications so people spend less time copying, checking, and chasing it.
+
+We connect business systems around the information and events a workflow needs. This can include transferring records, coordinating updates, and handling exceptions across applications.
+
+The work starts with the purpose of the connection and defines what should move, when, and who owns problems. It supports broader operations as well as coordinated AI workflows, with customer-specific sales processes addressed through CRM Integration.
+
+Best for: Teams spending time manually moving information between applications.
+
+Value to measure: Manual transfers removed, synchronization errors, exception handling effort, and process completion time.
+
+Start with a 15 minute intro call to discuss which systems need to work together and where duplicate effort slows your team. Choose a time on the next screen.
+
+Next step: https://calendly.com/meet_with_setupshoponline/15-minute-intro
+
+
+
+### Data Architecture: Build a Reliable Foundation for AI and Better Decisions
+
+https://setupshoponline.com/products-services-solutions#data-architecture
+
+Organize and connect business information so it is easier to find, understand, and use.
+
+Scattered or inconsistent information makes reporting, automation, and AI harder to trust. We help define the structure, sources, relationships, and movement of the data your business needs.
+
+The work connects information requirements to real use cases and supports a practical path toward more reliable data. Ownership, access, and reporting needs are considered alongside the technical design.
+
+Best for: Businesses whose data needs a stronger structure before AI, integration, or reporting can work well.
+
+Value to measure: Data completeness and consistency, time spent finding or reconciling information, and readiness for the selected use case.
+
+Start with a 15 minute intro call to discuss the information gaps getting in the way of reliable reporting and AI. Choose a time on the next screen.
+
+Next step: https://calendly.com/meet_with_setupshoponline/15-minute-intro
+
+
+
+### Profitability Analytics: See Which Work Contributes Most to Your Bottom Line
+
+https://setupshoponline.com/products-services-solutions#profitability-analytics
+
+Connect revenue, costs, and delivery effort to make better decisions about clients, services, and capacity.
+
+Revenue tells only part of the story behind business performance. We bring relevant financial and operating information together to examine profitability by client, service, project, or workflow.
+
+Agreeing on definitions and data sources helps make the resulting views useful for decisions. You can better see where delivery effort, rework, or resource use affects margins and where improvement deserves attention.
+
+Best for: Owners who need to understand how delivery effort and costs affect profitability.
+
+Value to measure: Visibility into margins and cost-to-serve, reliability of the underlying data, and decisions informed by the analysis.
+
+Start with a 15 minute intro call to discuss what you need to understand about margins, delivery effort, and capacity. Choose a time on the next screen.
+
+Next step: https://calendly.com/meet_with_setupshoponline/15-minute-intro
+
+
+
+### Security: Protect the Information and Access Your Business Depends On
+
+https://setupshoponline.com/products-services-solutions#security
+
+Strengthen practical controls around data, AI tools, and connected systems as your capabilities develop.
+
+Connecting tools and introducing AI changes how information moves and who can access it. We help identify the controls needed for the agreed use case, including access permissions, data handling, and system connections.
+
+The work is coordinated with your existing policies and responsible specialists where needed. Clear controls and review responsibilities support more confident implementation and day-to-day use.
+
+Best for: Businesses introducing AI or connections that need defined access and data-handling controls.
+
+Value to measure: Access and control gaps addressed, completion of agreed checks, and visibility into data-handling responsibilities.
+
+Start with a 15 minute intro call to discuss your concerns about information, access, and the systems your business relies on. Choose a time on the next screen.
+
+Next step: https://calendly.com/meet_with_setupshoponline/15-minute-intro
+
+
+
+### SEO and AI SEO: Help the Right Buyers Discover Your Expertise
+
+https://setupshoponline.com/products-services-solutions#seo-ai-seo
+
+Strengthen useful content and discoverability to support visibility in search engines and AI-generated answers.
+
+We align your content with the questions prospective customers ask and the services your business provides. Work may include clearer service information, stronger site organization, and improvements that help people and search systems understand your expertise.
+
+The focus is attracting relevant interest and guiding it toward a useful next step. We review discoverability and inquiry quality as the work develops.
+
+Best for: Businesses that want the right customers to discover and understand their expertise.
+
+Value to measure: Relevant search visibility, qualified visits, and inquiries attributable to organic discovery where tracking allows.
+
+Start with a 15 minute intro call to discuss the buyers you want to reach and your search visibility goals. Choose a time on the next screen.
+
+Next step: https://calendly.com/meet_with_setupshoponline/15-minute-intro
+
+
+
+### Website Redesign: Turn Visitor Interest Into Qualified Conversations
+
+https://setupshoponline.com/products-services-solutions#website-redesign
+
+Make your value easier to understand and give prospective customers a clearer path to contact your business.
+
+A useful website helps visitors recognize their problem, understand your offer, and take the next step. We improve messaging, page structure, navigation, and inquiry paths around those decisions.
+
+The redesign connects your services to customer outcomes and makes important actions easier to find. Search visibility and CRM connections can support the journey from discovery through follow-up.
+
+Best for: Businesses whose website does not clearly communicate their value or guide inquiries.
+
+Value to measure: Qualified inquiries, visitor-to-inquiry conversion, and completion of important calls to action.
+
+Start with a 15 minute intro call to discuss your website goals and what visitors need to do next. Choose a time on the next screen.
+
+Next step: https://calendly.com/meet_with_setupshoponline/15-minute-intro
+
+
+
+## About Vlad Gutenmakher
+
+Practical judgment from discovery through implementation
+
+I help established service businesses handle more work profitably, without overhead growing at the same pace or the owner having to hold everything together.
+
+Growth can expose gaps in the way people, information, and systems work together. My role is to understand those gaps, determine which improvements are worth making, and help turn the right design into a useful operating capability.
+
+An architect’s perspective and an owner’s experience
+
+My background spans more than 35 years across technology, engineering, solution architecture, technical sales, consulting, and implementation. I have also spent approximately 20 years building and operating my own business.
+
+That combination helps me work with owners, operational teams, developers, and vendors while keeping the business outcome in view. I understand that a technically possible idea still has to fit your people, budget, systems, and priorities.
+
+Principles
+
+Start with the constraint — Understand what is making growth harder before choosing a tool.
+
+Use what already works — Consider process changes and existing-system improvements alongside new technology.
+
+Define responsibility — Make it clear what people own, what systems can do, and when a person must step in.
+
+Carry the design into practice — Connect requirements, implementation decisions, testing, and adoption.
+
+Measure useful change — Agree on a baseline and review outcomes before expanding the solution.
+
+Let’s understand what would make the business easier to grow
+
+If your team is busy but more work keeps creating more overhead or owner involvement, start with the free assessment or book a 15-minute intro to discuss your next step.

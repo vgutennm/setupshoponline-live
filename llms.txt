@@ -1,29 +1,36 @@
 # Set Up Shop Online
 
-Handle More Business. Keep More of the Upside.
+> Business diagnosis, AI consulting, solution architecture, and implementation guidance for established service businesses. Handle more work profitably, create capacity, and reduce owner dependence.
 
-Vlad Gutenmakher, AI Consultant and Value Architect, helps established professional-service firms and specialized services handle more work profitably, create capacity, and reduce owner dependence. He brings more than 35 years across technology, engineering, solution architecture, technical sales, consulting, and implementation, plus approximately 20 years of entrepreneurship.
+Vlad Gutenmakher is the founder of Set Up Shop Online Inc. and an AI Consultant and Value Architect. He brings more than 35 years of experience across technology, engineering, solution architecture, technical sales, consulting, and implementation, plus approximately 20 years of entrepreneurship.
 
-The method is Diagnose, Prioritize, Architect, Implement, and Measure. AI and agentic systems are used where they create meaningful business value.
+The approach is Diagnose, Prioritize, Architect, Implement, and Measure. AI and agentic systems are used where they create meaningful business value. Service scope and success measures are agreed for each engagement.
 
-## Entry paths
+## Business and services
 
-The free Business Strategy Report assessment offers six business priority paths with ten questions per assessment. It produces an AI-generated report with findings and a 30–60–90-day plan. No purchase or review call is required.
+- [Home](https://setupshoponline.com/): Positioning, approach, and who we help.
+- [Products](https://setupshoponline.com/products-services-solutions#products): Practical business resources, including the free Business Strategy Report.
+- [Services](https://setupshoponline.com/products-services-solutions#services): Assessment, architecture, coaching, training, implementation leadership, and ongoing advisory.
+- [Solutions](https://setupshoponline.com/products-services-solutions#solutions): The SUSO Framework, agentic workflows, business knowledge systems, integrations, analytics, governance, security, and marketing solutions.
+- [Why Vlad](https://setupshoponline.com/why-setupshoponline): Background, experience, and consulting approach.
 
-The 15-minute intro is for sharing a business priority, discussing fit, and identifying an appropriate next step. It does not include a written assessment, blueprint, implementation, or Opportunity Summary. The existing one-hour AI Strategy Session is a separate catalog service.
+## Getting started
 
-## Pages and Booking
+- [Free Business Strategy Report](https://setupshoponline.com/free-business-strategy): Choose one of six business priorities and answer ten questions for an AI-generated report with findings and a 30–60–90-day plan. No purchase or call required.
+- [15-minute intro](https://setupshoponline.com/book-a-call): Share a priority, ask questions, and discuss fit and the next step. The intro does not include a written assessment or implementation. A one-hour AI Strategy Session is a separate service.
+- [Book an intro](https://calendly.com/meet_with_setupshoponline/15-minute-intro): Scheduling for products, services, and solutions.
+- [Contact](https://setupshoponline.com/contact-us): Inquiry form and business contact information.
 
-Home: https://setupshoponline.com/
-Products, Services & Solutions: https://setupshoponline.com/products-services-solutions
-Why Vlad: https://setupshoponline.com/why-setupshoponline
-Free assessment: https://setupshoponline.com/free-business-strategy
-Booking page: https://setupshoponline.com/book-a-call
-Intro booking: https://calendly.com/meet_with_setupshoponline/15-minute-intro
-Contact: https://setupshoponline.com/contact-us
+## Reference files
+
+- [Complete service descriptions](https://setupshoponline.com/llms-full.txt): Plain-text companion to the website's public content.
+- [Structured business and service data](https://setupshoponline.com/llms.json): Schema.org JSON-LD describing the organization, founder, services, and images.
+- [Sitemap](https://setupshoponline.com/sitemap.xml): Canonical public pages and their images.
 
 ## Contact
 
 Email: vlad@setupshoponline.com
 Phone: 201-757-0134
 Address: 205 Applegate Road Suite 100 #1087, Stroudsburg, PA 18360, United States
+
+The canonical website is https://setupshoponline.com/. Private reports, customer responses, and account data are not included in these reference files.
