@@ -1,32 +1,26 @@
 # Set Up Shop Online
 
-Put AI to work. Create capacity. Grow what matters.
+Handle More Business. Keep More of the Upside.
 
-Vlad Gutenmakher is an AI Consultant and Value Architect who helps small and midsized service businesses put AI to work where it matters most and turn it into measurable business value. He brings more than 30 years of business, technology, solution architecture, and implementation experience.
+Vlad Gutenmakher, AI Consultant and Value Architect, helps established professional-service firms and specialized services handle more work profitably, create capacity, and reduce owner dependence. He brings more than 35 years across technology, engineering, solution architecture, technical sales, consulting, and implementation, plus approximately 20 years of entrepreneurship.
 
-His vendor-neutral approach starts with the owner’s goals, people, customers, how work gets done, and what is getting in the way. Opportunities may include winning more work, improving customer experience, increasing capacity, improving quality, and reducing repetitive work. Priorities are weighed by value, cost, effort, and feasibility.
+The method is Diagnose, Prioritize, Architect, Implement, and Measure. AI and agentic systems are used where they create meaningful business value.
 
-Start with the business, not the AI. The method is Understand → Define → Find → Prioritize → Implement → Adopt → Measure. Understand the business, define success, find opportunities, and prioritize by value, cost, effort, and feasibility. In broader engagements, implement the chosen solution, train and support the people adopting it, measure results, and improve before expanding.
+## Entry paths
 
-Solution architecture, implementation, training, adoption support, and measurement are scoped separately from the one-hour AI Strategy Call. The goal is a stronger business: greater capacity, more freedom and choice.
+The free Business Strategy Report assessment offers six business priority paths with ten questions per assessment. It produces an AI-generated report with findings and a 30–60–90-day plan. No purchase or review call is required.
 
-## AI Strategy Call
-
-Duration: one hour. With: Vlad Gutenmakher.
-
-A focused working session on the client's most important business challenge, AI opportunity, or technology decision. Discuss the desired outcome, potential value, feasibility, constraints, tradeoffs, and sensible next steps.
-
-The session does not include implementation, a completed architecture, a detailed roadmap, a written report, a recording, or follow-up support. It does not guarantee financial results.
+The 15-minute intro is for sharing a business priority, discussing fit, and identifying an appropriate next step. It does not include a written assessment, blueprint, implementation, or Opportunity Summary. The existing one-hour AI Strategy Session is a separate catalog service.
 
 ## Pages and Booking
 
-- Home: https://setupshoponline.com/
-- Why Us: https://setupshoponline.com/why-setupshoponline
-- Booking page: https://setupshoponline.com/book-a-call
-- Book Your AI Strategy Call: https://calendly.com/meet_with_setupshoponline/ai-strategy
-- Contact: https://setupshoponline.com/contact-us
-
-The contact form is for general questions, existing-client inquiries, partnerships, and clarification about the session.
+Home: https://setupshoponline.com/
+Products, Services & Solutions: https://setupshoponline.com/products-services-solutions
+Why Vlad: https://setupshoponline.com/why-setupshoponline
+Free assessment: https://setupshoponline.com/free-business-strategy
+Booking page: https://setupshoponline.com/book-a-call
+Intro booking: https://calendly.com/meet_with_setupshoponline/15-minute-intro
+Contact: https://setupshoponline.com/contact-us
 
 ## Contact
 
