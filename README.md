@@ -28,3 +28,8 @@ Authorization uses PKCE, a one-use state bound to a secure browser cookie, an ex
 
 ## Workbook CAPTCHA
 The public cPanel workbook form requires Google reCAPTCHA v2 Checkbox. Set RECAPTCHA_SITE_KEY and RECAPTCHA_SECRET_KEY in the private config.php outside public_html. The public config endpoint exposes only the site key. Missing configuration fails closed. Server verification checks Google success, hostname and challenge age before saving new leads or queuing mail. Never commit the secret.
+
+
+## Button consistency and source synchronization
+
+Read AGENTS.md before changing buttons or replacing generated website files. All versions of the free assessment action must use "Start My Free Assessment" and link to /free-business-strategy. The October 9, 2026 production label correction must also be applied to the Sites source before the next generated build replaces these files.
