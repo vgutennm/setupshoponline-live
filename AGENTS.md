@@ -32,3 +32,8 @@ The `/conversionkit` form delivers the Conversation to Client Conversion Kit usi
 The saved Sites source also contains a separate agentic assessment draft. A conversion kit release must copy only its new pages and assets plus its explicitly changed API/server/deployment files. Do not replace existing production pages with that separate draft. See CONVERSIONKIT.md for deployment and verification.
 
 
+
+
+## Desktop navigation
+
+Show the full header at viewport widths of 1024px and above, and the hamburger below 1024px. Include Home, AI Journey with Products/Services/Solutions, Company Info with Why Us/Contact, the blue 201-757-0134 link to tel:+12017570134, and the orange Free Business Strategy Report action to /free-business-strategy. Keep the conversion kit header consistent while leaving that landing page unlisted.
