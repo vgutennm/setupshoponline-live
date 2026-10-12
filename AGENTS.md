@@ -1,39 +1,30 @@
-# Set Up Shop Online working instructions
+# Set Up Shop Online publishing workflow
 
-## Button consistency
+For this website, the public production site is https://setupshoponline.com on cPanel. Publishing the Sites review copy alone does not publish the public website.
 
-When Vlad requests a button label, destination, style, or behavior change, locate every instance of that same action before editing. Check the desktop header, mobile header and menu, hero, sticky action bar, footer, and other pages. Update equivalent instances together. Do not assume one responsive layout shares its implementation with another.
+When Vlad requests publishing website changes:
 
-The free assessment action uses the exact label "Start My Free Assessment" and the destination "/free-business-strategy". Keep actual appointment booking and strategy review actions separate; do not relabel a different action merely because its text is similar.
+1. Prepare and verify the updated website build.
+2. Push the production website changes to https://github.com/vgutennm/setupshoponline-live.git on branch main. Inspect that repository's existing structure and deployment configuration first. Preserve its PHP gateways, configuration, and cron integrations.
+3. In cPanel Git Version Control, select setupshoponline-live at /home/aha7hfr64vl1/repositories/setupshoponline-live.
+4. Use Update from Remote, then Deploy HEAD Commit.
+5. Verify the deployed commit and the requested changes on https://setupshoponline.com before reporting public publication as complete.
 
-Before reporting completion, search active source, rendered HTML, and referenced browser bundles for obsolete labels and links. Check desktop and mobile views when browser verification is available. If it is unavailable, state that limitation instead of claiming visual verification.
+The hosting management server shown by Vlad is p3plzcpnl508833.prod.phx3.secureserver.net:2083. Reuse an authorized session or secure sign-in flow; never request secrets in chat.
 
-Use a shared label and destination definition in the editable application wherever possible. Preserve this instruction in the Sites source repository as well when that checkout becomes available.
+If repository or hosting access is unavailable, explain the specific blocker. Do not substitute a Sites publication or claim cPanel was updated. The Sites project is appgprj_6abab2a1219481918c6104b0b15bc920 and its review URL is https://setupshoponline.vlad554726.chatgpt.site.
 
-## Source synchronization
+Vlad explicitly requested that this workflow be remembered for all future work on this website.
 
-On October 9, 2026, the Sites editing environment was offline. The production repository was updated directly with the exact free assessment label replacement in rendered pages and the active browser bundles. New bundle filenames avoid stale browser caches. The Sites review copy and its editable source have not received this label correction.
 
-Before the next generated build is copied here, apply the same label correction to the Sites source, including both desktop navigation and the mobile menu, and carry these working instructions into that checkout. Confirm the source build preserves the hero dot alignment fix and the assessment labels. Do not overwrite this correction with older generated output.
+## Button changes
 
-## Publication
+Show full desktop navigation from 1024px upward: Home; AI Journey with Products, Services, and Solutions; Company Info with Why Us and Contact; a blue 201-757-0134 link to tel:+12017570134; and the red Free Agentic Readiness Assessment action to /free-agentic-readiness-assessment. Use the hamburger only below 1024px. Keep the conversion kit header consistent while keeping the landing page unlisted.
 
-Use repository "vgutennm/setupshoponline-live", branch "main". Preserve PHP gateways, server configuration, cron integrations, and the existing cPanel deployment configuration.
-
-Pushing to GitHub does not publish setupshoponline.com. Public publication requires cPanel Git Version Control: Update from Remote, then Deploy HEAD Commit. Verify the public result before claiming it is live. The Sites review URL is a separate publication.
-
+Before changing an action label, URL, style, or behavior, find every equivalent instance in desktop navigation, mobile navigation, hero, sticky bars, footer, and other pages. Update them together and search active source and generated output for obsolete variants. Keep distinct offers distinct. Preserve the agentic assessment draft, including its separate call to action, when editing other pages.
 
 ## Conversion kit
 
 Keep /conversionkit unlisted. Never link to this landing page from desktop or mobile navigation, the footer, other pages, public discovery files, or the PDF access page. Exclude it from the sitemap and retain noindex in both static and client-rendered metadata. Visitors reach it through a directly shared address. Preserve PDF access and the confirmation email's private PDF link.
 
-The `/conversionkit` form delivers the Conversation to Client Conversion Kit using the existing Google reCAPTCHA and delegated Outlook services. Contact information is for kit fulfillment only; never enroll these requests in marketing, sales calls, or texts. Keep the PDF, templates, configuration, and lead records outside public_html. Preserve the old workbook behavior when modifying shared `server/app.php`.
-
-The saved Sites source also contains a separate agentic assessment draft. A conversion kit release must copy only its new pages and assets plus its explicitly changed API/server/deployment files. Do not replace existing production pages with that separate draft. See CONVERSIONKIT.md for deployment and verification.
-
-
-
-
-## Desktop navigation
-
-Show the full header at viewport widths of 1024px and above, and the hamburger below 1024px. Include Home, AI Journey with Products/Services/Solutions, Company Info with Why Us/Contact, the blue 201-757-0134 link to tel:+12017570134, and the orange Free Business Strategy Report action to /free-business-strategy. Keep the conversion kit header consistent while leaving that landing page unlisted.
+The /conversionkit form is a transactional request only. It must not enroll people in marketing, authorize sales calls or texts, or add unrelated data collection. Reuse the production Google reCAPTCHA and delegated Outlook configuration through cpanel/server/app.php. The private Sites preview must not collect contact data or pretend to send emails. Keep backend files and PDFs outside public_html; provide authenticated inline PDF access plus an email attachment.

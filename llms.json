@@ -194,6 +194,36 @@
                   "inLanguage": "en-US"
                 }
               }
+            },
+            {
+              "@type": "Offer",
+              "@id": "https://setupshoponline.com/products-services-solutions#agentic-readiness-offer",
+              "url": "https://setupshoponline.com/free-agentic-readiness-assessment",
+              "price": "0",
+              "priceCurrency": "USD",
+              "itemOffered": {
+                "@type": "Service",
+                "@id": "https://setupshoponline.com/products-services-solutions#agentic-readiness",
+                "name": "Free Agentic Readiness Assessment",
+                "description": "Find out whether one recurring workflow is ready for AI that can coordinate work across people and systems. Answer ten focused questions about your business, a recurring workflow, the information it needs, and the decisions people must retain. Your free report identifies readiness gaps, a possible first opportunity, and practical next steps. Start with the business outcome: more capacity, fewer delays, stronger margins, or less dependence on the owner. Recommendations may include improving the process, connecting existing tools, or testing a bounded agentic workflow. A deeper assessment validates feasibility before implementation.",
+                "url": "https://setupshoponline.com/products-services-solutions#agentic-readiness",
+                "provider": {
+                  "@id": "https://setupshoponline.com/#organization"
+                },
+                "areaServed": "United States",
+                "serviceType": "Free Agentic Readiness Assessment",
+                "image": {
+                  "@type": "ImageObject",
+                  "@id": "https://setupshoponline.com/images/offerings/agentic-readiness.webp#image",
+                  "contentUrl": "https://setupshoponline.com/images/offerings/agentic-readiness.webp",
+                  "name": "Agentic readiness report with connected workflow nodes and an orange human approval checkpoint.",
+                  "caption": "Agentic readiness report with connected workflow nodes and an orange human approval checkpoint.",
+                  "description": "Free Agentic Readiness Assessment. Explore workflow fit, information readiness, human oversight, and the next step worth validating.",
+                  "width": 1536,
+                  "height": 1024,
+                  "inLanguage": "en-US"
+                }
+              }
             }
           ]
         },
@@ -952,6 +982,17 @@
       "description": "Business improvement workbook from Set Up Shop Online.",
       "width": 773,
       "height": 1000,
+      "inLanguage": "en-US"
+    },
+    {
+      "@type": "ImageObject",
+      "@id": "https://setupshoponline.com/images/offerings/agentic-readiness.webp#image",
+      "contentUrl": "https://setupshoponline.com/images/offerings/agentic-readiness.webp",
+      "name": "Agentic readiness report with connected workflows and human approval.",
+      "caption": "Agentic readiness report with connected workflows and human approval.",
+      "description": "A free initial assessment of workflow fit, information readiness and human oversight.",
+      "width": 1448,
+      "height": 1086,
       "inLanguage": "en-US"
     },
     {
