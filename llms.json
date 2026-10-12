@@ -224,6 +224,34 @@
                   "inLanguage": "en-US"
                 }
               }
+            },
+            {
+              "@type": "Offer",
+              "@id": "https://setupshoponline.com/products-services-solutions#ai-business-brains-offer",
+              "url": "https://calendly.com/meet_with_setupshoponline/15-minute-intro",
+              "itemOffered": {
+                "@type": "Service",
+                "@id": "https://setupshoponline.com/products-services-solutions#ai-business-brains",
+                "name": "AI Business Brains and Marketplace Knowledge Products",
+                "description": "Build a reusable AI brain that helps your team apply company knowledge, or package your expertise into a knowledge product designed for marketplace sales. Your experience, methods, and business knowledge can become an asset people use repeatedly. Building on our work with Mygentic, we help turn approved source material into a focused AI brain with a clear audience, useful capabilities, and a practical plan for testing and ongoing improvement. Internal Business Brain Give employees a consistent way to find and apply your processes, service standards, product knowledge, training, and lessons learned. We organize the knowledge around real questions and tasks, define how the brain should respond, and test its usefulness with the people who will use it. The aim is faster onboarding, fewer repeated questions, more consistent work, and less dependence on one person holding all the answers. Marketplace Knowledge Product Turn expertise you own or are authorized to commercialize into a focused brain for a defined buyer and business problem. We help shape the offer, organize the knowledge, develop useful prompts and guided experiences, test representative tasks, and prepare product descriptions, demonstrations, and onboarding materials. Marketplace preparation includes planning access, support, and updates. Publication follows the selected platform’s requirements and your approval. Private company and client information stays separate from the material intended for sale. Within the agreed scope, the work includes an audience and use-case brief, a knowledge map, a working brain prototype, testing criteria, and an ownership and update plan. The internal path focuses on business adoption. The marketplace path also considers buyer demand, delivery costs, and the effort required to support customers.",
+                "url": "https://setupshoponline.com/products-services-solutions#ai-business-brains",
+                "provider": {
+                  "@id": "https://setupshoponline.com/#organization"
+                },
+                "areaServed": "United States",
+                "serviceType": "AI Business Brains and Marketplace Knowledge Products",
+                "image": {
+                  "@type": "ImageObject",
+                  "@id": "https://setupshoponline.com/images/offerings/ai-business-brains.webp#image",
+                  "contentUrl": "https://setupshoponline.com/images/offerings/ai-business-brains.webp",
+                  "name": "Shared business knowledge supporting team collaboration and a packaged digital knowledge product.",
+                  "caption": "Shared business knowledge supporting team collaboration and a packaged digital knowledge product.",
+                  "description": "AI Business Brains and Marketplace Knowledge Products. Build a reusable AI brain that helps your team apply company knowledge, or package your expertise into a knowledge product designed for marketplace sales.",
+                  "width": 1536,
+                  "height": 1024,
+                  "inLanguage": "en-US"
+                }
+              }
             }
           ]
         },
@@ -236,26 +264,26 @@
           "itemListElement": [
             {
               "@type": "Offer",
-              "@id": "https://setupshoponline.com/products-services-solutions#individual-ai-training-offer",
+              "@id": "https://setupshoponline.com/products-services-solutions#suso-framework-offer",
               "url": "https://calendly.com/meet_with_setupshoponline/15-minute-intro",
               "itemOffered": {
                 "@type": "Service",
-                "@id": "https://setupshoponline.com/products-services-solutions#individual-ai-training",
-                "name": "1 on 1 Team Member Training",
-                "description": "Help each employee apply AI to their actual responsibilities with practical skills, confidence, and clear review habits. Training focuses on the tasks the person performs, the standards their work must meet, and the tools they can use. We practice relevant examples, develop reusable approaches, and show how to check results before relying on them. The employee leaves with techniques they can apply in their role and a clearer understanding of when human judgment is needed.",
-                "url": "https://setupshoponline.com/products-services-solutions#individual-ai-training",
+                "@id": "https://setupshoponline.com/products-services-solutions#suso-framework",
+                "name": "SUSO Framework",
+                "description": "Turn a priority opportunity into a business case, solution architecture, and a Phase 1 or MVP prototype. Our Value Mapping and Solution Architecture process connects your goals to the people, workflows, and information that shape results. We establish a baseline, identify opportunities, and prioritize them by value, cost, effort, and feasibility. Within the agreed scope, you receive a value map, phased plan, solution architecture, and a working Phase 1 or minimum viable product prototype, with testing and handoff guidance. Depending on complexity, we may also publish a live version if testing and client acceptance can be completed within the agreed timeframe.",
+                "url": "https://setupshoponline.com/products-services-solutions#suso-framework",
                 "provider": {
                   "@id": "https://setupshoponline.com/#organization"
                 },
                 "areaServed": "United States",
-                "serviceType": "1 on 1 Team Member Training",
+                "serviceType": "SUSO Framework",
                 "image": {
                   "@type": "ImageObject",
-                  "@id": "https://setupshoponline.com/images/offerings/individual-ai-training.webp#image",
-                  "contentUrl": "https://setupshoponline.com/images/offerings/individual-ai-training.webp",
-                  "name": "Trainer guiding a team member at a laptop beside a completed task checklist.",
-                  "caption": "Trainer guiding a team member at a laptop beside a completed task checklist.",
-                  "description": "1 on 1 Team Member Training. Help each employee apply AI to their actual responsibilities with practical skills, confidence, and clear review habits.",
+                  "@id": "https://setupshoponline.com/images/offerings/suso-framework.webp#image",
+                  "contentUrl": "https://setupshoponline.com/images/offerings/suso-framework.webp",
+                  "name": "Business priorities connected to a systems blueprint and a working business application.",
+                  "caption": "Business priorities connected to a systems blueprint and a working business application.",
+                  "description": "SUSO Framework. Turn a priority opportunity into a business case, solution architecture, and a Phase 1 or MVP prototype.",
                   "width": 1536,
                   "height": 1024,
                   "inLanguage": "en-US"
@@ -292,26 +320,138 @@
             },
             {
               "@type": "Offer",
-              "@id": "https://setupshoponline.com/products-services-solutions#business-context-prompt-systems-offer",
+              "@id": "https://setupshoponline.com/products-services-solutions#profitable-growth-and-ai-opportunity-assessment-offer",
               "url": "https://calendly.com/meet_with_setupshoponline/15-minute-intro",
               "itemOffered": {
                 "@type": "Service",
-                "@id": "https://setupshoponline.com/products-services-solutions#business-context-prompt-systems",
-                "name": "Business Context Integration and Prompt Systems",
-                "description": "Connect existing information with practical AI systems and tested prompts to reduce research, repeated explanations, and rework. Your business already holds valuable context in documents, meeting notes, customer records, procedures, and everyday decisions. We identify the sources that matter to a selected workflow, organize the relevant information, and integrate it into a practical system your team can use. We build reusable prompts and instructions around your standards, customers, and goals, then test them against real tasks such as preparing proposals, responding to clients, onboarding employees, or producing reports. Within the agreed scope, you receive a source and context map, a working context-supported workflow, a tested prompt library, and guidance for reviewing outputs and keeping information current. The focus is making your existing knowledge useful at the moment work happens, with clear ownership of updates and appropriate access to source material.",
-                "url": "https://setupshoponline.com/products-services-solutions#business-context-prompt-systems",
+                "@id": "https://setupshoponline.com/products-services-solutions#profitable-growth-and-ai-opportunity-assessment",
+                "name": "Profitable Growth and AI Opportunity Assessment",
+                "description": "You know the business needs to operate differently, but you are unsure what to fix first or where AI belongs. We examine your goals, workflows, systems, information flows, bottlenecks, and current measures. We compare opportunities by potential value, readiness, feasibility, cost, and risk. Within the agreed scope, the assessment produces a current-state view, constraint analysis, prioritized opportunities, business-value hypotheses, an AI and agentic suitability assessment, a recommended roadmap, and success measures. You leave with a clearer investment decision and an evidence-based direction for deeper design. Any business-value estimates remain hypotheses until validated against your operating data. This is a scoped consulting assessment. It is separate from the free self-service Business Strategy Report and from the current SUSO Framework package, which retains its existing prototype commitment.",
+                "url": "https://setupshoponline.com/products-services-solutions#profitable-growth-and-ai-opportunity-assessment",
                 "provider": {
                   "@id": "https://setupshoponline.com/#organization"
                 },
                 "areaServed": "United States",
-                "serviceType": "Business Context Integration and Prompt Systems",
+                "serviceType": "Profitable Growth and AI Opportunity Assessment",
                 "image": {
                   "@type": "ImageObject",
-                  "@id": "https://setupshoponline.com/images/offerings/business-context-prompt-systems.webp#image",
-                  "contentUrl": "https://setupshoponline.com/images/offerings/business-context-prompt-systems.webp",
-                  "name": "Business documents and customer records feeding a shared knowledge system and reusable prompts.",
-                  "caption": "Business documents and customer records feeding a shared knowledge system and reusable prompts.",
-                  "description": "Business Context Integration and Prompt Systems. Connect existing information with practical AI systems and tested prompts to reduce research, repeated explanations, and rework.",
+                  "@id": "https://setupshoponline.com/images/offerings/profitable-growth-and-ai-opportunity-assessment.webp#image",
+                  "contentUrl": "https://setupshoponline.com/images/offerings/profitable-growth-and-ai-opportunity-assessment.webp",
+                  "name": "Business advisors comparing opportunity cards beside a growth chart and target.",
+                  "caption": "Business advisors comparing opportunity cards beside a growth chart and target.",
+                  "description": "Profitable Growth and AI Opportunity Assessment. You know the business needs to operate differently, but you are unsure what to fix first or where AI belongs.",
+                  "width": 1536,
+                  "height": 1024,
+                  "inLanguage": "en-US"
+                }
+              }
+            },
+            {
+              "@type": "Offer",
+              "@id": "https://setupshoponline.com/products-services-solutions#operational-workflow-and-agentic-systems-architecture-offer",
+              "url": "https://calendly.com/meet_with_setupshoponline/15-minute-intro",
+              "itemOffered": {
+                "@type": "Service",
+                "@id": "https://setupshoponline.com/products-services-solutions#operational-workflow-and-agentic-systems-architecture",
+                "name": "Operational Workflow and Agentic Systems Architecture",
+                "description": "You understand the problem and need a coherent design for how the improved workflow should operate. We map the future workflow and define its trigger, objective, inputs, steps, decisions, systems, handoffs, exceptions, and completion criteria. We specify what stays with people, what follows fixed automation rules, and where AI or an agent may be useful. The design addresses information access, permitted actions, approvals, escalation routes, integration requirements, ownership, and measurement. It gives your team and implementation partners a shared basis for building and testing. This offer develops the workflow and system design. Existing Agentic Orchestration Enablement remains available for enabling coordinated agents and workflows.",
+                "url": "https://setupshoponline.com/products-services-solutions#operational-workflow-and-agentic-systems-architecture",
+                "provider": {
+                  "@id": "https://setupshoponline.com/#organization"
+                },
+                "areaServed": "United States",
+                "serviceType": "Operational Workflow and Agentic Systems Architecture",
+                "image": {
+                  "@type": "ImageObject",
+                  "@id": "https://setupshoponline.com/images/offerings/operational-workflow-and-agentic-systems-architecture.webp#image",
+                  "contentUrl": "https://setupshoponline.com/images/offerings/operational-workflow-and-agentic-systems-architecture.webp",
+                  "name": "Team designing a workflow that connects documents, applications, human review, and completed outputs.",
+                  "caption": "Team designing a workflow that connects documents, applications, human review, and completed outputs.",
+                  "description": "Operational Workflow and Agentic Systems Architecture. You understand the problem and need a coherent design for how the improved workflow should operate.",
+                  "width": 1536,
+                  "height": 1024,
+                  "inLanguage": "en-US"
+                }
+              }
+            },
+            {
+              "@type": "Offer",
+              "@id": "https://setupshoponline.com/products-services-solutions#solution-architecture-and-implementation-leadership-offer",
+              "url": "https://calendly.com/meet_with_setupshoponline/15-minute-intro",
+              "itemOffered": {
+                "@type": "Service",
+                "@id": "https://setupshoponline.com/products-services-solutions#solution-architecture-and-implementation-leadership",
+                "name": "Solution Architecture and Implementation Leadership",
+                "description": "You need someone to keep business priorities connected to technical delivery. I work across leadership, operational teams, developers, vendors, and specialists to clarify requirements and guide implementation decisions. The scope can include a phased roadmap, partner coordination, prototype reviews, acceptance criteria, implementation reviews, and outcome validation. The value is continuity of judgment from the original business problem through implementation and adoption. Responsibilities, build scope, and acceptance criteria are agreed before delivery work begins.",
+                "url": "https://setupshoponline.com/products-services-solutions#solution-architecture-and-implementation-leadership",
+                "provider": {
+                  "@id": "https://setupshoponline.com/#organization"
+                },
+                "areaServed": "United States",
+                "serviceType": "Solution Architecture and Implementation Leadership",
+                "image": {
+                  "@type": "ImageObject",
+                  "@id": "https://setupshoponline.com/images/offerings/solution-architecture-and-implementation-leadership.webp#image",
+                  "contentUrl": "https://setupshoponline.com/images/offerings/solution-architecture-and-implementation-leadership.webp",
+                  "name": "Project leader coordinating a team through design, build, review, and delivery milestones.",
+                  "caption": "Project leader coordinating a team through design, build, review, and delivery milestones.",
+                  "description": "Solution Architecture and Implementation Leadership. You need someone to keep business priorities connected to technical delivery.",
+                  "width": 1536,
+                  "height": 1024,
+                  "inLanguage": "en-US"
+                }
+              }
+            },
+            {
+              "@type": "Offer",
+              "@id": "https://setupshoponline.com/products-services-solutions#executive-ai-coaching-offer",
+              "url": "https://calendly.com/meet_with_setupshoponline/15-minute-intro",
+              "itemOffered": {
+                "@type": "Service",
+                "@id": "https://setupshoponline.com/products-services-solutions#executive-ai-coaching",
+                "name": "Personal Executive AI Coaching",
+                "description": "Use AI in your own working day to improve preparation, communication, prioritization, and decision support. Coaching starts with the work competing for your attention: planning, research, meetings, communication, and follow-through. We develop practical ways to use AI around your responsibilities and refine them through use. You build repeatable habits for preparing information, reviewing outputs, and applying your judgment. The focus is more usable leadership capacity and greater confidence guiding AI adoption across the business.",
+                "url": "https://setupshoponline.com/products-services-solutions#executive-ai-coaching",
+                "provider": {
+                  "@id": "https://setupshoponline.com/#organization"
+                },
+                "areaServed": "United States",
+                "serviceType": "Personal Executive AI Coaching",
+                "image": {
+                  "@type": "ImageObject",
+                  "@id": "https://setupshoponline.com/images/offerings/executive-ai-coaching.webp#image",
+                  "contentUrl": "https://setupshoponline.com/images/offerings/executive-ai-coaching.webp",
+                  "name": "Executive and coach reviewing a task list and calendar together at a laptop.",
+                  "caption": "Executive and coach reviewing a task list and calendar together at a laptop.",
+                  "description": "Personal Executive AI Coaching. Use AI in your own working day to improve preparation, communication, prioritization, and decision support.",
+                  "width": 1536,
+                  "height": 1024,
+                  "inLanguage": "en-US"
+                }
+              }
+            },
+            {
+              "@type": "Offer",
+              "@id": "https://setupshoponline.com/products-services-solutions#individual-ai-training-offer",
+              "url": "https://calendly.com/meet_with_setupshoponline/15-minute-intro",
+              "itemOffered": {
+                "@type": "Service",
+                "@id": "https://setupshoponline.com/products-services-solutions#individual-ai-training",
+                "name": "1 on 1 Team Member Training",
+                "description": "Help each employee apply AI to their actual responsibilities with practical skills, confidence, and clear review habits. Training focuses on the tasks the person performs, the standards their work must meet, and the tools they can use. We practice relevant examples, develop reusable approaches, and show how to check results before relying on them. The employee leaves with techniques they can apply in their role and a clearer understanding of when human judgment is needed.",
+                "url": "https://setupshoponline.com/products-services-solutions#individual-ai-training",
+                "provider": {
+                  "@id": "https://setupshoponline.com/#organization"
+                },
+                "areaServed": "United States",
+                "serviceType": "1 on 1 Team Member Training",
+                "image": {
+                  "@type": "ImageObject",
+                  "@id": "https://setupshoponline.com/images/offerings/individual-ai-training.webp#image",
+                  "contentUrl": "https://setupshoponline.com/images/offerings/individual-ai-training.webp",
+                  "name": "Trainer guiding a team member at a laptop beside a completed task checklist.",
+                  "caption": "Trainer guiding a team member at a laptop beside a completed task checklist.",
+                  "description": "1 on 1 Team Member Training. Help each employee apply AI to their actual responsibilities with practical skills, confidence, and clear review habits.",
                   "width": 1536,
                   "height": 1024,
                   "inLanguage": "en-US"
@@ -368,146 +508,6 @@
                   "name": "Advisor and owner reviewing a performance dashboard and selecting the next operational improvement.",
                   "caption": "Advisor and owner reviewing a performance dashboard and selecting the next operational improvement.",
                   "description": "Ongoing AI and Operational Systems Advisory. You want a continuing partner to review results and guide the next operating improvements.",
-                  "width": 1536,
-                  "height": 1024,
-                  "inLanguage": "en-US"
-                }
-              }
-            },
-            {
-              "@type": "Offer",
-              "@id": "https://setupshoponline.com/products-services-solutions#operational-workflow-and-agentic-systems-architecture-offer",
-              "url": "https://calendly.com/meet_with_setupshoponline/15-minute-intro",
-              "itemOffered": {
-                "@type": "Service",
-                "@id": "https://setupshoponline.com/products-services-solutions#operational-workflow-and-agentic-systems-architecture",
-                "name": "Operational Workflow and Agentic Systems Architecture",
-                "description": "You understand the problem and need a coherent design for how the improved workflow should operate. We map the future workflow and define its trigger, objective, inputs, steps, decisions, systems, handoffs, exceptions, and completion criteria. We specify what stays with people, what follows fixed automation rules, and where AI or an agent may be useful. The design addresses information access, permitted actions, approvals, escalation routes, integration requirements, ownership, and measurement. It gives your team and implementation partners a shared basis for building and testing. This offer develops the workflow and system design. Existing Agentic Orchestration Enablement remains available for enabling coordinated agents and workflows.",
-                "url": "https://setupshoponline.com/products-services-solutions#operational-workflow-and-agentic-systems-architecture",
-                "provider": {
-                  "@id": "https://setupshoponline.com/#organization"
-                },
-                "areaServed": "United States",
-                "serviceType": "Operational Workflow and Agentic Systems Architecture",
-                "image": {
-                  "@type": "ImageObject",
-                  "@id": "https://setupshoponline.com/images/offerings/operational-workflow-and-agentic-systems-architecture.webp#image",
-                  "contentUrl": "https://setupshoponline.com/images/offerings/operational-workflow-and-agentic-systems-architecture.webp",
-                  "name": "Team designing a workflow that connects documents, applications, human review, and completed outputs.",
-                  "caption": "Team designing a workflow that connects documents, applications, human review, and completed outputs.",
-                  "description": "Operational Workflow and Agentic Systems Architecture. You understand the problem and need a coherent design for how the improved workflow should operate.",
-                  "width": 1536,
-                  "height": 1024,
-                  "inLanguage": "en-US"
-                }
-              }
-            },
-            {
-              "@type": "Offer",
-              "@id": "https://setupshoponline.com/products-services-solutions#executive-ai-coaching-offer",
-              "url": "https://calendly.com/meet_with_setupshoponline/15-minute-intro",
-              "itemOffered": {
-                "@type": "Service",
-                "@id": "https://setupshoponline.com/products-services-solutions#executive-ai-coaching",
-                "name": "Personal Executive AI Coaching",
-                "description": "Use AI in your own working day to improve preparation, communication, prioritization, and decision support. Coaching starts with the work competing for your attention: planning, research, meetings, communication, and follow-through. We develop practical ways to use AI around your responsibilities and refine them through use. You build repeatable habits for preparing information, reviewing outputs, and applying your judgment. The focus is more usable leadership capacity and greater confidence guiding AI adoption across the business.",
-                "url": "https://setupshoponline.com/products-services-solutions#executive-ai-coaching",
-                "provider": {
-                  "@id": "https://setupshoponline.com/#organization"
-                },
-                "areaServed": "United States",
-                "serviceType": "Personal Executive AI Coaching",
-                "image": {
-                  "@type": "ImageObject",
-                  "@id": "https://setupshoponline.com/images/offerings/executive-ai-coaching.webp#image",
-                  "contentUrl": "https://setupshoponline.com/images/offerings/executive-ai-coaching.webp",
-                  "name": "Executive and coach reviewing a task list and calendar together at a laptop.",
-                  "caption": "Executive and coach reviewing a task list and calendar together at a laptop.",
-                  "description": "Personal Executive AI Coaching. Use AI in your own working day to improve preparation, communication, prioritization, and decision support.",
-                  "width": 1536,
-                  "height": 1024,
-                  "inLanguage": "en-US"
-                }
-              }
-            },
-            {
-              "@type": "Offer",
-              "@id": "https://setupshoponline.com/products-services-solutions#profitable-growth-and-ai-opportunity-assessment-offer",
-              "url": "https://calendly.com/meet_with_setupshoponline/15-minute-intro",
-              "itemOffered": {
-                "@type": "Service",
-                "@id": "https://setupshoponline.com/products-services-solutions#profitable-growth-and-ai-opportunity-assessment",
-                "name": "Profitable Growth and AI Opportunity Assessment",
-                "description": "You know the business needs to operate differently, but you are unsure what to fix first or where AI belongs. We examine your goals, workflows, systems, information flows, bottlenecks, and current measures. We compare opportunities by potential value, readiness, feasibility, cost, and risk. Within the agreed scope, the assessment produces a current-state view, constraint analysis, prioritized opportunities, business-value hypotheses, an AI and agentic suitability assessment, a recommended roadmap, and success measures. You leave with a clearer investment decision and an evidence-based direction for deeper design. Any business-value estimates remain hypotheses until validated against your operating data. This is a scoped consulting assessment. It is separate from the free self-service Business Strategy Report and from the current SUSO Framework package, which retains its existing prototype commitment.",
-                "url": "https://setupshoponline.com/products-services-solutions#profitable-growth-and-ai-opportunity-assessment",
-                "provider": {
-                  "@id": "https://setupshoponline.com/#organization"
-                },
-                "areaServed": "United States",
-                "serviceType": "Profitable Growth and AI Opportunity Assessment",
-                "image": {
-                  "@type": "ImageObject",
-                  "@id": "https://setupshoponline.com/images/offerings/profitable-growth-and-ai-opportunity-assessment.webp#image",
-                  "contentUrl": "https://setupshoponline.com/images/offerings/profitable-growth-and-ai-opportunity-assessment.webp",
-                  "name": "Business advisors comparing opportunity cards beside a growth chart and target.",
-                  "caption": "Business advisors comparing opportunity cards beside a growth chart and target.",
-                  "description": "Profitable Growth and AI Opportunity Assessment. You know the business needs to operate differently, but you are unsure what to fix first or where AI belongs.",
-                  "width": 1536,
-                  "height": 1024,
-                  "inLanguage": "en-US"
-                }
-              }
-            },
-            {
-              "@type": "Offer",
-              "@id": "https://setupshoponline.com/products-services-solutions#solution-architecture-and-implementation-leadership-offer",
-              "url": "https://calendly.com/meet_with_setupshoponline/15-minute-intro",
-              "itemOffered": {
-                "@type": "Service",
-                "@id": "https://setupshoponline.com/products-services-solutions#solution-architecture-and-implementation-leadership",
-                "name": "Solution Architecture and Implementation Leadership",
-                "description": "You need someone to keep business priorities connected to technical delivery. I work across leadership, operational teams, developers, vendors, and specialists to clarify requirements and guide implementation decisions. The scope can include a phased roadmap, partner coordination, prototype reviews, acceptance criteria, implementation reviews, and outcome validation. The value is continuity of judgment from the original business problem through implementation and adoption. Responsibilities, build scope, and acceptance criteria are agreed before delivery work begins.",
-                "url": "https://setupshoponline.com/products-services-solutions#solution-architecture-and-implementation-leadership",
-                "provider": {
-                  "@id": "https://setupshoponline.com/#organization"
-                },
-                "areaServed": "United States",
-                "serviceType": "Solution Architecture and Implementation Leadership",
-                "image": {
-                  "@type": "ImageObject",
-                  "@id": "https://setupshoponline.com/images/offerings/solution-architecture-and-implementation-leadership.webp#image",
-                  "contentUrl": "https://setupshoponline.com/images/offerings/solution-architecture-and-implementation-leadership.webp",
-                  "name": "Project leader coordinating a team through design, build, review, and delivery milestones.",
-                  "caption": "Project leader coordinating a team through design, build, review, and delivery milestones.",
-                  "description": "Solution Architecture and Implementation Leadership. You need someone to keep business priorities connected to technical delivery.",
-                  "width": 1536,
-                  "height": 1024,
-                  "inLanguage": "en-US"
-                }
-              }
-            },
-            {
-              "@type": "Offer",
-              "@id": "https://setupshoponline.com/products-services-solutions#suso-framework-offer",
-              "url": "https://calendly.com/meet_with_setupshoponline/15-minute-intro",
-              "itemOffered": {
-                "@type": "Service",
-                "@id": "https://setupshoponline.com/products-services-solutions#suso-framework",
-                "name": "SUSO Framework",
-                "description": "Turn a priority opportunity into a business case, solution architecture, and a Phase 1 or MVP prototype. Our Value Mapping and Solution Architecture process connects your goals to the people, workflows, and information that shape results. We establish a baseline, identify opportunities, and prioritize them by value, cost, effort, and feasibility. Within the agreed scope, you receive a value map, phased plan, solution architecture, and a working Phase 1 or minimum viable product prototype, with testing and handoff guidance. Depending on complexity, we may also publish a live version if testing and client acceptance can be completed within the agreed timeframe.",
-                "url": "https://setupshoponline.com/products-services-solutions#suso-framework",
-                "provider": {
-                  "@id": "https://setupshoponline.com/#organization"
-                },
-                "areaServed": "United States",
-                "serviceType": "SUSO Framework",
-                "image": {
-                  "@type": "ImageObject",
-                  "@id": "https://setupshoponline.com/images/offerings/suso-framework.webp#image",
-                  "contentUrl": "https://setupshoponline.com/images/offerings/suso-framework.webp",
-                  "name": "Business priorities connected to a systems blueprint and a working business application.",
-                  "caption": "Business priorities connected to a systems blueprint and a working business application.",
-                  "description": "SUSO Framework. Turn a priority opportunity into a business case, solution architecture, and a Phase 1 or MVP prototype.",
                   "width": 1536,
                   "height": 1024,
                   "inLanguage": "en-US"
@@ -581,6 +581,34 @@
             },
             {
               "@type": "Offer",
+              "@id": "https://setupshoponline.com/products-services-solutions#custom-integration-offer",
+              "url": "https://calendly.com/meet_with_setupshoponline/15-minute-intro",
+              "itemOffered": {
+                "@type": "Service",
+                "@id": "https://setupshoponline.com/products-services-solutions#custom-integration",
+                "name": "Custom Integration",
+                "description": "Help information move between applications so people spend less time copying, checking, and chasing it. We connect business systems around the information and events a workflow needs. This can include transferring records, coordinating updates, and handling exceptions across applications. The work starts with the purpose of the connection and defines what should move, when, and who owns problems. It supports broader operations as well as coordinated AI workflows, with customer-specific sales processes addressed through CRM Integration.",
+                "url": "https://setupshoponline.com/products-services-solutions#custom-integration",
+                "provider": {
+                  "@id": "https://setupshoponline.com/#organization"
+                },
+                "areaServed": "United States",
+                "serviceType": "Custom Integration",
+                "image": {
+                  "@type": "ImageObject",
+                  "@id": "https://setupshoponline.com/images/offerings/custom-integration.webp#image",
+                  "contentUrl": "https://setupshoponline.com/images/offerings/custom-integration.webp",
+                  "name": "Sales and team applications exchanging records through a central integration process.",
+                  "caption": "Sales and team applications exchanging records through a central integration process.",
+                  "description": "Custom Integration. Help information move between applications so people spend less time copying, checking, and chasing it.",
+                  "width": 1536,
+                  "height": 1024,
+                  "inLanguage": "en-US"
+                }
+              }
+            },
+            {
+              "@type": "Offer",
               "@id": "https://setupshoponline.com/products-services-solutions#ai-data-governance-offer",
               "url": "https://calendly.com/meet_with_setupshoponline/15-minute-intro",
               "itemOffered": {
@@ -609,26 +637,54 @@
             },
             {
               "@type": "Offer",
-              "@id": "https://setupshoponline.com/products-services-solutions#ai-business-brains-offer",
+              "@id": "https://setupshoponline.com/products-services-solutions#security-offer",
               "url": "https://calendly.com/meet_with_setupshoponline/15-minute-intro",
               "itemOffered": {
                 "@type": "Service",
-                "@id": "https://setupshoponline.com/products-services-solutions#ai-business-brains",
-                "name": "AI Business Brains and Marketplace Knowledge Products",
-                "description": "Build a reusable AI brain that helps your team apply company knowledge, or package your expertise into a knowledge product designed for marketplace sales. Your experience, methods, and business knowledge can become an asset people use repeatedly. Building on our work with Mygentic, we help turn approved source material into a focused AI brain with a clear audience, useful capabilities, and a practical plan for testing and ongoing improvement. Internal Business Brain Give employees a consistent way to find and apply your processes, service standards, product knowledge, training, and lessons learned. We organize the knowledge around real questions and tasks, define how the brain should respond, and test its usefulness with the people who will use it. The aim is faster onboarding, fewer repeated questions, more consistent work, and less dependence on one person holding all the answers. Marketplace Knowledge Product Turn expertise you own or are authorized to commercialize into a focused brain for a defined buyer and business problem. We help shape the offer, organize the knowledge, develop useful prompts and guided experiences, test representative tasks, and prepare product descriptions, demonstrations, and onboarding materials. Marketplace preparation includes planning access, support, and updates. Publication follows the selected platform’s requirements and your approval. Private company and client information stays separate from the material intended for sale. Within the agreed scope, the work includes an audience and use-case brief, a knowledge map, a working brain prototype, testing criteria, and an ownership and update plan. The internal path focuses on business adoption. The marketplace path also considers buyer demand, delivery costs, and the effort required to support customers.",
-                "url": "https://setupshoponline.com/products-services-solutions#ai-business-brains",
+                "@id": "https://setupshoponline.com/products-services-solutions#security",
+                "name": "Security",
+                "description": "Strengthen practical controls around data, AI tools, and connected systems as your capabilities develop. Connecting tools and introducing AI changes how information moves and who can access it. We help identify the controls needed for the agreed use case, including access permissions, data handling, and system connections. The work is coordinated with your existing policies and responsible specialists where needed. Clear controls and review responsibilities support more confident implementation and day-to-day use.",
+                "url": "https://setupshoponline.com/products-services-solutions#security",
                 "provider": {
                   "@id": "https://setupshoponline.com/#organization"
                 },
                 "areaServed": "United States",
-                "serviceType": "AI Business Brains and Marketplace Knowledge Products",
+                "serviceType": "Security",
                 "image": {
                   "@type": "ImageObject",
-                  "@id": "https://setupshoponline.com/images/offerings/ai-business-brains.webp#image",
-                  "contentUrl": "https://setupshoponline.com/images/offerings/ai-business-brains.webp",
-                  "name": "Shared business knowledge supporting team collaboration and a packaged digital knowledge product.",
-                  "caption": "Shared business knowledge supporting team collaboration and a packaged digital knowledge product.",
-                  "description": "AI Business Brains and Marketplace Knowledge Products. Build a reusable AI brain that helps your team apply company knowledge, or package your expertise into a knowledge product designed for marketplace sales.",
+                  "@id": "https://setupshoponline.com/images/offerings/security.webp#image",
+                  "contentUrl": "https://setupshoponline.com/images/offerings/security.webp",
+                  "name": "Business database protected by a shield, lock, and controlled access for team members.",
+                  "caption": "Business database protected by a shield, lock, and controlled access for team members.",
+                  "description": "Security. Strengthen practical controls around data, AI tools, and connected systems as your capabilities develop.",
+                  "width": 1536,
+                  "height": 1024,
+                  "inLanguage": "en-US"
+                }
+              }
+            },
+            {
+              "@type": "Offer",
+              "@id": "https://setupshoponline.com/products-services-solutions#business-context-prompt-systems-offer",
+              "url": "https://calendly.com/meet_with_setupshoponline/15-minute-intro",
+              "itemOffered": {
+                "@type": "Service",
+                "@id": "https://setupshoponline.com/products-services-solutions#business-context-prompt-systems",
+                "name": "Business Context Integration and Prompt Systems",
+                "description": "Connect existing information with practical AI systems and tested prompts to reduce research, repeated explanations, and rework. Your business already holds valuable context in documents, meeting notes, customer records, procedures, and everyday decisions. We identify the sources that matter to a selected workflow, organize the relevant information, and integrate it into a practical system your team can use. We build reusable prompts and instructions around your standards, customers, and goals, then test them against real tasks such as preparing proposals, responding to clients, onboarding employees, or producing reports. Within the agreed scope, you receive a source and context map, a working context-supported workflow, a tested prompt library, and guidance for reviewing outputs and keeping information current. The focus is making your existing knowledge useful at the moment work happens, with clear ownership of updates and appropriate access to source material.",
+                "url": "https://setupshoponline.com/products-services-solutions#business-context-prompt-systems",
+                "provider": {
+                  "@id": "https://setupshoponline.com/#organization"
+                },
+                "areaServed": "United States",
+                "serviceType": "Business Context Integration and Prompt Systems",
+                "image": {
+                  "@type": "ImageObject",
+                  "@id": "https://setupshoponline.com/images/offerings/business-context-prompt-systems.webp#image",
+                  "contentUrl": "https://setupshoponline.com/images/offerings/business-context-prompt-systems.webp",
+                  "name": "Business documents and customer records feeding a shared knowledge system and reusable prompts.",
+                  "caption": "Business documents and customer records feeding a shared knowledge system and reusable prompts.",
+                  "description": "Business Context Integration and Prompt Systems. Connect existing information with practical AI systems and tested prompts to reduce research, repeated explanations, and rework.",
                   "width": 1536,
                   "height": 1024,
                   "inLanguage": "en-US"
@@ -665,90 +721,6 @@
             },
             {
               "@type": "Offer",
-              "@id": "https://setupshoponline.com/products-services-solutions#crm-integration-offer",
-              "url": "https://calendly.com/meet_with_setupshoponline/15-minute-intro",
-              "itemOffered": {
-                "@type": "Service",
-                "@id": "https://setupshoponline.com/products-services-solutions#crm-integration",
-                "name": "CRM Integration",
-                "description": "Connect customer information and sales activity so your team can see each opportunity and its next step. When contacts, inquiries, and follow-up live in different places, opportunities can lose momentum. We connect the customer-facing workflows around lead capture, records, ownership, and sales progression. The scope may include website inquiries, reminders, handoffs, and visibility into the pipeline. Your team gains a more consistent way to manage relationships and act on the information it already has.",
-                "url": "https://setupshoponline.com/products-services-solutions#crm-integration",
-                "provider": {
-                  "@id": "https://setupshoponline.com/#organization"
-                },
-                "areaServed": "United States",
-                "serviceType": "CRM Integration",
-                "image": {
-                  "@type": "ImageObject",
-                  "@id": "https://setupshoponline.com/images/offerings/crm-integration.webp#image",
-                  "contentUrl": "https://setupshoponline.com/images/offerings/crm-integration.webp",
-                  "name": "Customer inquiry flowing into shared contact records, team ownership, and scheduled follow-up.",
-                  "caption": "Customer inquiry flowing into shared contact records, team ownership, and scheduled follow-up.",
-                  "description": "CRM Integration. Connect customer information and sales activity so your team can see each opportunity and its next step.",
-                  "width": 1536,
-                  "height": 1024,
-                  "inLanguage": "en-US"
-                }
-              }
-            },
-            {
-              "@type": "Offer",
-              "@id": "https://setupshoponline.com/products-services-solutions#custom-integration-offer",
-              "url": "https://calendly.com/meet_with_setupshoponline/15-minute-intro",
-              "itemOffered": {
-                "@type": "Service",
-                "@id": "https://setupshoponline.com/products-services-solutions#custom-integration",
-                "name": "Custom Integration",
-                "description": "Help information move between applications so people spend less time copying, checking, and chasing it. We connect business systems around the information and events a workflow needs. This can include transferring records, coordinating updates, and handling exceptions across applications. The work starts with the purpose of the connection and defines what should move, when, and who owns problems. It supports broader operations as well as coordinated AI workflows, with customer-specific sales processes addressed through CRM Integration.",
-                "url": "https://setupshoponline.com/products-services-solutions#custom-integration",
-                "provider": {
-                  "@id": "https://setupshoponline.com/#organization"
-                },
-                "areaServed": "United States",
-                "serviceType": "Custom Integration",
-                "image": {
-                  "@type": "ImageObject",
-                  "@id": "https://setupshoponline.com/images/offerings/custom-integration.webp#image",
-                  "contentUrl": "https://setupshoponline.com/images/offerings/custom-integration.webp",
-                  "name": "Sales and team applications exchanging records through a central integration process.",
-                  "caption": "Sales and team applications exchanging records through a central integration process.",
-                  "description": "Custom Integration. Help information move between applications so people spend less time copying, checking, and chasing it.",
-                  "width": 1536,
-                  "height": 1024,
-                  "inLanguage": "en-US"
-                }
-              }
-            },
-            {
-              "@type": "Offer",
-              "@id": "https://setupshoponline.com/products-services-solutions#data-architecture-offer",
-              "url": "https://calendly.com/meet_with_setupshoponline/15-minute-intro",
-              "itemOffered": {
-                "@type": "Service",
-                "@id": "https://setupshoponline.com/products-services-solutions#data-architecture",
-                "name": "Data Architecture",
-                "description": "Organize and connect business information so it is easier to find, understand, and use. Scattered or inconsistent information makes reporting, automation, and AI harder to trust. We help define the structure, sources, relationships, and movement of the data your business needs. The work connects information requirements to real use cases and supports a practical path toward more reliable data. Ownership, access, and reporting needs are considered alongside the technical design.",
-                "url": "https://setupshoponline.com/products-services-solutions#data-architecture",
-                "provider": {
-                  "@id": "https://setupshoponline.com/#organization"
-                },
-                "areaServed": "United States",
-                "serviceType": "Data Architecture",
-                "image": {
-                  "@type": "ImageObject",
-                  "@id": "https://setupshoponline.com/images/offerings/data-architecture.webp#image",
-                  "contentUrl": "https://setupshoponline.com/images/offerings/data-architecture.webp",
-                  "name": "Organized business data layers connecting to database tables and reporting systems.",
-                  "caption": "Organized business data layers connecting to database tables and reporting systems.",
-                  "description": "Data Architecture. Organize and connect business information so it is easier to find, understand, and use.",
-                  "width": 1536,
-                  "height": 1024,
-                  "inLanguage": "en-US"
-                }
-              }
-            },
-            {
-              "@type": "Offer",
               "@id": "https://setupshoponline.com/products-services-solutions#profitability-analytics-offer",
               "url": "https://calendly.com/meet_with_setupshoponline/15-minute-intro",
               "itemOffered": {
@@ -777,26 +749,26 @@
             },
             {
               "@type": "Offer",
-              "@id": "https://setupshoponline.com/products-services-solutions#security-offer",
+              "@id": "https://setupshoponline.com/products-services-solutions#data-architecture-offer",
               "url": "https://calendly.com/meet_with_setupshoponline/15-minute-intro",
               "itemOffered": {
                 "@type": "Service",
-                "@id": "https://setupshoponline.com/products-services-solutions#security",
-                "name": "Security",
-                "description": "Strengthen practical controls around data, AI tools, and connected systems as your capabilities develop. Connecting tools and introducing AI changes how information moves and who can access it. We help identify the controls needed for the agreed use case, including access permissions, data handling, and system connections. The work is coordinated with your existing policies and responsible specialists where needed. Clear controls and review responsibilities support more confident implementation and day-to-day use.",
-                "url": "https://setupshoponline.com/products-services-solutions#security",
+                "@id": "https://setupshoponline.com/products-services-solutions#data-architecture",
+                "name": "Data Architecture",
+                "description": "Organize and connect business information so it is easier to find, understand, and use. Scattered or inconsistent information makes reporting, automation, and AI harder to trust. We help define the structure, sources, relationships, and movement of the data your business needs. The work connects information requirements to real use cases and supports a practical path toward more reliable data. Ownership, access, and reporting needs are considered alongside the technical design.",
+                "url": "https://setupshoponline.com/products-services-solutions#data-architecture",
                 "provider": {
                   "@id": "https://setupshoponline.com/#organization"
                 },
                 "areaServed": "United States",
-                "serviceType": "Security",
+                "serviceType": "Data Architecture",
                 "image": {
                   "@type": "ImageObject",
-                  "@id": "https://setupshoponline.com/images/offerings/security.webp#image",
-                  "contentUrl": "https://setupshoponline.com/images/offerings/security.webp",
-                  "name": "Business database protected by a shield, lock, and controlled access for team members.",
-                  "caption": "Business database protected by a shield, lock, and controlled access for team members.",
-                  "description": "Security. Strengthen practical controls around data, AI tools, and connected systems as your capabilities develop.",
+                  "@id": "https://setupshoponline.com/images/offerings/data-architecture.webp#image",
+                  "contentUrl": "https://setupshoponline.com/images/offerings/data-architecture.webp",
+                  "name": "Organized business data layers connecting to database tables and reporting systems.",
+                  "caption": "Organized business data layers connecting to database tables and reporting systems.",
+                  "description": "Data Architecture. Organize and connect business information so it is easier to find, understand, and use.",
                   "width": 1536,
                   "height": 1024,
                   "inLanguage": "en-US"
@@ -853,6 +825,34 @@
                   "name": "Responsive business website connected to commerce, operations, and inquiry follow-up.",
                   "caption": "Responsive business website connected to commerce, operations, and inquiry follow-up.",
                   "description": "Website Redesign. Make your value easier to understand and give prospective customers a clearer path to contact your business.",
+                  "width": 1536,
+                  "height": 1024,
+                  "inLanguage": "en-US"
+                }
+              }
+            },
+            {
+              "@type": "Offer",
+              "@id": "https://setupshoponline.com/products-services-solutions#crm-integration-offer",
+              "url": "https://calendly.com/meet_with_setupshoponline/15-minute-intro",
+              "itemOffered": {
+                "@type": "Service",
+                "@id": "https://setupshoponline.com/products-services-solutions#crm-integration",
+                "name": "CRM Integration",
+                "description": "Connect customer information and sales activity so your team can see each opportunity and its next step. When contacts, inquiries, and follow-up live in different places, opportunities can lose momentum. We connect the customer-facing workflows around lead capture, records, ownership, and sales progression. The scope may include website inquiries, reminders, handoffs, and visibility into the pipeline. Your team gains a more consistent way to manage relationships and act on the information it already has.",
+                "url": "https://setupshoponline.com/products-services-solutions#crm-integration",
+                "provider": {
+                  "@id": "https://setupshoponline.com/#organization"
+                },
+                "areaServed": "United States",
+                "serviceType": "CRM Integration",
+                "image": {
+                  "@type": "ImageObject",
+                  "@id": "https://setupshoponline.com/images/offerings/crm-integration.webp#image",
+                  "contentUrl": "https://setupshoponline.com/images/offerings/crm-integration.webp",
+                  "name": "Customer inquiry flowing into shared contact records, team ownership, and scheduled follow-up.",
+                  "caption": "Customer inquiry flowing into shared contact records, team ownership, and scheduled follow-up.",
+                  "description": "CRM Integration. Connect customer information and sales activity so your team can see each opportunity and its next step.",
                   "width": 1536,
                   "height": 1024,
                   "inLanguage": "en-US"
@@ -1008,11 +1008,22 @@
     },
     {
       "@type": "ImageObject",
-      "@id": "https://setupshoponline.com/images/offerings/individual-ai-training.webp#image",
-      "contentUrl": "https://setupshoponline.com/images/offerings/individual-ai-training.webp",
-      "name": "Trainer guiding a team member at a laptop beside a completed task checklist.",
-      "caption": "Trainer guiding a team member at a laptop beside a completed task checklist.",
-      "description": "1 on 1 Team Member Training. Help each employee apply AI to their actual responsibilities with practical skills, confidence, and clear review habits.",
+      "@id": "https://setupshoponline.com/images/offerings/ai-business-brains.webp#image",
+      "contentUrl": "https://setupshoponline.com/images/offerings/ai-business-brains.webp",
+      "name": "Shared business knowledge supporting team collaboration and a packaged digital knowledge product.",
+      "caption": "Shared business knowledge supporting team collaboration and a packaged digital knowledge product.",
+      "description": "AI Business Brains and Marketplace Knowledge Products. Build a reusable AI brain that helps your team apply company knowledge, or package your expertise into a knowledge product designed for marketplace sales.",
+      "width": 1536,
+      "height": 1024,
+      "inLanguage": "en-US"
+    },
+    {
+      "@type": "ImageObject",
+      "@id": "https://setupshoponline.com/images/offerings/suso-framework.webp#image",
+      "contentUrl": "https://setupshoponline.com/images/offerings/suso-framework.webp",
+      "name": "Business priorities connected to a systems blueprint and a working business application.",
+      "caption": "Business priorities connected to a systems blueprint and a working business application.",
+      "description": "SUSO Framework. Turn a priority opportunity into a business case, solution architecture, and a Phase 1 or MVP prototype.",
       "width": 1536,
       "height": 1024,
       "inLanguage": "en-US"
@@ -1030,11 +1041,55 @@
     },
     {
       "@type": "ImageObject",
-      "@id": "https://setupshoponline.com/images/offerings/business-context-prompt-systems.webp#image",
-      "contentUrl": "https://setupshoponline.com/images/offerings/business-context-prompt-systems.webp",
-      "name": "Business documents and customer records feeding a shared knowledge system and reusable prompts.",
-      "caption": "Business documents and customer records feeding a shared knowledge system and reusable prompts.",
-      "description": "Business Context Integration and Prompt Systems. Connect existing information with practical AI systems and tested prompts to reduce research, repeated explanations, and rework.",
+      "@id": "https://setupshoponline.com/images/offerings/profitable-growth-and-ai-opportunity-assessment.webp#image",
+      "contentUrl": "https://setupshoponline.com/images/offerings/profitable-growth-and-ai-opportunity-assessment.webp",
+      "name": "Business advisors comparing opportunity cards beside a growth chart and target.",
+      "caption": "Business advisors comparing opportunity cards beside a growth chart and target.",
+      "description": "Profitable Growth and AI Opportunity Assessment. You know the business needs to operate differently, but you are unsure what to fix first or where AI belongs.",
+      "width": 1536,
+      "height": 1024,
+      "inLanguage": "en-US"
+    },
+    {
+      "@type": "ImageObject",
+      "@id": "https://setupshoponline.com/images/offerings/operational-workflow-and-agentic-systems-architecture.webp#image",
+      "contentUrl": "https://setupshoponline.com/images/offerings/operational-workflow-and-agentic-systems-architecture.webp",
+      "name": "Team designing a workflow that connects documents, applications, human review, and completed outputs.",
+      "caption": "Team designing a workflow that connects documents, applications, human review, and completed outputs.",
+      "description": "Operational Workflow and Agentic Systems Architecture. You understand the problem and need a coherent design for how the improved workflow should operate.",
+      "width": 1536,
+      "height": 1024,
+      "inLanguage": "en-US"
+    },
+    {
+      "@type": "ImageObject",
+      "@id": "https://setupshoponline.com/images/offerings/solution-architecture-and-implementation-leadership.webp#image",
+      "contentUrl": "https://setupshoponline.com/images/offerings/solution-architecture-and-implementation-leadership.webp",
+      "name": "Project leader coordinating a team through design, build, review, and delivery milestones.",
+      "caption": "Project leader coordinating a team through design, build, review, and delivery milestones.",
+      "description": "Solution Architecture and Implementation Leadership. You need someone to keep business priorities connected to technical delivery.",
+      "width": 1536,
+      "height": 1024,
+      "inLanguage": "en-US"
+    },
+    {
+      "@type": "ImageObject",
+      "@id": "https://setupshoponline.com/images/offerings/executive-ai-coaching.webp#image",
+      "contentUrl": "https://setupshoponline.com/images/offerings/executive-ai-coaching.webp",
+      "name": "Executive and coach reviewing a task list and calendar together at a laptop.",
+      "caption": "Executive and coach reviewing a task list and calendar together at a laptop.",
+      "description": "Personal Executive AI Coaching. Use AI in your own working day to improve preparation, communication, prioritization, and decision support.",
+      "width": 1536,
+      "height": 1024,
+      "inLanguage": "en-US"
+    },
+    {
+      "@type": "ImageObject",
+      "@id": "https://setupshoponline.com/images/offerings/individual-ai-training.webp#image",
+      "contentUrl": "https://setupshoponline.com/images/offerings/individual-ai-training.webp",
+      "name": "Trainer guiding a team member at a laptop beside a completed task checklist.",
+      "caption": "Trainer guiding a team member at a laptop beside a completed task checklist.",
+      "description": "1 on 1 Team Member Training. Help each employee apply AI to their actual responsibilities with practical skills, confidence, and clear review habits.",
       "width": 1536,
       "height": 1024,
       "inLanguage": "en-US"
@@ -1063,61 +1118,6 @@
     },
     {
       "@type": "ImageObject",
-      "@id": "https://setupshoponline.com/images/offerings/operational-workflow-and-agentic-systems-architecture.webp#image",
-      "contentUrl": "https://setupshoponline.com/images/offerings/operational-workflow-and-agentic-systems-architecture.webp",
-      "name": "Team designing a workflow that connects documents, applications, human review, and completed outputs.",
-      "caption": "Team designing a workflow that connects documents, applications, human review, and completed outputs.",
-      "description": "Operational Workflow and Agentic Systems Architecture. You understand the problem and need a coherent design for how the improved workflow should operate.",
-      "width": 1536,
-      "height": 1024,
-      "inLanguage": "en-US"
-    },
-    {
-      "@type": "ImageObject",
-      "@id": "https://setupshoponline.com/images/offerings/executive-ai-coaching.webp#image",
-      "contentUrl": "https://setupshoponline.com/images/offerings/executive-ai-coaching.webp",
-      "name": "Executive and coach reviewing a task list and calendar together at a laptop.",
-      "caption": "Executive and coach reviewing a task list and calendar together at a laptop.",
-      "description": "Personal Executive AI Coaching. Use AI in your own working day to improve preparation, communication, prioritization, and decision support.",
-      "width": 1536,
-      "height": 1024,
-      "inLanguage": "en-US"
-    },
-    {
-      "@type": "ImageObject",
-      "@id": "https://setupshoponline.com/images/offerings/profitable-growth-and-ai-opportunity-assessment.webp#image",
-      "contentUrl": "https://setupshoponline.com/images/offerings/profitable-growth-and-ai-opportunity-assessment.webp",
-      "name": "Business advisors comparing opportunity cards beside a growth chart and target.",
-      "caption": "Business advisors comparing opportunity cards beside a growth chart and target.",
-      "description": "Profitable Growth and AI Opportunity Assessment. You know the business needs to operate differently, but you are unsure what to fix first or where AI belongs.",
-      "width": 1536,
-      "height": 1024,
-      "inLanguage": "en-US"
-    },
-    {
-      "@type": "ImageObject",
-      "@id": "https://setupshoponline.com/images/offerings/solution-architecture-and-implementation-leadership.webp#image",
-      "contentUrl": "https://setupshoponline.com/images/offerings/solution-architecture-and-implementation-leadership.webp",
-      "name": "Project leader coordinating a team through design, build, review, and delivery milestones.",
-      "caption": "Project leader coordinating a team through design, build, review, and delivery milestones.",
-      "description": "Solution Architecture and Implementation Leadership. You need someone to keep business priorities connected to technical delivery.",
-      "width": 1536,
-      "height": 1024,
-      "inLanguage": "en-US"
-    },
-    {
-      "@type": "ImageObject",
-      "@id": "https://setupshoponline.com/images/offerings/suso-framework.webp#image",
-      "contentUrl": "https://setupshoponline.com/images/offerings/suso-framework.webp",
-      "name": "Business priorities connected to a systems blueprint and a working business application.",
-      "caption": "Business priorities connected to a systems blueprint and a working business application.",
-      "description": "SUSO Framework. Turn a priority opportunity into a business case, solution architecture, and a Phase 1 or MVP prototype.",
-      "width": 1536,
-      "height": 1024,
-      "inLanguage": "en-US"
-    },
-    {
-      "@type": "ImageObject",
       "@id": "https://setupshoponline.com/images/offerings/agentic-orchestration.webp#image",
       "contentUrl": "https://setupshoponline.com/images/offerings/agentic-orchestration.webp",
       "name": "Connected email, spreadsheet, and cloud tasks passing through human approval into a results dashboard.",
@@ -1140,6 +1140,17 @@
     },
     {
       "@type": "ImageObject",
+      "@id": "https://setupshoponline.com/images/offerings/custom-integration.webp#image",
+      "contentUrl": "https://setupshoponline.com/images/offerings/custom-integration.webp",
+      "name": "Sales and team applications exchanging records through a central integration process.",
+      "caption": "Sales and team applications exchanging records through a central integration process.",
+      "description": "Custom Integration. Help information move between applications so people spend less time copying, checking, and chasing it.",
+      "width": 1536,
+      "height": 1024,
+      "inLanguage": "en-US"
+    },
+    {
+      "@type": "ImageObject",
       "@id": "https://setupshoponline.com/images/offerings/ai-data-governance.webp#image",
       "contentUrl": "https://setupshoponline.com/images/offerings/ai-data-governance.webp",
       "name": "Business information passing through a review checkpoint before reaching authorized team members.",
@@ -1151,11 +1162,22 @@
     },
     {
       "@type": "ImageObject",
-      "@id": "https://setupshoponline.com/images/offerings/ai-business-brains.webp#image",
-      "contentUrl": "https://setupshoponline.com/images/offerings/ai-business-brains.webp",
-      "name": "Shared business knowledge supporting team collaboration and a packaged digital knowledge product.",
-      "caption": "Shared business knowledge supporting team collaboration and a packaged digital knowledge product.",
-      "description": "AI Business Brains and Marketplace Knowledge Products. Build a reusable AI brain that helps your team apply company knowledge, or package your expertise into a knowledge product designed for marketplace sales.",
+      "@id": "https://setupshoponline.com/images/offerings/security.webp#image",
+      "contentUrl": "https://setupshoponline.com/images/offerings/security.webp",
+      "name": "Business database protected by a shield, lock, and controlled access for team members.",
+      "caption": "Business database protected by a shield, lock, and controlled access for team members.",
+      "description": "Security. Strengthen practical controls around data, AI tools, and connected systems as your capabilities develop.",
+      "width": 1536,
+      "height": 1024,
+      "inLanguage": "en-US"
+    },
+    {
+      "@type": "ImageObject",
+      "@id": "https://setupshoponline.com/images/offerings/business-context-prompt-systems.webp#image",
+      "contentUrl": "https://setupshoponline.com/images/offerings/business-context-prompt-systems.webp",
+      "name": "Business documents and customer records feeding a shared knowledge system and reusable prompts.",
+      "caption": "Business documents and customer records feeding a shared knowledge system and reusable prompts.",
+      "description": "Business Context Integration and Prompt Systems. Connect existing information with practical AI systems and tested prompts to reduce research, repeated explanations, and rework.",
       "width": 1536,
       "height": 1024,
       "inLanguage": "en-US"
@@ -1173,39 +1195,6 @@
     },
     {
       "@type": "ImageObject",
-      "@id": "https://setupshoponline.com/images/offerings/crm-integration.webp#image",
-      "contentUrl": "https://setupshoponline.com/images/offerings/crm-integration.webp",
-      "name": "Customer inquiry flowing into shared contact records, team ownership, and scheduled follow-up.",
-      "caption": "Customer inquiry flowing into shared contact records, team ownership, and scheduled follow-up.",
-      "description": "CRM Integration. Connect customer information and sales activity so your team can see each opportunity and its next step.",
-      "width": 1536,
-      "height": 1024,
-      "inLanguage": "en-US"
-    },
-    {
-      "@type": "ImageObject",
-      "@id": "https://setupshoponline.com/images/offerings/custom-integration.webp#image",
-      "contentUrl": "https://setupshoponline.com/images/offerings/custom-integration.webp",
-      "name": "Sales and team applications exchanging records through a central integration process.",
-      "caption": "Sales and team applications exchanging records through a central integration process.",
-      "description": "Custom Integration. Help information move between applications so people spend less time copying, checking, and chasing it.",
-      "width": 1536,
-      "height": 1024,
-      "inLanguage": "en-US"
-    },
-    {
-      "@type": "ImageObject",
-      "@id": "https://setupshoponline.com/images/offerings/data-architecture.webp#image",
-      "contentUrl": "https://setupshoponline.com/images/offerings/data-architecture.webp",
-      "name": "Organized business data layers connecting to database tables and reporting systems.",
-      "caption": "Organized business data layers connecting to database tables and reporting systems.",
-      "description": "Data Architecture. Organize and connect business information so it is easier to find, understand, and use.",
-      "width": 1536,
-      "height": 1024,
-      "inLanguage": "en-US"
-    },
-    {
-      "@type": "ImageObject",
       "@id": "https://setupshoponline.com/images/offerings/profitability-analytics.webp#image",
       "contentUrl": "https://setupshoponline.com/images/offerings/profitability-analytics.webp",
       "name": "Project revenue, delivery costs, and margins compared alongside time and capacity.",
@@ -1217,11 +1206,11 @@
     },
     {
       "@type": "ImageObject",
-      "@id": "https://setupshoponline.com/images/offerings/security.webp#image",
-      "contentUrl": "https://setupshoponline.com/images/offerings/security.webp",
-      "name": "Business database protected by a shield, lock, and controlled access for team members.",
-      "caption": "Business database protected by a shield, lock, and controlled access for team members.",
-      "description": "Security. Strengthen practical controls around data, AI tools, and connected systems as your capabilities develop.",
+      "@id": "https://setupshoponline.com/images/offerings/data-architecture.webp#image",
+      "contentUrl": "https://setupshoponline.com/images/offerings/data-architecture.webp",
+      "name": "Organized business data layers connecting to database tables and reporting systems.",
+      "caption": "Organized business data layers connecting to database tables and reporting systems.",
+      "description": "Data Architecture. Organize and connect business information so it is easier to find, understand, and use.",
       "width": 1536,
       "height": 1024,
       "inLanguage": "en-US"
@@ -1244,6 +1233,17 @@
       "name": "Responsive business website connected to commerce, operations, and inquiry follow-up.",
       "caption": "Responsive business website connected to commerce, operations, and inquiry follow-up.",
       "description": "Website Redesign. Make your value easier to understand and give prospective customers a clearer path to contact your business.",
+      "width": 1536,
+      "height": 1024,
+      "inLanguage": "en-US"
+    },
+    {
+      "@type": "ImageObject",
+      "@id": "https://setupshoponline.com/images/offerings/crm-integration.webp#image",
+      "contentUrl": "https://setupshoponline.com/images/offerings/crm-integration.webp",
+      "name": "Customer inquiry flowing into shared contact records, team ownership, and scheduled follow-up.",
+      "caption": "Customer inquiry flowing into shared contact records, team ownership, and scheduled follow-up.",
+      "description": "CRM Integration. Connect customer information and sales activity so your team can see each opportunity and its next step.",
       "width": 1536,
       "height": 1024,
       "inLanguage": "en-US"

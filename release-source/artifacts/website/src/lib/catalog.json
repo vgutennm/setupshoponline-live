@@ -52,6 +52,59 @@
         "ctaDescription": "Choose your priority and answer ten questions to get your personalized strategy report. No call is needed to get started.",
         "imageAlt": "Business action planner with a checklist and calendar.",
         "imageDescription": "Your Free Business Strategy Report. Choose your priority. Answer ten questions. Get clear findings and a 30–60–90-day roadmap."
+      },
+      {
+        "id": "ai-business-brains",
+        "title": "AI Business Brains and Marketplace Knowledge Products: Put Your Expertise to Work Inside Your Business and Beyond",
+        "short": "Build a reusable AI brain that helps your team apply company knowledge, or package your expertise into a knowledge product designed for marketplace sales.",
+        "expanded": [
+          "Your experience, methods, and business knowledge can become an asset people use repeatedly. Building on our work with Mygentic, we help turn approved source material into a focused AI brain with a clear audience, useful capabilities, and a practical plan for testing and ongoing improvement.",
+          "Internal Business Brain",
+          "Give employees a consistent way to find and apply your processes, service standards, product knowledge, training, and lessons learned.",
+          "We organize the knowledge around real questions and tasks, define how the brain should respond, and test its usefulness with the people who will use it. The aim is faster onboarding, fewer repeated questions, more consistent work, and less dependence on one person holding all the answers.",
+          "Marketplace Knowledge Product",
+          "Turn expertise you own or are authorized to commercialize into a focused brain for a defined buyer and business problem.",
+          "We help shape the offer, organize the knowledge, develop useful prompts and guided experiences, test representative tasks, and prepare product descriptions, demonstrations, and onboarding materials.",
+          "Marketplace preparation includes planning access, support, and updates. Publication follows the selected platform’s requirements and your approval. Private company and client information stays separate from the material intended for sale.",
+          "Within the agreed scope, the work includes an audience and use-case brief, a knowledge map, a working brain prototype, testing criteria, and an ownership and update plan. The internal path focuses on business adoption. The marketplace path also considers buyer demand, delivery costs, and the effort required to support customers."
+        ],
+        "best": "Businesses that want to preserve and share institutional knowledge, and experts or firms that want to turn authorized expertise into a repeatable product.",
+        "value": [
+          "For internal use: time to find answers, onboarding effort, answer quality, adoption, and expert time recovered.",
+          "For marketplace products: validated buyer interest, activation, repeat use, sales conversion, revenue, support costs, and contribution margin."
+        ],
+        "button": "Explore Your Business Brain",
+        "href": "https://calendly.com/meet_with_setupshoponline/15-minute-intro",
+        "related": [
+          {
+            "label": "SUSO Framework",
+            "href": "https://calendly.com/meet_with_setupshoponline/15-minute-intro"
+          },
+          {
+            "label": "Business Context Integration and Prompt Systems",
+            "href": "https://calendly.com/meet_with_setupshoponline/15-minute-intro"
+          },
+          {
+            "label": "AI and Data Governance",
+            "href": "https://calendly.com/meet_with_setupshoponline/15-minute-intro"
+          },
+          {
+            "label": "Security",
+            "href": "https://calendly.com/meet_with_setupshoponline/15-minute-intro"
+          },
+          {
+            "label": "Agentic Orchestration Enablement",
+            "href": "https://calendly.com/meet_with_setupshoponline/15-minute-intro"
+          },
+          {
+            "label": "Business Analytics",
+            "href": "https://calendly.com/meet_with_setupshoponline/15-minute-intro"
+          }
+        ],
+        "group": "Business Knowledge and Products",
+        "ctaDescription": "Start with a 15 minute intro call to discuss how your expertise could support your team or become a knowledge product. Choose a time on the next screen.",
+        "imageAlt": "Shared business knowledge supporting team collaboration and a packaged digital knowledge product.",
+        "imageDescription": "AI Business Brains and Marketplace Knowledge Products. Build a reusable AI brain that helps your team apply company knowledge, or package your expertise into a knowledge product designed for marketplace sales."
       }
     ]
   },
@@ -570,59 +623,6 @@
         "ctaDescription": "Start with a 15 minute intro call to talk through where your team needs better information and more useful AI outputs. Choose a time on the next screen.",
         "imageAlt": "Business documents and customer records feeding a shared knowledge system and reusable prompts.",
         "imageDescription": "Business Context Integration and Prompt Systems. Connect existing information with practical AI systems and tested prompts to reduce research, repeated explanations, and rework."
-      },
-      {
-        "id": "ai-business-brains",
-        "title": "AI Business Brains and Marketplace Knowledge Products: Put Your Expertise to Work Inside Your Business and Beyond",
-        "short": "Build a reusable AI brain that helps your team apply company knowledge, or package your expertise into a knowledge product designed for marketplace sales.",
-        "expanded": [
-          "Your experience, methods, and business knowledge can become an asset people use repeatedly. Building on our work with Mygentic, we help turn approved source material into a focused AI brain with a clear audience, useful capabilities, and a practical plan for testing and ongoing improvement.",
-          "Internal Business Brain",
-          "Give employees a consistent way to find and apply your processes, service standards, product knowledge, training, and lessons learned.",
-          "We organize the knowledge around real questions and tasks, define how the brain should respond, and test its usefulness with the people who will use it. The aim is faster onboarding, fewer repeated questions, more consistent work, and less dependence on one person holding all the answers.",
-          "Marketplace Knowledge Product",
-          "Turn expertise you own or are authorized to commercialize into a focused brain for a defined buyer and business problem.",
-          "We help shape the offer, organize the knowledge, develop useful prompts and guided experiences, test representative tasks, and prepare product descriptions, demonstrations, and onboarding materials.",
-          "Marketplace preparation includes planning access, support, and updates. Publication follows the selected platform’s requirements and your approval. Private company and client information stays separate from the material intended for sale.",
-          "Within the agreed scope, the work includes an audience and use-case brief, a knowledge map, a working brain prototype, testing criteria, and an ownership and update plan. The internal path focuses on business adoption. The marketplace path also considers buyer demand, delivery costs, and the effort required to support customers."
-        ],
-        "best": "Businesses that want to preserve and share institutional knowledge, and experts or firms that want to turn authorized expertise into a repeatable product.",
-        "value": [
-          "For internal use: time to find answers, onboarding effort, answer quality, adoption, and expert time recovered.",
-          "For marketplace products: validated buyer interest, activation, repeat use, sales conversion, revenue, support costs, and contribution margin."
-        ],
-        "button": "Explore Your Business Brain",
-        "href": "https://calendly.com/meet_with_setupshoponline/15-minute-intro",
-        "related": [
-          {
-            "label": "SUSO Framework",
-            "href": "https://calendly.com/meet_with_setupshoponline/15-minute-intro"
-          },
-          {
-            "label": "Business Context Integration and Prompt Systems",
-            "href": "https://calendly.com/meet_with_setupshoponline/15-minute-intro"
-          },
-          {
-            "label": "AI and Data Governance",
-            "href": "https://calendly.com/meet_with_setupshoponline/15-minute-intro"
-          },
-          {
-            "label": "Security",
-            "href": "https://calendly.com/meet_with_setupshoponline/15-minute-intro"
-          },
-          {
-            "label": "Agentic Orchestration Enablement",
-            "href": "https://calendly.com/meet_with_setupshoponline/15-minute-intro"
-          },
-          {
-            "label": "Business Analytics",
-            "href": "https://calendly.com/meet_with_setupshoponline/15-minute-intro"
-          }
-        ],
-        "group": "Business Knowledge and AI Workflows",
-        "ctaDescription": "Start with a 15 minute intro call to discuss how your expertise could support your team or become a knowledge product. Choose a time on the next screen.",
-        "imageAlt": "Shared business knowledge supporting team collaboration and a packaged digital knowledge product.",
-        "imageDescription": "AI Business Brains and Marketplace Knowledge Products. Build a reusable AI brain that helps your team apply company knowledge, or package your expertise into a knowledge product designed for marketplace sales."
       },
       {
         "id": "business-analytics",
