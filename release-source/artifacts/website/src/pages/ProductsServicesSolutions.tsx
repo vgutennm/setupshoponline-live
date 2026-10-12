@@ -7,9 +7,20 @@ import { Footer } from "@/components/layout/Footer";
 import { SEO } from "@/components/seo";
 import { Button } from "@/components/ui/button";
 import buyerFaqs from "@/lib/buyer-faqs.json";
-import catalog from "@/lib/catalog.json";
+import rawCatalog from "@/lib/catalog.json";
 import metadata from "@/lib/page-metadata.json";
 import "./catalog.css";
+
+// Keep each category together even if new offerings are added out of order.
+const catalog = rawCatalog.map(section => {
+  const groups = new Map<string, typeof section.offers>();
+  for (const offer of section.offers) {
+    const group = groups.get(offer.group) ?? [];
+    group.push(offer);
+    groups.set(offer.group, group);
+  }
+  return { ...section, offers: Array.from(groups.values()).flat() };
+});
 
 const route = "/products-services-solutions";
 const booking = siteConfig.agenticAssessmentUrl;
@@ -53,7 +64,7 @@ export default function ProductsServicesSolutions() {
             <p className="text-lg md:text-xl mt-4 max-w-3xl leading-relaxed text-slate-600">{section.intro}</p>
           </div>
           {section.offers.map((offer, offerIndex) => <Fragment key={offer.id}>
-            {offer.group && <h3 className="mt-12 mb-2 rounded-lg bg-slate-900 px-6 py-4 text-xl md:text-2xl font-semibold text-white">{offer.group}</h3>}
+            {offer.group && offer.group !== section.offers[offerIndex - 1]?.group && <h3 className="mt-12 mb-2 rounded-lg bg-slate-900 px-6 py-4 text-xl md:text-2xl font-semibold text-white">{offer.group}</h3>}
             <article aria-labelledby={offer.id} className="catalog-offer py-10 md:py-14 border-b border-slate-200 last:border-0">
               <div className="grid lg:grid-cols-[1fr_1.55fr] gap-7 lg:gap-12">
                 <div>

@@ -48,7 +48,7 @@
             "href": "https://calendly.com/meet_with_setupshoponline/15-minute-intro"
           }
         ],
-        "group": "",
+        "group": "Practical Resources",
         "ctaDescription": "Choose your priority and answer ten questions to get your personalized strategy report. No call is needed to get started.",
         "imageAlt": "Business action planner with a checklist and calendar.",
         "imageDescription": "Your Free Business Strategy Report. Choose your priority. Answer ten questions. Get clear findings and a 30–60–90-day roadmap."
@@ -60,272 +60,6 @@
     "title": "Services",
     "intro": "Expert guidance and practical implementation to identify valuable opportunities, put your business knowledge to work, and help your people use AI with confidence.",
     "offers": [
-      {
-        "id": "individual-ai-training",
-        "title": "1 on 1 Team Member Training: Build AI Skills Around Real Work",
-        "short": "Help each employee apply AI to their actual responsibilities with practical skills, confidence, and clear review habits.",
-        "expanded": [
-          "Training focuses on the tasks the person performs, the standards their work must meet, and the tools they can use. We practice relevant examples, develop reusable approaches, and show how to check results before relying on them.",
-          "The employee leaves with techniques they can apply in their role and a clearer understanding of when human judgment is needed."
-        ],
-        "best": "Employees who need individual practice tied to their role and quality standards.",
-        "value": [
-          "Task completion time, output quality, rework, and sustained use of the new skills."
-        ],
-        "button": "Get Started With AI Training",
-        "href": "https://calendly.com/meet_with_setupshoponline/15-minute-intro",
-        "related": [
-          {
-            "label": "AI Strategy Session",
-            "href": "https://calendly.com/meet_with_setupshoponline/15-minute-intro"
-          },
-          {
-            "label": "Group Trainings and Workshops",
-            "href": "https://calendly.com/meet_with_setupshoponline/15-minute-intro"
-          },
-          {
-            "label": "Agentic Orchestration Enablement",
-            "href": "https://calendly.com/meet_with_setupshoponline/15-minute-intro"
-          }
-        ],
-        "group": "Leadership and Team Adoption",
-        "ctaDescription": "Start with a 15 minute intro call to discuss the tasks, skills, and confidence your team member wants to build. Choose a time on the next screen.",
-        "imageAlt": "Trainer guiding a team member at a laptop beside a completed task checklist.",
-        "imageDescription": "1 on 1 Team Member Training. Help each employee apply AI to their actual responsibilities with practical skills, confidence, and clear review habits."
-      },
-      {
-        "id": "ai-strategy-session",
-        "title": "AI Strategy Session: Choose Your Next Business Improvement",
-        "short": "Get focused guidance on where AI, automation, or better ways of working could create meaningful value.",
-        "expanded": [
-          "Bring a business goal and the challenge getting in its way. In one hour, we explore the priority problem, consider a practical opportunity, and identify what needs to be understood before you commit further resources.",
-          "You receive an AI Opportunity Summary with the desired outcome, an initial success measure, and recommended next steps. Those steps may involve coaching, training, a coordinated workflow, or deeper assessment through the SUSO Framework."
-        ],
-        "best": "Owners who need help choosing a priority before committing more time, money, or team effort.",
-        "value": [
-          "A clearer investment decision, a defined priority, and a next step connected to a business outcome."
-        ],
-        "button": "Explore Your Next Move",
-        "href": "https://calendly.com/meet_with_setupshoponline/15-minute-intro",
-        "related": [
-          {
-            "label": "SUSO Framework",
-            "href": "https://calendly.com/meet_with_setupshoponline/15-minute-intro"
-          },
-          {
-            "label": "Personal Executive AI Coaching",
-            "href": "https://calendly.com/meet_with_setupshoponline/15-minute-intro"
-          },
-          {
-            "label": "1 on 1 Team Member Training",
-            "href": "https://calendly.com/meet_with_setupshoponline/15-minute-intro"
-          },
-          {
-            "label": "Group Trainings and Workshops",
-            "href": "https://calendly.com/meet_with_setupshoponline/15-minute-intro"
-          },
-          {
-            "label": "Agentic Orchestration Enablement",
-            "href": "https://calendly.com/meet_with_setupshoponline/15-minute-intro"
-          }
-        ],
-        "group": "Strategy and Solution Design",
-        "ctaDescription": "Start with a 15 minute intro call to discuss your priority and whether a focused strategy session is the right next step. Choose a time on the next screen.",
-        "imageAlt": "Advisor and business owner comparing ideas, system improvements, and performance charts.",
-        "imageDescription": "AI Strategy Session. Get focused guidance on where AI, automation, or better ways of working could create meaningful value."
-      },
-      {
-        "id": "business-context-prompt-systems",
-        "title": "Business Context Integration and Prompt Systems: Turn What Your Business Knows Into Better Results",
-        "short": "Connect existing information with practical AI systems and tested prompts to reduce research, repeated explanations, and rework.",
-        "expanded": [
-          "Your business already holds valuable context in documents, meeting notes, customer records, procedures, and everyday decisions. We identify the sources that matter to a selected workflow, organize the relevant information, and integrate it into a practical system your team can use.",
-          "We build reusable prompts and instructions around your standards, customers, and goals, then test them against real tasks such as preparing proposals, responding to clients, onboarding employees, or producing reports.",
-          "Within the agreed scope, you receive a source and context map, a working context-supported workflow, a tested prompt library, and guidance for reviewing outputs and keeping information current.",
-          "The focus is making your existing knowledge useful at the moment work happens, with clear ownership of updates and appropriate access to source material."
-        ],
-        "best": "Businesses whose teams repeatedly search for information, explain the same context to AI, or correct generic outputs.",
-        "value": [
-          "Time spent finding and preparing information, task completion time, output quality, review effort, rework, and adoption of the shared system."
-        ],
-        "button": "Put Your Business Knowledge to Work",
-        "href": "https://calendly.com/meet_with_setupshoponline/15-minute-intro",
-        "related": [
-          {
-            "label": "SUSO Framework",
-            "href": "https://calendly.com/meet_with_setupshoponline/15-minute-intro"
-          },
-          {
-            "label": "AI Business Brains and Marketplace Knowledge Products",
-            "href": "https://calendly.com/meet_with_setupshoponline/15-minute-intro"
-          },
-          {
-            "label": "Data Architecture",
-            "href": "https://calendly.com/meet_with_setupshoponline/15-minute-intro"
-          },
-          {
-            "label": "Custom Integration",
-            "href": "https://calendly.com/meet_with_setupshoponline/15-minute-intro"
-          },
-          {
-            "label": "AI and Data Governance",
-            "href": "https://calendly.com/meet_with_setupshoponline/15-minute-intro"
-          }
-        ],
-        "group": "Business Knowledge and AI Workflows",
-        "ctaDescription": "Start with a 15 minute intro call to talk through where your team needs better information and more useful AI outputs. Choose a time on the next screen.",
-        "imageAlt": "Business documents and customer records feeding a shared knowledge system and reusable prompts.",
-        "imageDescription": "Business Context Integration and Prompt Systems. Connect existing information with practical AI systems and tested prompts to reduce research, repeated explanations, and rework."
-      },
-      {
-        "id": "group-ai-workshops",
-        "title": "Group Trainings and Workshops: Turn Shared Learning Into Better Ways of Working",
-        "short": "Give teams practical experience using AI together on problems that matter to the business.",
-        "expanded": [
-          "Workshops bring people around relevant use cases, shared expectations, and hands-on practice. We help the team identify useful applications, compare approaches, and develop clearer habits for using and reviewing AI-assisted work.",
-          "Participants leave with practical examples and agreed next steps they can bring into their roles. Focused individual training can support team members who need more help afterward."
-        ],
-        "best": "Teams that need shared skills, consistent practices, and a coordinated starting point.",
-        "value": [
-          "Participation, demonstrated skills, adoption of agreed practices, and improvements in the selected workflows."
-        ],
-        "button": "Plan Your Team Workshop",
-        "href": "https://calendly.com/meet_with_setupshoponline/15-minute-intro",
-        "related": [
-          {
-            "label": "AI Strategy Session",
-            "href": "https://calendly.com/meet_with_setupshoponline/15-minute-intro"
-          },
-          {
-            "label": "1 on 1 Team Member Training",
-            "href": "https://calendly.com/meet_with_setupshoponline/15-minute-intro"
-          },
-          {
-            "label": "Personal Executive AI Coaching",
-            "href": "https://calendly.com/meet_with_setupshoponline/15-minute-intro"
-          },
-          {
-            "label": "AI and Data Governance",
-            "href": "https://calendly.com/meet_with_setupshoponline/15-minute-intro"
-          }
-        ],
-        "group": "Leadership and Team Adoption",
-        "ctaDescription": "Start with a 15 minute intro call to discuss your team, their work, and the outcomes you want from training. Choose a time on the next screen.",
-        "imageAlt": "Instructor leading a small team through a practical AI workshop with laptops and a shared task board.",
-        "imageDescription": "Group Trainings and Workshops. Give teams practical experience using AI together on problems that matter to the business."
-      },
-      {
-        "id": "ongoing-ai-and-operational-systems-advisory",
-        "title": "Ongoing AI and Operational Systems Advisory",
-        "short": "You want a continuing partner to review results and guide the next operating improvements.",
-        "expanded": [
-          "Periodic reviews examine workflow performance, business outcomes, new constraints, technology decisions, and roadmap priorities. We consider whether existing systems need refinement and where new capabilities are justified.",
-          "This is strategic guidance around operating capacity and business value. The cadence, responsibilities, and any implementation work are agreed for the engagement."
-        ],
-        "best": "",
-        "value": [],
-        "button": "Discuss Ongoing Advisory",
-        "href": "https://calendly.com/meet_with_setupshoponline/15-minute-intro",
-        "ctaDescription": "Start with a 15-minute intro to discuss your priority and whether this is the right next step.",
-        "related": [],
-        "group": "",
-        "isNew": true,
-        "imageAlt": "Advisor and owner reviewing a performance dashboard and selecting the next operational improvement.",
-        "imageDescription": "Ongoing AI and Operational Systems Advisory. You want a continuing partner to review results and guide the next operating improvements."
-      },
-      {
-        "id": "operational-workflow-and-agentic-systems-architecture",
-        "title": "Operational Workflow and Agentic Systems Architecture",
-        "short": "You understand the problem and need a coherent design for how the improved workflow should operate.",
-        "expanded": [
-          "We map the future workflow and define its trigger, objective, inputs, steps, decisions, systems, handoffs, exceptions, and completion criteria. We specify what stays with people, what follows fixed automation rules, and where AI or an agent may be useful.",
-          "The design addresses information access, permitted actions, approvals, escalation routes, integration requirements, ownership, and measurement. It gives your team and implementation partners a shared basis for building and testing.",
-          "This offer develops the workflow and system design. Existing Agentic Orchestration Enablement remains available for enabling coordinated agents and workflows."
-        ],
-        "best": "",
-        "value": [],
-        "button": "Design the Right Workflow",
-        "href": "https://calendly.com/meet_with_setupshoponline/15-minute-intro",
-        "ctaDescription": "Start with a 15-minute intro to discuss your priority and whether this is the right next step.",
-        "related": [],
-        "group": "",
-        "isNew": true,
-        "imageAlt": "Team designing a workflow that connects documents, applications, human review, and completed outputs.",
-        "imageDescription": "Operational Workflow and Agentic Systems Architecture. You understand the problem and need a coherent design for how the improved workflow should operate."
-      },
-      {
-        "id": "executive-ai-coaching",
-        "title": "Personal Executive AI Coaching: Create More Capacity to Lead",
-        "short": "Use AI in your own working day to improve preparation, communication, prioritization, and decision support.",
-        "expanded": [
-          "Coaching starts with the work competing for your attention: planning, research, meetings, communication, and follow-through. We develop practical ways to use AI around your responsibilities and refine them through use.",
-          "You build repeatable habits for preparing information, reviewing outputs, and applying your judgment. The focus is more usable leadership capacity and greater confidence guiding AI adoption across the business."
-        ],
-        "best": "Owners and executives who want practical AI support in their own work.",
-        "value": [
-          "Time spent on preparation, quality of decision inputs, consistent follow-through, and time available for leadership."
-        ],
-        "button": "Explore AI Coaching",
-        "href": "https://calendly.com/meet_with_setupshoponline/15-minute-intro",
-        "related": [
-          {
-            "label": "AI Strategy Session",
-            "href": "https://calendly.com/meet_with_setupshoponline/15-minute-intro"
-          },
-          {
-            "label": "Group Trainings and Workshops",
-            "href": "https://calendly.com/meet_with_setupshoponline/15-minute-intro"
-          },
-          {
-            "label": "AI and Data Governance",
-            "href": "https://calendly.com/meet_with_setupshoponline/15-minute-intro"
-          }
-        ],
-        "group": "Leadership and Team Adoption",
-        "ctaDescription": "Start with a 15 minute intro call to discuss your leadership priorities and what you want to accomplish with AI. Choose a time on the next screen.",
-        "imageAlt": "Executive and coach reviewing a task list and calendar together at a laptop.",
-        "imageDescription": "Personal Executive AI Coaching. Use AI in your own working day to improve preparation, communication, prioritization, and decision support."
-      },
-      {
-        "id": "profitable-growth-and-ai-opportunity-assessment",
-        "title": "Profitable Growth and AI Opportunity Assessment",
-        "short": "You know the business needs to operate differently, but you are unsure what to fix first or where AI belongs.",
-        "expanded": [
-          "We examine your goals, workflows, systems, information flows, bottlenecks, and current measures. We compare opportunities by potential value, readiness, feasibility, cost, and risk.",
-          "Within the agreed scope, the assessment produces a current-state view, constraint analysis, prioritized opportunities, business-value hypotheses, an AI and agentic suitability assessment, a recommended roadmap, and success measures.",
-          "You leave with a clearer investment decision and an evidence-based direction for deeper design. Any business-value estimates remain hypotheses until validated against your operating data.",
-          "This is a scoped consulting assessment. It is separate from the free self-service Business Strategy Report and from the current SUSO Framework package, which retains its existing prototype commitment."
-        ],
-        "best": "",
-        "value": [],
-        "button": "Find Your Highest-Value Opportunity",
-        "href": "https://calendly.com/meet_with_setupshoponline/15-minute-intro",
-        "ctaDescription": "Start with a 15-minute intro to discuss your priority and whether this is the right next step.",
-        "related": [],
-        "group": "",
-        "isNew": true,
-        "imageAlt": "Business advisors comparing opportunity cards beside a growth chart and target.",
-        "imageDescription": "Profitable Growth and AI Opportunity Assessment. You know the business needs to operate differently, but you are unsure what to fix first or where AI belongs."
-      },
-      {
-        "id": "solution-architecture-and-implementation-leadership",
-        "title": "Solution Architecture and Implementation Leadership",
-        "short": "You need someone to keep business priorities connected to technical delivery.",
-        "expanded": [
-          "I work across leadership, operational teams, developers, vendors, and specialists to clarify requirements and guide implementation decisions. The scope can include a phased roadmap, partner coordination, prototype reviews, acceptance criteria, implementation reviews, and outcome validation.",
-          "The value is continuity of judgment from the original business problem through implementation and adoption. Responsibilities, build scope, and acceptance criteria are agreed before delivery work begins."
-        ],
-        "best": "",
-        "value": [],
-        "button": "Connect Strategy to Implementation",
-        "href": "https://calendly.com/meet_with_setupshoponline/15-minute-intro",
-        "ctaDescription": "Start with a 15-minute intro to discuss your priority and whether this is the right next step.",
-        "related": [],
-        "group": "",
-        "isNew": true,
-        "imageAlt": "Project leader coordinating a team through design, build, review, and delivery milestones.",
-        "imageDescription": "Solution Architecture and Implementation Leadership. You need someone to keep business priorities connected to technical delivery."
-      },
       {
         "id": "suso-framework",
         "title": "SUSO Framework: Map Business Value, Design the Solution, Build the First Version",
@@ -390,6 +124,229 @@
         "ctaDescription": "Start with a 15 minute intro call to discuss your business challenge and whether the SUSO Framework fits your goals. Choose a time on the next screen.",
         "imageAlt": "Business priorities connected to a systems blueprint and a working business application.",
         "imageDescription": "SUSO Framework. Turn a priority opportunity into a business case, solution architecture, and a Phase 1 or MVP prototype."
+      },
+      {
+        "id": "ai-strategy-session",
+        "title": "AI Strategy Session: Choose Your Next Business Improvement",
+        "short": "Get focused guidance on where AI, automation, or better ways of working could create meaningful value.",
+        "expanded": [
+          "Bring a business goal and the challenge getting in its way. In one hour, we explore the priority problem, consider a practical opportunity, and identify what needs to be understood before you commit further resources.",
+          "You receive an AI Opportunity Summary with the desired outcome, an initial success measure, and recommended next steps. Those steps may involve coaching, training, a coordinated workflow, or deeper assessment through the SUSO Framework."
+        ],
+        "best": "Owners who need help choosing a priority before committing more time, money, or team effort.",
+        "value": [
+          "A clearer investment decision, a defined priority, and a next step connected to a business outcome."
+        ],
+        "button": "Explore Your Next Move",
+        "href": "https://calendly.com/meet_with_setupshoponline/15-minute-intro",
+        "related": [
+          {
+            "label": "SUSO Framework",
+            "href": "https://calendly.com/meet_with_setupshoponline/15-minute-intro"
+          },
+          {
+            "label": "Personal Executive AI Coaching",
+            "href": "https://calendly.com/meet_with_setupshoponline/15-minute-intro"
+          },
+          {
+            "label": "1 on 1 Team Member Training",
+            "href": "https://calendly.com/meet_with_setupshoponline/15-minute-intro"
+          },
+          {
+            "label": "Group Trainings and Workshops",
+            "href": "https://calendly.com/meet_with_setupshoponline/15-minute-intro"
+          },
+          {
+            "label": "Agentic Orchestration Enablement",
+            "href": "https://calendly.com/meet_with_setupshoponline/15-minute-intro"
+          }
+        ],
+        "group": "Strategy and Solution Design",
+        "ctaDescription": "Start with a 15 minute intro call to discuss your priority and whether a focused strategy session is the right next step. Choose a time on the next screen.",
+        "imageAlt": "Advisor and business owner comparing ideas, system improvements, and performance charts.",
+        "imageDescription": "AI Strategy Session. Get focused guidance on where AI, automation, or better ways of working could create meaningful value."
+      },
+      {
+        "id": "profitable-growth-and-ai-opportunity-assessment",
+        "title": "Profitable Growth and AI Opportunity Assessment",
+        "short": "You know the business needs to operate differently, but you are unsure what to fix first or where AI belongs.",
+        "expanded": [
+          "We examine your goals, workflows, systems, information flows, bottlenecks, and current measures. We compare opportunities by potential value, readiness, feasibility, cost, and risk.",
+          "Within the agreed scope, the assessment produces a current-state view, constraint analysis, prioritized opportunities, business-value hypotheses, an AI and agentic suitability assessment, a recommended roadmap, and success measures.",
+          "You leave with a clearer investment decision and an evidence-based direction for deeper design. Any business-value estimates remain hypotheses until validated against your operating data.",
+          "This is a scoped consulting assessment. It is separate from the free self-service Business Strategy Report and from the current SUSO Framework package, which retains its existing prototype commitment."
+        ],
+        "best": "",
+        "value": [],
+        "button": "Find Your Highest-Value Opportunity",
+        "href": "https://calendly.com/meet_with_setupshoponline/15-minute-intro",
+        "ctaDescription": "Start with a 15-minute intro to discuss your priority and whether this is the right next step.",
+        "related": [],
+        "group": "Strategy and Solution Design",
+        "isNew": true,
+        "imageAlt": "Business advisors comparing opportunity cards beside a growth chart and target.",
+        "imageDescription": "Profitable Growth and AI Opportunity Assessment. You know the business needs to operate differently, but you are unsure what to fix first or where AI belongs."
+      },
+      {
+        "id": "operational-workflow-and-agentic-systems-architecture",
+        "title": "Operational Workflow and Agentic Systems Architecture",
+        "short": "You understand the problem and need a coherent design for how the improved workflow should operate.",
+        "expanded": [
+          "We map the future workflow and define its trigger, objective, inputs, steps, decisions, systems, handoffs, exceptions, and completion criteria. We specify what stays with people, what follows fixed automation rules, and where AI or an agent may be useful.",
+          "The design addresses information access, permitted actions, approvals, escalation routes, integration requirements, ownership, and measurement. It gives your team and implementation partners a shared basis for building and testing.",
+          "This offer develops the workflow and system design. Existing Agentic Orchestration Enablement remains available for enabling coordinated agents and workflows."
+        ],
+        "best": "",
+        "value": [],
+        "button": "Design the Right Workflow",
+        "href": "https://calendly.com/meet_with_setupshoponline/15-minute-intro",
+        "ctaDescription": "Start with a 15-minute intro to discuss your priority and whether this is the right next step.",
+        "related": [],
+        "group": "Strategy and Solution Design",
+        "isNew": true,
+        "imageAlt": "Team designing a workflow that connects documents, applications, human review, and completed outputs.",
+        "imageDescription": "Operational Workflow and Agentic Systems Architecture. You understand the problem and need a coherent design for how the improved workflow should operate."
+      },
+      {
+        "id": "solution-architecture-and-implementation-leadership",
+        "title": "Solution Architecture and Implementation Leadership",
+        "short": "You need someone to keep business priorities connected to technical delivery.",
+        "expanded": [
+          "I work across leadership, operational teams, developers, vendors, and specialists to clarify requirements and guide implementation decisions. The scope can include a phased roadmap, partner coordination, prototype reviews, acceptance criteria, implementation reviews, and outcome validation.",
+          "The value is continuity of judgment from the original business problem through implementation and adoption. Responsibilities, build scope, and acceptance criteria are agreed before delivery work begins."
+        ],
+        "best": "",
+        "value": [],
+        "button": "Connect Strategy to Implementation",
+        "href": "https://calendly.com/meet_with_setupshoponline/15-minute-intro",
+        "ctaDescription": "Start with a 15-minute intro to discuss your priority and whether this is the right next step.",
+        "related": [],
+        "group": "Strategy and Solution Design",
+        "isNew": true,
+        "imageAlt": "Project leader coordinating a team through design, build, review, and delivery milestones.",
+        "imageDescription": "Solution Architecture and Implementation Leadership. You need someone to keep business priorities connected to technical delivery."
+      },
+      {
+        "id": "executive-ai-coaching",
+        "title": "Personal Executive AI Coaching: Create More Capacity to Lead",
+        "short": "Use AI in your own working day to improve preparation, communication, prioritization, and decision support.",
+        "expanded": [
+          "Coaching starts with the work competing for your attention: planning, research, meetings, communication, and follow-through. We develop practical ways to use AI around your responsibilities and refine them through use.",
+          "You build repeatable habits for preparing information, reviewing outputs, and applying your judgment. The focus is more usable leadership capacity and greater confidence guiding AI adoption across the business."
+        ],
+        "best": "Owners and executives who want practical AI support in their own work.",
+        "value": [
+          "Time spent on preparation, quality of decision inputs, consistent follow-through, and time available for leadership."
+        ],
+        "button": "Explore AI Coaching",
+        "href": "https://calendly.com/meet_with_setupshoponline/15-minute-intro",
+        "related": [
+          {
+            "label": "AI Strategy Session",
+            "href": "https://calendly.com/meet_with_setupshoponline/15-minute-intro"
+          },
+          {
+            "label": "Group Trainings and Workshops",
+            "href": "https://calendly.com/meet_with_setupshoponline/15-minute-intro"
+          },
+          {
+            "label": "AI and Data Governance",
+            "href": "https://calendly.com/meet_with_setupshoponline/15-minute-intro"
+          }
+        ],
+        "group": "Leadership and Team Adoption",
+        "ctaDescription": "Start with a 15 minute intro call to discuss your leadership priorities and what you want to accomplish with AI. Choose a time on the next screen.",
+        "imageAlt": "Executive and coach reviewing a task list and calendar together at a laptop.",
+        "imageDescription": "Personal Executive AI Coaching. Use AI in your own working day to improve preparation, communication, prioritization, and decision support."
+      },
+      {
+        "id": "individual-ai-training",
+        "title": "1 on 1 Team Member Training: Build AI Skills Around Real Work",
+        "short": "Help each employee apply AI to their actual responsibilities with practical skills, confidence, and clear review habits.",
+        "expanded": [
+          "Training focuses on the tasks the person performs, the standards their work must meet, and the tools they can use. We practice relevant examples, develop reusable approaches, and show how to check results before relying on them.",
+          "The employee leaves with techniques they can apply in their role and a clearer understanding of when human judgment is needed."
+        ],
+        "best": "Employees who need individual practice tied to their role and quality standards.",
+        "value": [
+          "Task completion time, output quality, rework, and sustained use of the new skills."
+        ],
+        "button": "Get Started With AI Training",
+        "href": "https://calendly.com/meet_with_setupshoponline/15-minute-intro",
+        "related": [
+          {
+            "label": "AI Strategy Session",
+            "href": "https://calendly.com/meet_with_setupshoponline/15-minute-intro"
+          },
+          {
+            "label": "Group Trainings and Workshops",
+            "href": "https://calendly.com/meet_with_setupshoponline/15-minute-intro"
+          },
+          {
+            "label": "Agentic Orchestration Enablement",
+            "href": "https://calendly.com/meet_with_setupshoponline/15-minute-intro"
+          }
+        ],
+        "group": "Leadership and Team Adoption",
+        "ctaDescription": "Start with a 15 minute intro call to discuss the tasks, skills, and confidence your team member wants to build. Choose a time on the next screen.",
+        "imageAlt": "Trainer guiding a team member at a laptop beside a completed task checklist.",
+        "imageDescription": "1 on 1 Team Member Training. Help each employee apply AI to their actual responsibilities with practical skills, confidence, and clear review habits."
+      },
+      {
+        "id": "group-ai-workshops",
+        "title": "Group Trainings and Workshops: Turn Shared Learning Into Better Ways of Working",
+        "short": "Give teams practical experience using AI together on problems that matter to the business.",
+        "expanded": [
+          "Workshops bring people around relevant use cases, shared expectations, and hands-on practice. We help the team identify useful applications, compare approaches, and develop clearer habits for using and reviewing AI-assisted work.",
+          "Participants leave with practical examples and agreed next steps they can bring into their roles. Focused individual training can support team members who need more help afterward."
+        ],
+        "best": "Teams that need shared skills, consistent practices, and a coordinated starting point.",
+        "value": [
+          "Participation, demonstrated skills, adoption of agreed practices, and improvements in the selected workflows."
+        ],
+        "button": "Plan Your Team Workshop",
+        "href": "https://calendly.com/meet_with_setupshoponline/15-minute-intro",
+        "related": [
+          {
+            "label": "AI Strategy Session",
+            "href": "https://calendly.com/meet_with_setupshoponline/15-minute-intro"
+          },
+          {
+            "label": "1 on 1 Team Member Training",
+            "href": "https://calendly.com/meet_with_setupshoponline/15-minute-intro"
+          },
+          {
+            "label": "Personal Executive AI Coaching",
+            "href": "https://calendly.com/meet_with_setupshoponline/15-minute-intro"
+          },
+          {
+            "label": "AI and Data Governance",
+            "href": "https://calendly.com/meet_with_setupshoponline/15-minute-intro"
+          }
+        ],
+        "group": "Leadership and Team Adoption",
+        "ctaDescription": "Start with a 15 minute intro call to discuss your team, their work, and the outcomes you want from training. Choose a time on the next screen.",
+        "imageAlt": "Instructor leading a small team through a practical AI workshop with laptops and a shared task board.",
+        "imageDescription": "Group Trainings and Workshops. Give teams practical experience using AI together on problems that matter to the business."
+      },
+      {
+        "id": "ongoing-ai-and-operational-systems-advisory",
+        "title": "Ongoing AI and Operational Systems Advisory",
+        "short": "You want a continuing partner to review results and guide the next operating improvements.",
+        "expanded": [
+          "Periodic reviews examine workflow performance, business outcomes, new constraints, technology decisions, and roadmap priorities. We consider whether existing systems need refinement and where new capabilities are justified.",
+          "This is strategic guidance around operating capacity and business value. The cadence, responsibilities, and any implementation work are agreed for the engagement."
+        ],
+        "best": "",
+        "value": [],
+        "button": "Discuss Ongoing Advisory",
+        "href": "https://calendly.com/meet_with_setupshoponline/15-minute-intro",
+        "ctaDescription": "Start with a 15-minute intro to discuss your priority and whether this is the right next step.",
+        "related": [],
+        "group": "Ongoing Advisory",
+        "isNew": true,
+        "imageAlt": "Advisor and owner reviewing a performance dashboard and selecting the next operational improvement.",
+        "imageDescription": "Ongoing AI and Operational Systems Advisory. You want a continuing partner to review results and guide the next operating improvements."
       }
     ]
   },
@@ -463,43 +420,10 @@
         "href": "https://calendly.com/meet_with_setupshoponline/15-minute-intro",
         "ctaDescription": "Start with a 15-minute intro to discuss your priority and whether this is the right next step.",
         "related": [],
-        "group": "",
+        "group": "Connected Systems and Automation",
         "isNew": true,
         "imageAlt": "Team testing a contained workflow with connected inputs, a human approval step, and a measurement dashboard.",
         "imageDescription": "Agentic Workflow Pilot. A promising workflow needs practical evidence before a larger commitment."
-      },
-      {
-        "id": "crm-integration",
-        "title": "CRM Integration: Keep Leads, Follow-Up, and Customer Relationships Moving",
-        "short": "Connect customer information and sales activity so your team can see each opportunity and its next step.",
-        "expanded": [
-          "When contacts, inquiries, and follow-up live in different places, opportunities can lose momentum. We connect the customer-facing workflows around lead capture, records, ownership, and sales progression.",
-          "The scope may include website inquiries, reminders, handoffs, and visibility into the pipeline. Your team gains a more consistent way to manage relationships and act on the information it already has."
-        ],
-        "best": "Teams managing customer opportunities across disconnected tools or inconsistent follow-up.",
-        "value": [
-          "Lead response time, follow-up completion, record completeness, and pipeline progression."
-        ],
-        "button": "Improve Your Customer Workflow",
-        "href": "https://calendly.com/meet_with_setupshoponline/15-minute-intro",
-        "related": [
-          {
-            "label": "SUSO Framework",
-            "href": "https://calendly.com/meet_with_setupshoponline/15-minute-intro"
-          },
-          {
-            "label": "Custom Integration",
-            "href": "https://calendly.com/meet_with_setupshoponline/15-minute-intro"
-          },
-          {
-            "label": "Business Analytics",
-            "href": "https://calendly.com/meet_with_setupshoponline/15-minute-intro"
-          }
-        ],
-        "group": "",
-        "ctaDescription": "Start with a 15 minute intro call to discuss how leads, follow up, and customer information move through your business. Choose a time on the next screen.",
-        "imageAlt": "Customer inquiry flowing into shared contact records, team ownership, and scheduled follow-up.",
-        "imageDescription": "CRM Integration. Connect customer information and sales activity so your team can see each opportunity and its next step."
       },
       {
         "id": "custom-integration",
@@ -533,7 +457,7 @@
             "href": "https://calendly.com/meet_with_setupshoponline/15-minute-intro"
           }
         ],
-        "group": "",
+        "group": "Connected Systems and Automation",
         "ctaDescription": "Start with a 15 minute intro call to discuss which systems need to work together and where duplicate effort slows your team. Choose a time on the next screen.",
         "imageAlt": "Sales and team applications exchanging records through a central integration process.",
         "imageDescription": "Custom Integration. Help information move between applications so people spend less time copying, checking, and chasing it."
@@ -599,10 +523,53 @@
             "href": "https://calendly.com/meet_with_setupshoponline/15-minute-intro"
           }
         ],
-        "group": "",
+        "group": "Governance and Security",
         "ctaDescription": "Start with a 15 minute intro call to discuss your concerns about information, access, and the systems your business relies on. Choose a time on the next screen.",
         "imageAlt": "Business database protected by a shield, lock, and controlled access for team members.",
         "imageDescription": "Security. Strengthen practical controls around data, AI tools, and connected systems as your capabilities develop."
+      },
+      {
+        "id": "business-context-prompt-systems",
+        "title": "Business Context Integration and Prompt Systems: Turn What Your Business Knows Into Better Results",
+        "short": "Connect existing information with practical AI systems and tested prompts to reduce research, repeated explanations, and rework.",
+        "expanded": [
+          "Your business already holds valuable context in documents, meeting notes, customer records, procedures, and everyday decisions. We identify the sources that matter to a selected workflow, organize the relevant information, and integrate it into a practical system your team can use.",
+          "We build reusable prompts and instructions around your standards, customers, and goals, then test them against real tasks such as preparing proposals, responding to clients, onboarding employees, or producing reports.",
+          "Within the agreed scope, you receive a source and context map, a working context-supported workflow, a tested prompt library, and guidance for reviewing outputs and keeping information current.",
+          "The focus is making your existing knowledge useful at the moment work happens, with clear ownership of updates and appropriate access to source material."
+        ],
+        "best": "Businesses whose teams repeatedly search for information, explain the same context to AI, or correct generic outputs.",
+        "value": [
+          "Time spent finding and preparing information, task completion time, output quality, review effort, rework, and adoption of the shared system."
+        ],
+        "button": "Put Your Business Knowledge to Work",
+        "href": "https://calendly.com/meet_with_setupshoponline/15-minute-intro",
+        "related": [
+          {
+            "label": "SUSO Framework",
+            "href": "https://calendly.com/meet_with_setupshoponline/15-minute-intro"
+          },
+          {
+            "label": "AI Business Brains and Marketplace Knowledge Products",
+            "href": "https://calendly.com/meet_with_setupshoponline/15-minute-intro"
+          },
+          {
+            "label": "Data Architecture",
+            "href": "https://calendly.com/meet_with_setupshoponline/15-minute-intro"
+          },
+          {
+            "label": "Custom Integration",
+            "href": "https://calendly.com/meet_with_setupshoponline/15-minute-intro"
+          },
+          {
+            "label": "AI and Data Governance",
+            "href": "https://calendly.com/meet_with_setupshoponline/15-minute-intro"
+          }
+        ],
+        "group": "Business Knowledge and AI Workflows",
+        "ctaDescription": "Start with a 15 minute intro call to talk through where your team needs better information and more useful AI outputs. Choose a time on the next screen.",
+        "imageAlt": "Business documents and customer records feeding a shared knowledge system and reusable prompts.",
+        "imageDescription": "Business Context Integration and Prompt Systems. Connect existing information with practical AI systems and tested prompts to reduce research, repeated explanations, and rework."
       },
       {
         "id": "ai-business-brains",
@@ -652,7 +619,7 @@
             "href": "https://calendly.com/meet_with_setupshoponline/15-minute-intro"
           }
         ],
-        "group": "Business Knowledge and Products",
+        "group": "Business Knowledge and AI Workflows",
         "ctaDescription": "Start with a 15 minute intro call to discuss how your expertise could support your team or become a knowledge product. Choose a time on the next screen.",
         "imageAlt": "Shared business knowledge supporting team collaboration and a packaged digital knowledge product.",
         "imageDescription": "AI Business Brains and Marketplace Knowledge Products. Build a reusable AI brain that helps your team apply company knowledge, or package your expertise into a knowledge product designed for marketplace sales."
@@ -718,7 +685,7 @@
             "href": "https://calendly.com/meet_with_setupshoponline/15-minute-intro"
           }
         ],
-        "group": "",
+        "group": "Analytics and Profitability",
         "ctaDescription": "Start with a 15 minute intro call to discuss what you need to understand about margins, delivery effort, and capacity. Choose a time on the next screen.",
         "imageAlt": "Project revenue, delivery costs, and margins compared alongside time and capacity.",
         "imageDescription": "Profitability Analytics. Connect revenue, costs, and delivery effort to make better decisions about clients, services, and capacity."
@@ -821,10 +788,43 @@
             "href": "https://calendly.com/meet_with_setupshoponline/15-minute-intro"
           }
         ],
-        "group": "",
+        "group": "Marketing and Visibility",
         "ctaDescription": "Start with a 15 minute intro call to discuss your website goals and what visitors need to do next. Choose a time on the next screen.",
         "imageAlt": "Responsive business website connected to commerce, operations, and inquiry follow-up.",
         "imageDescription": "Website Redesign. Make your value easier to understand and give prospective customers a clearer path to contact your business."
+      },
+      {
+        "id": "crm-integration",
+        "title": "CRM Integration: Keep Leads, Follow-Up, and Customer Relationships Moving",
+        "short": "Connect customer information and sales activity so your team can see each opportunity and its next step.",
+        "expanded": [
+          "When contacts, inquiries, and follow-up live in different places, opportunities can lose momentum. We connect the customer-facing workflows around lead capture, records, ownership, and sales progression.",
+          "The scope may include website inquiries, reminders, handoffs, and visibility into the pipeline. Your team gains a more consistent way to manage relationships and act on the information it already has."
+        ],
+        "best": "Teams managing customer opportunities across disconnected tools or inconsistent follow-up.",
+        "value": [
+          "Lead response time, follow-up completion, record completeness, and pipeline progression."
+        ],
+        "button": "Improve Your Customer Workflow",
+        "href": "https://calendly.com/meet_with_setupshoponline/15-minute-intro",
+        "related": [
+          {
+            "label": "SUSO Framework",
+            "href": "https://calendly.com/meet_with_setupshoponline/15-minute-intro"
+          },
+          {
+            "label": "Custom Integration",
+            "href": "https://calendly.com/meet_with_setupshoponline/15-minute-intro"
+          },
+          {
+            "label": "Business Analytics",
+            "href": "https://calendly.com/meet_with_setupshoponline/15-minute-intro"
+          }
+        ],
+        "group": "Marketing and Visibility",
+        "ctaDescription": "Start with a 15 minute intro call to discuss how leads, follow up, and customer information move through your business. Choose a time on the next screen.",
+        "imageAlt": "Customer inquiry flowing into shared contact records, team ownership, and scheduled follow-up.",
+        "imageDescription": "CRM Integration. Connect customer information and sales activity so your team can see each opportunity and its next step."
       }
     ]
   }
