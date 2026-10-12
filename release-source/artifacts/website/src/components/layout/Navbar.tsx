@@ -1,3 +1,4 @@
+import { siteConfig } from "@/lib/site-config";
 import { useState } from "react";
 import { useLocation } from "wouter";
 import { Menu, Phone } from "lucide-react";
@@ -12,7 +13,7 @@ import {
   NavigationMenuTrigger,
   navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu";
-const headerAssessment = { label: "Free Agentic Readiness Assessment", href: "/free-agentic-readiness-assessment" };
+const headerAssessment = { label: siteConfig.agenticAssessmentLabel, href: siteConfig.agenticAssessmentUrl };
 const logoImg = "/images/setupshoponline-rectangle-logo.jpeg";
 
 type NavItem =

@@ -108,7 +108,7 @@ export default function Home() {
               </p>
               <div className="flex flex-col gap-3">
                 <Button asChild size="lg" className="w-full min-h-14 h-auto whitespace-normal px-3 py-3.5 text-sm font-semibold bg-orange-700 hover:bg-orange-800 text-white border-0 shadow-xl shadow-orange-700/20">
-                  <a href="/free-agentic-readiness-assessment">Free Agentic Readiness Report</a>
+                  <a href={siteConfig.agenticAssessmentUrl}>{siteConfig.agenticAssessmentLabel}</a>
                 </Button>
               </div>
               <a href={siteConfig.calendlyUrl} className="block mt-4 text-base font-semibold underline">Book a 15-Minute Intro</a><a href="#how-i-help" className="block mt-3 text-sm underline">Explore How I Help</a>
@@ -153,7 +153,7 @@ export default function Home() {
                 </p>
                 <div className="flex flex-wrap gap-3">
                   <Button asChild size="lg" className="min-h-14 h-auto w-full sm:w-auto whitespace-normal px-6 py-3.5 text-base font-semibold bg-orange-700 hover:bg-orange-800 text-white border-0 shadow-xl shadow-orange-700/20">
-                    <a href="/free-agentic-readiness-assessment">Free Agentic Readiness Report</a>
+                    <a href={siteConfig.agenticAssessmentUrl}>{siteConfig.agenticAssessmentLabel}</a>
                   </Button>
                 </div>
                 <a href={siteConfig.calendlyUrl} className="inline-block mt-5 text-base font-semibold underline text-white">Book a 15-Minute Intro</a><a href="#how-i-help" className="block mt-3 text-sm underline text-white">Explore How I Help</a>

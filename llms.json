@@ -167,36 +167,6 @@
           "itemListElement": [
             {
               "@type": "Offer",
-              "@id": "https://setupshoponline.com/products-services-solutions#workbook-offer",
-              "url": "https://setupshoponline.com/free-business-strategy",
-              "price": "0",
-              "priceCurrency": "USD",
-              "itemOffered": {
-                "@type": "Service",
-                "@id": "https://setupshoponline.com/products-services-solutions#workbook",
-                "name": "Your Free Business Strategy Report",
-                "description": "Choose your priority. Answer ten questions. Get clear findings and a 30–60–90-day roadmap. Find a practical next step for getting more leads, improving lead quality, closing deals, saving time, increasing repeat business, or improving profitability. Your personalized AI-generated report includes key findings and a focused 90-day plan, delivered by email and available to download. Bring it to an optional free Strategy Review.",
-                "url": "https://setupshoponline.com/products-services-solutions#workbook",
-                "provider": {
-                  "@id": "https://setupshoponline.com/#organization"
-                },
-                "areaServed": "United States",
-                "serviceType": "Your Free Business Strategy Report",
-                "image": {
-                  "@type": "ImageObject",
-                  "@id": "https://setupshoponline.com/images/offerings/workbook.webp#image",
-                  "contentUrl": "https://setupshoponline.com/images/offerings/workbook.webp",
-                  "name": "Business action planner with a checklist and calendar.",
-                  "caption": "Business action planner with a checklist and calendar.",
-                  "description": "Your Free Business Strategy Report. Choose your priority. Answer ten questions. Get clear findings and a 30–60–90-day roadmap.",
-                  "width": 1536,
-                  "height": 1024,
-                  "inLanguage": "en-US"
-                }
-              }
-            },
-            {
-              "@type": "Offer",
               "@id": "https://setupshoponline.com/products-services-solutions#agentic-readiness-offer",
               "url": "https://setupshoponline.com/free-agentic-readiness-assessment",
               "price": "0",
@@ -219,6 +189,36 @@
                   "name": "Agentic readiness report with connected workflow nodes and an orange human approval checkpoint.",
                   "caption": "Agentic readiness report with connected workflow nodes and an orange human approval checkpoint.",
                   "description": "Free Agentic Readiness Assessment. Explore workflow fit, information readiness, human oversight, and the next step worth validating.",
+                  "width": 1536,
+                  "height": 1024,
+                  "inLanguage": "en-US"
+                }
+              }
+            },
+            {
+              "@type": "Offer",
+              "@id": "https://setupshoponline.com/products-services-solutions#workbook-offer",
+              "url": "https://setupshoponline.com/free-business-strategy",
+              "price": "0",
+              "priceCurrency": "USD",
+              "itemOffered": {
+                "@type": "Service",
+                "@id": "https://setupshoponline.com/products-services-solutions#workbook",
+                "name": "Your Free Business Strategy Report",
+                "description": "Choose your priority. Answer ten questions. Get clear findings and a 30–60–90-day roadmap. Find a practical next step for getting more leads, improving lead quality, closing deals, saving time, increasing repeat business, or improving profitability. Your personalized AI-generated report includes key findings and a focused 90-day plan, delivered by email and available to download. Bring it to an optional free Strategy Review.",
+                "url": "https://setupshoponline.com/products-services-solutions#workbook",
+                "provider": {
+                  "@id": "https://setupshoponline.com/#organization"
+                },
+                "areaServed": "United States",
+                "serviceType": "Your Free Business Strategy Report",
+                "image": {
+                  "@type": "ImageObject",
+                  "@id": "https://setupshoponline.com/images/offerings/workbook.webp#image",
+                  "contentUrl": "https://setupshoponline.com/images/offerings/workbook.webp",
+                  "name": "Business action planner with a checklist and calendar.",
+                  "caption": "Business action planner with a checklist and calendar.",
+                  "description": "Your Free Business Strategy Report. Choose your priority. Answer ten questions. Get clear findings and a 30–60–90-day roadmap.",
                   "width": 1536,
                   "height": 1024,
                   "inLanguage": "en-US"
