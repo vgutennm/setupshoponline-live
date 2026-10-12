@@ -25,6 +25,7 @@ function wb_db(): PDO {
     $db = new PDO('sqlite:' . $dir . '/workbook.sqlite', null, null, [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION, PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC]);
     $db->exec('PRAGMA busy_timeout=5000; PRAGMA foreign_keys=ON;');
     $db->exec('CREATE TABLE IF NOT EXISTS leads (id TEXT PRIMARY KEY, request_hash TEXT NOT NULL, data TEXT NOT NULL, download_hash TEXT NOT NULL UNIQUE, download_token TEXT NOT NULL, created_at INTEGER NOT NULL); CREATE TABLE IF NOT EXISTS jobs (id TEXT PRIMARY KEY, lead_id TEXT NOT NULL REFERENCES leads(id), kind TEXT NOT NULL, status TEXT NOT NULL, attempts INTEGER NOT NULL DEFAULT 0, next_attempt INTEGER NOT NULL DEFAULT 0, lock_until INTEGER NOT NULL DEFAULT 0, error_code TEXT, provider_id TEXT); CREATE INDEX IF NOT EXISTS jobs_due ON jobs(status,next_attempt); CREATE TABLE IF NOT EXISTS rate_limits (key TEXT PRIMARY KEY, count INTEGER NOT NULL, expires_at INTEGER NOT NULL);');
+    $db->exec('CREATE INDEX IF NOT EXISTS leads_created_at ON leads(created_at);');
     return $db;
 }
 function wb_query(string $sql, array $params = []): PDOStatement {
@@ -87,6 +88,29 @@ function wb_subscribe(array $d, string $resource = "workbook"): array {
             $db->exec('COMMIT');
             if (!hash_equals($old['request_hash'],$requestHash)) return [409,['error'=>'Please refresh the form before changing your details.']];
             return [200,['saved'=>true],$old['download_token']];
+        }
+        if ($isKit) {
+            // Check saved requests under the write lock, including requests made before this limit was added.
+            // Existing submission IDs above remain safe to retry without creating another email job.
+            $nowSeconds=time();
+            $recent=wb_query('SELECT data,created_at FROM leads WHERE created_at>? ORDER BY created_at DESC',[$nowSeconds-86400]);
+            $retryAt=null;
+            while ($prior=$recent->fetch()) {
+                $details=json_decode($prior['data'],true);
+                if (($details['source_page']??'')==='/conversionkit' && strtolower(trim($details['email']??''))===$email) {
+                    $retryAt=(int)$prior['created_at']+86400;
+                    break;
+                }
+            }
+            $recent->closeCursor();
+            if ($retryAt!==null) {
+                $db->exec('COMMIT');
+                return [429,[
+                    'error'=>'One conversion kit request per email is allowed every 24 hours. You can request another after '.gmdate('M j, Y H:i',$retryAt).' UTC. You can still open your existing PDF or use the link in your confirmation email.',
+                    'retryAt'=>gmdate('c',$retryAt),
+                    'retryAfter'=>$retryAt-$nowSeconds,
+                ]];
+            }
         }
         $ip=hash('sha256',gmdate('Y-m-d').':'.($_SERVER['REMOTE_ADDR'] ?? 'unknown'));
         if (!wb_rate('ip:'.$ip,8,3600) || !wb_rate('email:'.hash('sha256',$email),3,86400)) {

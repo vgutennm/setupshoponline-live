@@ -22,9 +22,13 @@ The form reuses the Google reCAPTCHA v2 key and secret, existing Outlook authori
 
 Successful submissions set a secure, HttpOnly cookie. The PDF opens inline in a new tab; `?download=1` requests an attachment. The confirmation includes the exact PDF and a private link with its access token in the URL fragment. The access page removes that fragment before continuing. The owner notification goes to `vlad@setupshoponline.com`.
 
+New conversion kit requests are limited to one per email address in a rolling 24-hour period. The server normalizes email case and whitespace, checks stored requests (including pre-existing records), and serializes the check with lead creation to prevent concurrent duplicates. A blocked request returns HTTP 429, a `Retry-After` header, and the next permitted request time without creating a lead or email jobs. Retrying the same unchanged submission ID returns its existing access without sending another copy. Workbook requests retain their existing limits. Existing kit links and repeated PDF opens/downloads remain available; opening the PDF does not start or extend this request limit.
+
 The existing cron processes queued emails. A successful API submission means the request was stored, not proof that a message reached an inbox. Verify a real test after deployment with the owner's address and normal reCAPTCHA completion.
 
 ## Verification
+
+Run `python3 tests/test_conversionkit_limit.py` with a PHP 8.3 CLI and PDO SQLite (set `PHP_BINARY` when needed). It checks the rolling request limit, simultaneous submissions, existing records, case/whitespace normalization, exact expiry and midnight boundaries, unchanged-submission retries, repeated PDF access, and workbook isolation in a temporary database with external calls disabled.
 
 `cpanel/tests/test_conversionkit.py` in the saved Sites source exercises PHP validation, reCAPTCHA failures, duplicate requests, access protection, the PDF bytes, MIME attachments, both recipients, and existing workbook behavior. It copies the application into a temporary directory and replaces external HTTP calls only in that copy. It never sends real email or changes production data. Set `PHP_BINARY` and optionally `PHP_EXTENSION_DIR` to a PHP CLI with PDO SQLite and cURL.
 

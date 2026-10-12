@@ -28,6 +28,7 @@ function ck_dispatch(): void {
             $d=array_intersect_key($d,array_flip(['full_name','email','phone','submission_id','started_at','website','recaptcha_token']));
             $d['timezone']='UTC';
             $r=wb_subscribe($d,'conversionkit');
+            if($r[0]===429 && isset($r[1]['retryAfter']))header('Retry-After: '.$r[1]['retryAfter']);
             if(isset($r[2]))ck_cookie($r[2]);
             if($r[0]===200){
                 if(!isset($r[1]['email_status']))$r[1]['email_status']=wb_query('SELECT status FROM jobs WHERE id=?',[$d['submission_id'].'-subscriber'])->fetchColumn();
