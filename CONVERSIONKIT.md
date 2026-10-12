@@ -6,11 +6,15 @@ The server files here implement the shared production delivery service. Their ed
 
 ## Deploying this page
 
-Build the website, then publish only `conversionkit.html`, `conversionkit/access.html`, their new hashed assets, the two `images/conversionkit/*.webp` files, the new API gateway, the conversion kit PHP/PDF/templates, the shared `server/app.php` changes, `.htaccess`, `.cpanel.yml`, and the sitemap addition. Preserve existing production pages and their assets. The saved agentic assessment is a separate draft and must not be incidentally published with this landing page.
+Build the website, then publish only `conversionkit.html`, `conversionkit/access.html`, their new hashed assets, the two `images/conversionkit/*.webp` files, the new API gateway, the conversion kit PHP/PDF/templates, the shared `server/app.php` changes, `.htaccess`, `.cpanel.yml`, and removal of the landing page from the sitemap. Preserve existing production pages and their assets. The saved agentic assessment is a separate draft and must not be incidentally published with this landing page.
 
 Source checkpoint: `281210684912ca325a0db1e2b61da7923c46305f` in Sites project `appgprj_6abab2a1219481918c6104b0b15bc920`.
 
 Use cPanel Git Version Control to Update from Remote and Deploy HEAD Commit, then verify `/conversionkit` and `/api/conversionkit/config` on the public hostname. A Git push alone does not deploy cPanel.
+
+## Unlisted landing page
+
+Keep /conversionkit unlisted. Never link to this landing page from desktop or mobile navigation, the footer, other pages, public discovery files, or the PDF access page. Exclude it from the sitemap and retain noindex in both static and client-rendered metadata. Visitors reach it through a directly shared address. Preserve PDF access and the confirmation email's private PDF link.
 
 ## Delivery and privacy
 
@@ -25,3 +29,4 @@ The existing cron processes queued emails. A successful API submission means the
 `cpanel/tests/test_conversionkit.py` in the saved Sites source exercises PHP validation, reCAPTCHA failures, duplicate requests, access protection, the PDF bytes, MIME attachments, both recipients, and existing workbook behavior. It copies the application into a temporary directory and replaces external HTTP calls only in that copy. It never sends real email or changes production data. Set `PHP_BINARY` and optionally `PHP_EXTENSION_DIR` to a PHP CLI with PDO SQLite and cURL.
 
 The graphic prompts are saved in `design/conversionkit-image-prompts.json`.
+

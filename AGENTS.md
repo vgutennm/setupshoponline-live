@@ -25,7 +25,10 @@ Pushing to GitHub does not publish setupshoponline.com. Public publication requi
 
 ## Conversion kit
 
+Keep /conversionkit unlisted. Never link to this landing page from desktop or mobile navigation, the footer, other pages, public discovery files, or the PDF access page. Exclude it from the sitemap and retain noindex in both static and client-rendered metadata. Visitors reach it through a directly shared address. Preserve PDF access and the confirmation email's private PDF link.
+
 The `/conversionkit` form delivers the Conversation to Client Conversion Kit using the existing Google reCAPTCHA and delegated Outlook services. Contact information is for kit fulfillment only; never enroll these requests in marketing, sales calls, or texts. Keep the PDF, templates, configuration, and lead records outside public_html. Preserve the old workbook behavior when modifying shared `server/app.php`.
 
 The saved Sites source also contains a separate agentic assessment draft. A conversion kit release must copy only its new pages and assets plus its explicitly changed API/server/deployment files. Do not replace existing production pages with that separate draft. See CONVERSIONKIT.md for deployment and verification.
+
 
