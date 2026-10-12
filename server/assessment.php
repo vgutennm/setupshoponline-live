@@ -79,8 +79,21 @@ function as_mail(): void {
   if(!wb_query("UPDATE local_assessment_mail SET status='sending',updated_at=? WHERE id=? AND status IN ('pending','retry')",[time(),$job['id']])->rowCount())continue;
   $status='manual_review';$error='send_unconfirmed';
   try{$row=as_get($job['assessment_id']);$contact=json_decode($row['contact_json'],true);$isUser=$job['kind']==='report_user';$abandoned=$job['kind']==='abandoned';$title=$row['kind']==='agentic'?'Agentic Readiness Report':'Business Strategy Report';
-   $body=$isUser?"Hi {$contact['full_name']},\n\nYour free {$title} for {$contact['business_name']} is attached. It was created with AI using your answers and passed an automated quality check.\n\nBook your free Strategy Review: ".as_definition()['reviewUrl']."\n\nYour report is yours to keep. No booking or purchase is required.\n\nBR,\nVlad Gutenmakher\nSet Up Shop Online, Inc.\n201-757-0134":'New assessment report: '.json_encode($contact,JSON_PRETTY_PRINT|JSON_UNESCAPED_UNICODE);
+   $body=$isUser?"Hi {$contact['full_name']},\n\nYour free {$title} for {$contact['business_name']} is attached. It was created with AI using your answers and passed an automated quality check.\n\nBook your free Strategy Review: ".as_definition()['reviewUrl']."\n\nYour report is yours to keep. No booking or purchase is required.":'New assessment report: '.json_encode($contact,JSON_PRETTY_PRINT|JSON_UNESCAPED_UNICODE);
    if($abandoned)$body='An assessment was started but not submitted after one hour. Contact details and saved answers: '.json_encode(['contact'=>$contact,'answers'=>json_decode($row['answers_json'],true)],JSON_PRETTY_PRINT|JSON_UNESCAPED_UNICODE);
+   $body.="\n\n".<<<'SIGNATURE'
+BR,
+Vlad Gutenmakher
+AI Consultant and Value Architect
+Setup Shop Online Inc.
+📞 Phone: 201-757-0134
+📧 Email: Vlad@SetupShopOnline.com
+🌐 Website: SetUpShopOnline.com (http://setupshoponline.com/)
+
+Book Your FREE 1 Hour AI Strategy Session - Book a Zoom (https://calendly.com/meet_with_setupshoponline/1-hour-setupshoponline)
+
+Disclaimer: This email, including any attached files, is intended only for the individual or entity to whom it is addressed and may contain confidential or legally privileged information. If you are not the intended recipient, or someone authorized to receive it on their behalf, you are hereby notified that reviewing, sharing, or duplicating this message is strictly forbidden. If you received this email in error, please notify us immediately by replying to this message and then permanently delete it and any attachments from your system.
+SIGNATURE;
    $message=['message'=>['subject'=>$abandoned?'Unfinished assessment: '.$contact['business_name']:($isUser?'Your free '.$title.' is ready':'New '.$title.': '.$contact['business_name']),'body'=>['contentType'=>'Text','content'=>$body],'toRecipients'=>[['emailAddress'=>['address'=>$isUser?$contact['email']:WB_SENDER]]],'replyTo'=>[['emailAddress'=>['address'=>$isUser?WB_SENDER:$contact['email']]]],'attachments'=>$abandoned?[]:[['@odata.type'=>'#microsoft.graph.fileAttachment','name'=>str_replace(' ','_',$title).'.pdf','contentType'=>'application/pdf','contentBytes'=>base64_encode(as_report_pdf($row))]]],'saveToSentItems'=>true];
    [$code,$raw]=wb_http('https://graph.microsoft.com/v1.0/me/sendMail',json_encode($message),['Authorization: Bearer '.$token,'Content-Type: application/json']);
    if($code===202){$status='accepted';$error=null;}elseif(in_array($code,[401,403,429],true)){$status='retry';$error='outlook_'.$code;}elseif($code>=400&&$code<500&&$code!==408){$status='failed';$error='outlook_'.$code;}
