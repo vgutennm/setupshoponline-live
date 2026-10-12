@@ -1,0 +1,6 @@
+import { build } from '../artifacts/api-server/node_modules/esbuild/lib/main.js';
+import { writeFileSync } from 'node:fs';
+const out=await build({stdin:{contents:`import {CATEGORIES,CATEGORY_GUIDANCE,getQuestions,QUESTION_VERSION} from './worker/growth-questions.mjs';import {REPORT_SCHEMA,INSTRUCTIONS,FREE_REVIEW} from './worker/growth-report.mjs';import {ASSESSMENT_INSTRUCTIONS,METHODOLOGY_VERSION,REVIEW_INSTRUCTIONS,REVIEW_SCHEMA} from './worker/growth-analysis.mjs';export default {categories:CATEGORIES,guidance:CATEGORY_GUIDANCE,questions:Object.fromEntries(CATEGORIES.map(c=>[c.id,getQuestions(c.id)])),questionVersion:QUESTION_VERSION,reportSchema:REPORT_SCHEMA,instructions:INSTRUCTIONS,reviewUrl:FREE_REVIEW,assessmentInstructions:ASSESSMENT_INSTRUCTIONS,methodology:METHODOLOGY_VERSION,reviewInstructions:REVIEW_INSTRUCTIONS,reviewSchema:REVIEW_SCHEMA};`,resolveDir:process.cwd()},bundle:true,format:'esm',platform:'node',loader:{'.txt':'text'},write:false});
+const data=(await import('data:text/javascript;base64,'+Buffer.from(out.outputFiles[0].text).toString('base64'))).default;
+writeFileSync('cpanel/server/assessment-definition.json',JSON.stringify(data,null,2)+'\n');
+console.log('Exported seven assessment categories and existing report/review definitions.');

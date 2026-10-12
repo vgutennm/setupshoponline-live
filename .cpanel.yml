@@ -3,14 +3,18 @@ deployment:
   tasks:
     - export DEPLOYPATH=/home/aha7hfr64vl1/public_html/
     - export PRIVATEPATH=/home/aha7hfr64vl1/.setupshoponline-workbook
-    - /bin/mkdir -p "$PRIVATEPATH/app" "$PRIVATEPATH/data" "$DEPLOYPATH/api/workbook" "$DEPLOYPATH/api/growth" "$DEPLOYPATH/api/conversionkit" "$DEPLOYPATH/conversionkit"
+    - /bin/mkdir -p "$PRIVATEPATH/app" "$PRIVATEPATH/data" "$DEPLOYPATH/api/workbook" "$DEPLOYPATH/api/growth" "$DEPLOYPATH/api/agentic" "$DEPLOYPATH/api/conversionkit" "$DEPLOYPATH/conversionkit"
     - /bin/chmod 700 "$PRIVATEPATH" "$PRIVATEPATH/data"
+    - if [ -x /opt/alt/php83/usr/bin/php ]; then /opt/alt/php83/usr/bin/php server/assessment-preflight.php "$PRIVATEPATH"; else /usr/local/bin/php server/assessment-preflight.php "$PRIVATEPATH"; fi
+    - /bin/cp -a "$PRIVATEPATH/app" "$PRIVATEPATH/app-backup-$(date +%Y%m%d%H%M%S)"
     - /bin/cp -R server/. "$PRIVATEPATH/app/"
     - if [ -x /opt/alt/php83/usr/bin/php ]; then /opt/alt/php83/usr/bin/php "$PRIVATEPATH/app/init.php"; else /usr/local/bin/php "$PRIVATEPATH/app/init.php"; fi
     - /bin/cp api/conversionkit/index.php "$DEPLOYPATH/api/conversionkit/"
     - /bin/cp conversionkit.html "$DEPLOYPATH/"
     - /bin/cp conversionkit/access.html "$DEPLOYPATH/conversionkit/"
     - /bin/cp api/workbook/index.php "$DEPLOYPATH/api/workbook/"
+    - /bin/cp api/agentic/index.php "$DEPLOYPATH/api/agentic/"
+    - /bin/cp free-agentic-readiness-assessment.html agentic-assessment.html "$DEPLOYPATH"
     - /bin/cp api/growth/index.php "$DEPLOYPATH/api/growth/"
     - /bin/cp free-business-strategy.html growth-assessment.html "$DEPLOYPATH"
     - /bin/cp -R assets images thank-you workbook "$DEPLOYPATH"

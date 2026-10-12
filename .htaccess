@@ -29,6 +29,12 @@ RewriteRule ^conversionkit/access/?$ conversionkit/access.html [END]
 RewriteRule ^conversionkit/access\.html$ - [END]
 RewriteRule ^conversionkit/?$ conversionkit.html [END]
 RewriteRule ^conversionkit\.html$ - [END]
+# Agentic assessment: CAPTCHA-verified gateway and protected saved assessment.
+RewriteRule ^api/agentic/(?:config|session|start|category|answers|generate|status|download|new|retry)$ api/agentic/index.php [END]
+RewriteRule ^api/agentic/index\.php$ - [END]
+RewriteRule ^agentic-assessment(?:\.html)?/?$ api/agentic/index.php [END]
+RewriteRule ^free-agentic-readiness-assessment/?$ free-agentic-readiness-assessment.html [END]
+RewriteRule ^free-agentic-readiness-assessment\.html$ - [END]
 # Growth assessment: explicit API allowlist and server-side page/session gate.
 RewriteRule ^api/growth/(?:config|session|start|category|answers|generate|status|download|new|retry)$ api/growth/index.php [END]
 RewriteRule ^api/growth/index\.php$ - [END]
