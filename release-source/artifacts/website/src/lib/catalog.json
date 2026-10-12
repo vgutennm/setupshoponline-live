@@ -469,6 +469,76 @@
         "imageDescription": "Agentic Workflow Pilot. A promising workflow needs practical evidence before a larger commitment."
       },
       {
+        "id": "crm-integration",
+        "title": "CRM Integration: Keep Leads, Follow-Up, and Customer Relationships Moving",
+        "short": "Connect customer information and sales activity so your team can see each opportunity and its next step.",
+        "expanded": [
+          "When contacts, inquiries, and follow-up live in different places, opportunities can lose momentum. We connect the customer-facing workflows around lead capture, records, ownership, and sales progression.",
+          "The scope may include website inquiries, reminders, handoffs, and visibility into the pipeline. Your team gains a more consistent way to manage relationships and act on the information it already has."
+        ],
+        "best": "Teams managing customer opportunities across disconnected tools or inconsistent follow-up.",
+        "value": [
+          "Lead response time, follow-up completion, record completeness, and pipeline progression."
+        ],
+        "button": "Improve Your Customer Workflow",
+        "href": "https://calendly.com/meet_with_setupshoponline/15-minute-intro",
+        "related": [
+          {
+            "label": "SUSO Framework",
+            "href": "https://calendly.com/meet_with_setupshoponline/15-minute-intro"
+          },
+          {
+            "label": "Custom Integration",
+            "href": "https://calendly.com/meet_with_setupshoponline/15-minute-intro"
+          },
+          {
+            "label": "Business Analytics",
+            "href": "https://calendly.com/meet_with_setupshoponline/15-minute-intro"
+          }
+        ],
+        "group": "",
+        "ctaDescription": "Start with a 15 minute intro call to discuss how leads, follow up, and customer information move through your business. Choose a time on the next screen.",
+        "imageAlt": "Customer inquiry flowing into shared contact records, team ownership, and scheduled follow-up.",
+        "imageDescription": "CRM Integration. Connect customer information and sales activity so your team can see each opportunity and its next step."
+      },
+      {
+        "id": "custom-integration",
+        "title": "Custom Integration: Connect Your Systems and Reduce Duplicate Work",
+        "short": "Help information move between applications so people spend less time copying, checking, and chasing it.",
+        "expanded": [
+          "We connect business systems around the information and events a workflow needs. This can include transferring records, coordinating updates, and handling exceptions across applications.",
+          "The work starts with the purpose of the connection and defines what should move, when, and who owns problems. It supports broader operations as well as coordinated AI workflows, with customer-specific sales processes addressed through CRM Integration."
+        ],
+        "best": "Teams spending time manually moving information between applications.",
+        "value": [
+          "Manual transfers removed, synchronization errors, exception handling effort, and process completion time."
+        ],
+        "button": "Explore Your Integration Options",
+        "href": "https://calendly.com/meet_with_setupshoponline/15-minute-intro",
+        "related": [
+          {
+            "label": "SUSO Framework",
+            "href": "https://calendly.com/meet_with_setupshoponline/15-minute-intro"
+          },
+          {
+            "label": "Agentic Orchestration Enablement",
+            "href": "https://calendly.com/meet_with_setupshoponline/15-minute-intro"
+          },
+          {
+            "label": "CRM Integration",
+            "href": "https://calendly.com/meet_with_setupshoponline/15-minute-intro"
+          },
+          {
+            "label": "Business Context Integration and Prompt Systems",
+            "href": "https://calendly.com/meet_with_setupshoponline/15-minute-intro"
+          }
+        ],
+        "group": "",
+        "ctaDescription": "Start with a 15 minute intro call to discuss which systems need to work together and where duplicate effort slows your team. Choose a time on the next screen.",
+        "imageAlt": "Sales and team applications exchanging records through a central integration process.",
+        "imageDescription": "Custom Integration. Help information move between applications so people spend less time copying, checking, and chasing it."
+      },
+      {
         "id": "ai-data-governance",
         "title": "AI and Data Governance: Give People Clear Rules and Responsibilities",
         "short": "Define who owns decisions, how information should be used, and where review or approval is needed.",
@@ -504,6 +574,35 @@
         "ctaDescription": "Start with a 15 minute intro call to discuss where your team needs clearer guidance, ownership, and oversight. Choose a time on the next screen.",
         "imageAlt": "Business information passing through a review checkpoint before reaching authorized team members.",
         "imageDescription": "AI and Data Governance. Define who owns decisions, how information should be used, and where review or approval is needed."
+      },
+      {
+        "id": "security",
+        "title": "Security: Protect the Information and Access Your Business Depends On",
+        "short": "Strengthen practical controls around data, AI tools, and connected systems as your capabilities develop.",
+        "expanded": [
+          "Connecting tools and introducing AI changes how information moves and who can access it. We help identify the controls needed for the agreed use case, including access permissions, data handling, and system connections.",
+          "The work is coordinated with your existing policies and responsible specialists where needed. Clear controls and review responsibilities support more confident implementation and day-to-day use."
+        ],
+        "best": "Businesses introducing AI or connections that need defined access and data-handling controls.",
+        "value": [
+          "Access and control gaps addressed, completion of agreed checks, and visibility into data-handling responsibilities."
+        ],
+        "button": "Discuss Your Security Priorities",
+        "href": "https://calendly.com/meet_with_setupshoponline/15-minute-intro",
+        "related": [
+          {
+            "label": "SUSO Framework",
+            "href": "https://calendly.com/meet_with_setupshoponline/15-minute-intro"
+          },
+          {
+            "label": "AI and Data Governance",
+            "href": "https://calendly.com/meet_with_setupshoponline/15-minute-intro"
+          }
+        ],
+        "group": "",
+        "ctaDescription": "Start with a 15 minute intro call to discuss your concerns about information, access, and the systems your business relies on. Choose a time on the next screen.",
+        "imageAlt": "Business database protected by a shield, lock, and controlled access for team members.",
+        "imageDescription": "Security. Strengthen practical controls around data, AI tools, and connected systems as your capabilities develop."
       },
       {
         "id": "ai-business-brains",
@@ -592,74 +691,37 @@
         "imageDescription": "Business Analytics. Create meaningful measures, dashboards, and reports that show what is happening and where to improve."
       },
       {
-        "id": "crm-integration",
-        "title": "CRM Integration: Keep Leads, Follow-Up, and Customer Relationships Moving",
-        "short": "Connect customer information and sales activity so your team can see each opportunity and its next step.",
+        "id": "profitability-analytics",
+        "title": "Profitability Analytics: See Which Work Contributes Most to Your Bottom Line",
+        "short": "Connect revenue, costs, and delivery effort to make better decisions about clients, services, and capacity.",
         "expanded": [
-          "When contacts, inquiries, and follow-up live in different places, opportunities can lose momentum. We connect the customer-facing workflows around lead capture, records, ownership, and sales progression.",
-          "The scope may include website inquiries, reminders, handoffs, and visibility into the pipeline. Your team gains a more consistent way to manage relationships and act on the information it already has."
+          "Revenue tells only part of the story behind business performance. We bring relevant financial and operating information together to examine profitability by client, service, project, or workflow.",
+          "Agreeing on definitions and data sources helps make the resulting views useful for decisions. You can better see where delivery effort, rework, or resource use affects margins and where improvement deserves attention."
         ],
-        "best": "Teams managing customer opportunities across disconnected tools or inconsistent follow-up.",
+        "best": "Owners who need to understand how delivery effort and costs affect profitability.",
         "value": [
-          "Lead response time, follow-up completion, record completeness, and pipeline progression."
+          "Visibility into margins and cost-to-serve, reliability of the underlying data, and decisions informed by the analysis."
         ],
-        "button": "Improve Your Customer Workflow",
+        "button": "Explore Your Profit Opportunities",
         "href": "https://calendly.com/meet_with_setupshoponline/15-minute-intro",
         "related": [
           {
             "label": "SUSO Framework",
-            "href": "https://calendly.com/meet_with_setupshoponline/15-minute-intro"
-          },
-          {
-            "label": "Custom Integration",
             "href": "https://calendly.com/meet_with_setupshoponline/15-minute-intro"
           },
           {
             "label": "Business Analytics",
             "href": "https://calendly.com/meet_with_setupshoponline/15-minute-intro"
-          }
-        ],
-        "group": "Connected Systems and Automation",
-        "ctaDescription": "Start with a 15 minute intro call to discuss how leads, follow up, and customer information move through your business. Choose a time on the next screen.",
-        "imageAlt": "Customer inquiry flowing into shared contact records, team ownership, and scheduled follow-up.",
-        "imageDescription": "CRM Integration. Connect customer information and sales activity so your team can see each opportunity and its next step."
-      },
-      {
-        "id": "custom-integration",
-        "title": "Custom Integration: Connect Your Systems and Reduce Duplicate Work",
-        "short": "Help information move between applications so people spend less time copying, checking, and chasing it.",
-        "expanded": [
-          "We connect business systems around the information and events a workflow needs. This can include transferring records, coordinating updates, and handling exceptions across applications.",
-          "The work starts with the purpose of the connection and defines what should move, when, and who owns problems. It supports broader operations as well as coordinated AI workflows, with customer-specific sales processes addressed through CRM Integration."
-        ],
-        "best": "Teams spending time manually moving information between applications.",
-        "value": [
-          "Manual transfers removed, synchronization errors, exception handling effort, and process completion time."
-        ],
-        "button": "Explore Your Integration Options",
-        "href": "https://calendly.com/meet_with_setupshoponline/15-minute-intro",
-        "related": [
-          {
-            "label": "SUSO Framework",
-            "href": "https://calendly.com/meet_with_setupshoponline/15-minute-intro"
           },
           {
-            "label": "Agentic Orchestration Enablement",
-            "href": "https://calendly.com/meet_with_setupshoponline/15-minute-intro"
-          },
-          {
-            "label": "CRM Integration",
-            "href": "https://calendly.com/meet_with_setupshoponline/15-minute-intro"
-          },
-          {
-            "label": "Business Context Integration and Prompt Systems",
+            "label": "Data Architecture",
             "href": "https://calendly.com/meet_with_setupshoponline/15-minute-intro"
           }
         ],
-        "group": "Connected Systems and Automation",
-        "ctaDescription": "Start with a 15 minute intro call to discuss which systems need to work together and where duplicate effort slows your team. Choose a time on the next screen.",
-        "imageAlt": "Sales and team applications exchanging records through a central integration process.",
-        "imageDescription": "Custom Integration. Help information move between applications so people spend less time copying, checking, and chasing it."
+        "group": "",
+        "ctaDescription": "Start with a 15 minute intro call to discuss what you need to understand about margins, delivery effort, and capacity. Choose a time on the next screen.",
+        "imageAlt": "Project revenue, delivery costs, and margins compared alongside time and capacity.",
+        "imageDescription": "Profitability Analytics. Connect revenue, costs, and delivery effort to make better decisions about clients, services, and capacity."
       },
       {
         "id": "data-architecture",
@@ -697,68 +759,6 @@
         "ctaDescription": "Start with a 15 minute intro call to discuss the information gaps getting in the way of reliable reporting and AI. Choose a time on the next screen.",
         "imageAlt": "Organized business data layers connecting to database tables and reporting systems.",
         "imageDescription": "Data Architecture. Organize and connect business information so it is easier to find, understand, and use."
-      },
-      {
-        "id": "profitability-analytics",
-        "title": "Profitability Analytics: See Which Work Contributes Most to Your Bottom Line",
-        "short": "Connect revenue, costs, and delivery effort to make better decisions about clients, services, and capacity.",
-        "expanded": [
-          "Revenue tells only part of the story behind business performance. We bring relevant financial and operating information together to examine profitability by client, service, project, or workflow.",
-          "Agreeing on definitions and data sources helps make the resulting views useful for decisions. You can better see where delivery effort, rework, or resource use affects margins and where improvement deserves attention."
-        ],
-        "best": "Owners who need to understand how delivery effort and costs affect profitability.",
-        "value": [
-          "Visibility into margins and cost-to-serve, reliability of the underlying data, and decisions informed by the analysis."
-        ],
-        "button": "Explore Your Profit Opportunities",
-        "href": "https://calendly.com/meet_with_setupshoponline/15-minute-intro",
-        "related": [
-          {
-            "label": "SUSO Framework",
-            "href": "https://calendly.com/meet_with_setupshoponline/15-minute-intro"
-          },
-          {
-            "label": "Business Analytics",
-            "href": "https://calendly.com/meet_with_setupshoponline/15-minute-intro"
-          },
-          {
-            "label": "Data Architecture",
-            "href": "https://calendly.com/meet_with_setupshoponline/15-minute-intro"
-          }
-        ],
-        "group": "Analytics and Profitability",
-        "ctaDescription": "Start with a 15 minute intro call to discuss what you need to understand about margins, delivery effort, and capacity. Choose a time on the next screen.",
-        "imageAlt": "Project revenue, delivery costs, and margins compared alongside time and capacity.",
-        "imageDescription": "Profitability Analytics. Connect revenue, costs, and delivery effort to make better decisions about clients, services, and capacity."
-      },
-      {
-        "id": "security",
-        "title": "Security: Protect the Information and Access Your Business Depends On",
-        "short": "Strengthen practical controls around data, AI tools, and connected systems as your capabilities develop.",
-        "expanded": [
-          "Connecting tools and introducing AI changes how information moves and who can access it. We help identify the controls needed for the agreed use case, including access permissions, data handling, and system connections.",
-          "The work is coordinated with your existing policies and responsible specialists where needed. Clear controls and review responsibilities support more confident implementation and day-to-day use."
-        ],
-        "best": "Businesses introducing AI or connections that need defined access and data-handling controls.",
-        "value": [
-          "Access and control gaps addressed, completion of agreed checks, and visibility into data-handling responsibilities."
-        ],
-        "button": "Discuss Your Security Priorities",
-        "href": "https://calendly.com/meet_with_setupshoponline/15-minute-intro",
-        "related": [
-          {
-            "label": "SUSO Framework",
-            "href": "https://calendly.com/meet_with_setupshoponline/15-minute-intro"
-          },
-          {
-            "label": "AI and Data Governance",
-            "href": "https://calendly.com/meet_with_setupshoponline/15-minute-intro"
-          }
-        ],
-        "group": "Governance and Security",
-        "ctaDescription": "Start with a 15 minute intro call to discuss your concerns about information, access, and the systems your business relies on. Choose a time on the next screen.",
-        "imageAlt": "Business database protected by a shield, lock, and controlled access for team members.",
-        "imageDescription": "Security. Strengthen practical controls around data, AI tools, and connected systems as your capabilities develop."
       },
       {
         "id": "seo-ai-seo",
@@ -821,7 +821,7 @@
             "href": "https://calendly.com/meet_with_setupshoponline/15-minute-intro"
           }
         ],
-        "group": "Marketing and Visibility",
+        "group": "",
         "ctaDescription": "Start with a 15 minute intro call to discuss your website goals and what visitors need to do next. Choose a time on the next screen.",
         "imageAlt": "Responsive business website connected to commerce, operations, and inquiry follow-up.",
         "imageDescription": "Website Redesign. Make your value easier to understand and give prospective customers a clearer path to contact your business."
