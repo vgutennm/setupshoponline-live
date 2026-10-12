@@ -58,7 +58,9 @@ function wb_rate(string $key, int $limit, int $seconds): bool {
     wb_query('INSERT INTO rate_limits(key,count,expires_at) VALUES(?,1,?) ON CONFLICT(key) DO UPDATE SET count=count+1',[$key,($bucket+1)*$seconds]);
     return (int)wb_query('SELECT count FROM rate_limits WHERE key=?',[$key])->fetchColumn() <= $limit;
 }
-function wb_subscribe(array $d): array {
+function wb_subscribe(array $d, string $resource = "workbook"): array {
+    if (!in_array($resource,["workbook","conversionkit"],true)) throw new InvalidArgumentException("Unknown resource");
+    $isKit = $resource === "conversionkit";
     $now = (int)round(microtime(true)*1000);
     if (!empty($d['website']) || !is_numeric($d['started_at'] ?? null) || $now-$d['started_at'] < 1200 || $now-$d['started_at'] > 86400000) return [400,['error'=>'Please wait a moment and submit again.']];
     $str = static fn($k) => is_string($d[$k] ?? null) ? trim($d[$k]) : '';
@@ -69,7 +71,7 @@ function wb_subscribe(array $d): array {
     if (strlen($phone)>40 || !preg_match('/^[+0-9 ().-]+$/D',$phone) || strlen($digits)<7 || strlen($digits)>15) $fields['phone']='Please enter a phone number with 7–15 digits.';
     if ($fields) return [400,['error'=>'Please check the highlighted fields.','fields'=>$fields]];
     if (!preg_match('/^[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}$/iD',$id)) return [400,['error'=>'Please refresh the form and try again.']];
-    $requestHash=hash('sha256',json_encode([$name,$email,$phone]));
+    $requestHash=hash('sha256',json_encode($isKit ? [$name,$email,$phone,$resource] : [$name,$email,$phone]));
     // A retry of an already verified request may reuse its download access.
     $existing=wb_query('SELECT * FROM leads WHERE id=?',[$id])->fetch();
     if ($existing) {
@@ -91,9 +93,9 @@ function wb_subscribe(array $d): array {
             $db->exec('COMMIT'); return [429,['error'=>'Too many requests. Please try again later.']];
         }
         $campaign=[];
-        foreach (['utm_source','utm_medium','utm_campaign','utm_content','utm_term'] as $key) if (is_string($d['campaign'][$key] ?? null)) $campaign[$key]=substr(preg_replace('/[\x00-\x1f\x7f]/','',$d['campaign'][$key]),0,200);
+        foreach ($isKit ? [] : ['utm_source','utm_medium','utm_campaign','utm_content','utm_term'] as $key) if (is_string($d['campaign'][$key] ?? null)) $campaign[$key]=substr(preg_replace('/[\x00-\x1f\x7f]/','',$d['campaign'][$key]),0,200);
         $tz=$str('timezone'); try {new DateTimeZone($tz);} catch (Throwable $e) {$tz='UTC';}
-        $lead=['id'=>$id,'full_name'=>$name,'first_name'=>preg_split('/\s+/',$name)[0],'email'=>$email,'phone'=>$phone,'submitted_at'=>gmdate('c'),'timezone'=>$tz,'source_page'=>'/free-workbook','campaign'=>$campaign,'consent_version'=>'workbook-2026-09-28'];
+        $lead=['id'=>$id,'full_name'=>$name,'first_name'=>preg_split('/\s+/',$name)[0],'email'=>$email,'phone'=>$phone,'submitted_at'=>gmdate('c'),'timezone'=>$tz,'source_page'=>$isKit?'/conversionkit':'/free-workbook','campaign'=>$campaign,'consent_version'=>$isKit?'conversionkit-delivery-only-v1':'workbook-2026-09-28'];
         $token=bin2hex(random_bytes(32));
         wb_query('INSERT INTO leads VALUES(?,?,?,?,?,?)',[$id,$requestHash,json_encode($lead),hash('sha256',$token),$token,time()]);
         $status=wb_enabled()?'pending':'not_configured';
@@ -134,16 +136,19 @@ function wb_render(string $template, array $values, bool $html): string {
 }
 function wb_message(array $job, array $row): array {
     $lead=json_decode($row['data'],true); $kind=$job['kind'];
+    $isKit=($lead['source_page']??'')==='/conversionkit';
+    $filename=$isKit?'Conversation-to-Client-Conversion-Kit-v3.pdf':WB_FILENAME;
+    $pdfPath=__DIR__.($isKit?'/conversionkit.pdf':'/workbook.pdf');
     $status=wb_query('SELECT status FROM jobs WHERE id=?',[$lead['id'].'-subscriber'])->fetchColumn();
-    $values=array_merge($lead,$lead['campaign'],['download_url'=>'https://setupshoponline.com/workbook-access#'.$row['download_token'],'submitted_at_with_timezone'=>$lead['submitted_at'].'; visitor timezone: '.$lead['timezone'],'submission_id'=>$lead['id'],'delivery_status'=>$status]);
-    $base=$kind==='subscriber'?'subscriber-email':'lead-notification-email';
+    $values=array_merge($lead,$lead['campaign'],['download_url'=>'https://setupshoponline.com'.($isKit?'/conversionkit/access#':'/workbook-access#').$row['download_token'],'submitted_at_with_timezone'=>$lead['submitted_at'].'; visitor timezone: '.$lead['timezone'],'submission_id'=>$lead['id'],'delivery_status'=>$status]);
+    $base=($isKit?'conversionkit-':'').($kind==='subscriber'?'subscriber-email':'lead-notification-email');
     $html=wb_render(file_get_contents(__DIR__.'/templates/'.$base.'.html'),$values,true);
     $text=file_get_contents(__DIR__.'/templates/'.$base.'.txt'); $text=wb_render(substr($text,strpos($text,"\n\n")+2),$values,false);
     $boundary='wb_'.str_replace('-','',$job['id']); $alt=$boundary.'_alt';
-    $subject=$kind==='subscriber'?'Your More Clients. Less Busywork. workbook is here':'New workbook lead: '.$lead['full_name'];
+    $subject=$kind==='subscriber'?($isKit?'Your Conversation to Client Conversion Kit':'Your More Clients. Less Busywork. workbook is here'):($isKit?'New conversion kit request: ':'New workbook lead: ').$lead['full_name'];
     $enc=static fn($s)=>rtrim(chunk_split(base64_encode($s),76,"\r\n"));
     $lines=['From: Vlad Gutenmakher <'.WB_SENDER.'>','To: '.($kind==='subscriber'?$lead['email']:WB_SENDER),'Reply-To: '.($kind==='subscriber'?WB_SENDER:$lead['email']),'Subject: =?UTF-8?B?'.base64_encode($subject).'?=','Message-ID: <'.$job['id'].'@setupshoponline.com>','MIME-Version: 1.0','Content-Type: multipart/mixed; boundary="'.$boundary.'"','','--'.$boundary,'Content-Type: multipart/alternative; boundary="'.$alt.'"','','--'.$alt,'Content-Type: text/plain; charset=UTF-8','Content-Transfer-Encoding: base64','',$enc($text),'--'.$alt,'Content-Type: text/html; charset=UTF-8','Content-Transfer-Encoding: base64','',$enc($html),'--'.$alt.'--'];
-    if ($kind==='subscriber') array_push($lines,'--'.$boundary,'Content-Type: application/pdf; name="'.WB_FILENAME.'"','Content-Transfer-Encoding: base64','Content-Disposition: attachment; filename="'.WB_FILENAME.'"','',$enc(file_get_contents(__DIR__.'/workbook.pdf')));
+    if ($kind==='subscriber') array_push($lines,'--'.$boundary,'Content-Type: application/pdf; name="'.$filename.'"','Content-Transfer-Encoding: base64','Content-Disposition: attachment; filename="'.$filename.'"','',$enc(file_get_contents($pdfPath)));
     array_push($lines,'--'.$boundary.'--','');
     return ['mime'=>base64_encode(implode("\r\n",$lines))];
 }
@@ -199,3 +204,4 @@ function wb_dispatch(): void {
         wb_json(['error'=>'Not found.'],404);
     } catch (Throwable $e) { wb_json(['error'=>'We could not save or retrieve your workbook. Please try again shortly.'],503); }
 }
+

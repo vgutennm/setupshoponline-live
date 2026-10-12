@@ -1,0 +1,25 @@
+Subject: Your Conversation to Client Conversion Kit
+
+Hi {{first_name}},
+
+Thank you for downloading the Conversation to Client Conversion Kit. Your PDF is attached so you can keep it, print it, or return to it whenever you need it.
+
+You can also reopen your copy here:
+{{download_url}}
+
+Start with your short spoken introduction, then practice the five step conversation with a partner before your next networking event.
+
+Want help turning a promising conversation into the right next step? Book a 15 minute intro with me:
+https://calendly.com/meet_with_setupshoponline/15-minute-intro
+
+No call or purchase is required to use the kit.
+
+Thank you,
+Vlad Gutenmakher
+AI Consultant and Value Architect
+Set Up Shop Online, Inc.
+vlad@setupshoponline.com
+201-757-0134
+https://setupshoponline.com
+
+This email fulfills your kit request. You have not been subscribed to marketing or signed up for sales calls or texts. Your details will not be sold, shared for others' use, or used for unrelated purposes. Reply to request help or deletion of your information.

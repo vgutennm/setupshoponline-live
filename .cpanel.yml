@@ -3,10 +3,13 @@ deployment:
   tasks:
     - export DEPLOYPATH=/home/aha7hfr64vl1/public_html/
     - export PRIVATEPATH=/home/aha7hfr64vl1/.setupshoponline-workbook
-    - /bin/mkdir -p "$PRIVATEPATH/app" "$PRIVATEPATH/data" "$DEPLOYPATH/api/workbook" "$DEPLOYPATH/api/growth"
+    - /bin/mkdir -p "$PRIVATEPATH/app" "$PRIVATEPATH/data" "$DEPLOYPATH/api/workbook" "$DEPLOYPATH/api/growth" "$DEPLOYPATH/api/conversionkit" "$DEPLOYPATH/conversionkit"
     - /bin/chmod 700 "$PRIVATEPATH" "$PRIVATEPATH/data"
     - /bin/cp -R server/. "$PRIVATEPATH/app/"
     - if [ -x /opt/alt/php83/usr/bin/php ]; then /opt/alt/php83/usr/bin/php "$PRIVATEPATH/app/init.php"; else /usr/local/bin/php "$PRIVATEPATH/app/init.php"; fi
+    - /bin/cp api/conversionkit/index.php "$DEPLOYPATH/api/conversionkit/"
+    - /bin/cp conversionkit.html "$DEPLOYPATH/"
+    - /bin/cp conversionkit/access.html "$DEPLOYPATH/conversionkit/"
     - /bin/cp api/workbook/index.php "$DEPLOYPATH/api/workbook/"
     - /bin/cp api/growth/index.php "$DEPLOYPATH/api/growth/"
     - /bin/cp free-business-strategy.html growth-assessment.html "$DEPLOYPATH"
@@ -15,3 +18,4 @@ deployment:
     - /bin/cp favicon.ico favicon-16x16.png favicon-32x32.png apple-touch-icon.png favicon.jpg favicon.svg logo.png opengraph.jpg "$DEPLOYPATH"
     - /bin/cp ai-strategy-call-qr.png humans.txt llms.txt llms-full.txt llms.json robots.txt sitemap.xml .htaccess "$DEPLOYPATH"
     - /bin/cp index.html "$DEPLOYPATH"
+

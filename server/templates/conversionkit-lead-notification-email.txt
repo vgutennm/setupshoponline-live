@@ -1,0 +1,13 @@
+Subject: New conversion kit request
+
+A visitor requested the Conversation to Client Conversion Kit.
+
+Full name: {{full_name}}
+Email: {{email}}
+Phone: {{phone}}
+Submitted: {{submitted_at_with_timezone}}
+Source page: {{source_page}}
+Submission ID: {{submission_id}}
+Visitor email delivery status: {{delivery_status}}
+
+Privacy scope: Kit fulfillment only. This request does not authorize marketing enrollment, sales calls, or text messages. Respond only to fulfill the request or to a contact initiated by the visitor.

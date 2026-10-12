@@ -21,3 +21,11 @@ Before the next generated build is copied here, apply the same label correction 
 Use repository "vgutennm/setupshoponline-live", branch "main". Preserve PHP gateways, server configuration, cron integrations, and the existing cPanel deployment configuration.
 
 Pushing to GitHub does not publish setupshoponline.com. Public publication requires cPanel Git Version Control: Update from Remote, then Deploy HEAD Commit. Verify the public result before claiming it is live. The Sites review URL is a separate publication.
+
+
+## Conversion kit
+
+The `/conversionkit` form delivers the Conversation to Client Conversion Kit using the existing Google reCAPTCHA and delegated Outlook services. Contact information is for kit fulfillment only; never enroll these requests in marketing, sales calls, or texts. Keep the PDF, templates, configuration, and lead records outside public_html. Preserve the old workbook behavior when modifying shared `server/app.php`.
+
+The saved Sites source also contains a separate agentic assessment draft. A conversion kit release must copy only its new pages and assets plus its explicitly changed API/server/deployment files. Do not replace existing production pages with that separate draft. See CONVERSIONKIT.md for deployment and verification.
+
