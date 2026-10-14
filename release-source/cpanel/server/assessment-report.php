@@ -10,7 +10,7 @@ function as_report_sections(array $row): array {
  $blocks=[[$r['quick_win']['title'],'Start with a small action you can complete and review.']];foreach($r['quick_win']['steps'] as $i=>$s)$blocks[]=['Step '.($i+1),$s];$blocks[]=['How work happens today',$a['current_workflow']];$blocks[]=['A better way to work',$a['proposed_workflow']."\n".$a['human_role']];$pages[]=['title'=>'Your First Seven Days','blocks'=>$blocks];
  foreach($r['roadmap'] as $i=>$phase){$blocks=[['Focus',$phase['focus']]];foreach($phase['actions'] as $v)$blocks[]=[$v['action'],'Deliverable: '.$v['deliverable']."\nWho: ".$v['owner']."\nMeasure: ".$v['measure']];$blocks[]=$i===0?['What needs to be ready',$a['readiness']."\n".$a['dependencies']]:($i===1?['Risks and human controls',$a['risks_controls']]:['What to measure and decide',$a['impact_basis']."\n".$a['decision']]);$pages[]=['title'=>$phase['phase'],'blocks'=>$blocks];}
  $blocks=[];foreach($r['metrics'] as $m)$blocks[]=[$m['name'],'Starting point: '.$m['baseline']."\nHow to track: ".$m['method']];$blocks[]=['Strengths, gaps, opportunities and risks',$a['swot']];$blocks[]=['What still needs confirming',implode("\n",$r['assumptions'])];$pages[]=['title'=>'Track Progress and Confirm Details','blocks'=>$blocks];
- $pages[]=['title'=>'Turn Your Findings Into Action','blocks'=>[['Book Your Free Strategy Review',as_definition()['reviewUrl']],['What to expect','Bring your report to a free review with Set Up Shop Online. We will discuss what is accurate, what needs confirming, and a sensible first step.'],['Your report is yours to keep','No booking or purchase is required. Detailed strategy, solution design, and implementation are paid services, agreed with you first.'],['Your contact','Vlad Gutenmakher\nAI Consultant and Value Architect\nSet Up Shop Online, Inc.\nVlad@SetupShopOnline.com | 201-757-0134\nhttps://setupshoponline.com/']]];
+ $pages[]=['title'=>'Turn Your Findings Into Action','blocks'=>[[$row['kind']==='agentic'?'Book Your Free Agentic Readiness Assessment Review':'Book Your Free Strategy Review',as_definition()['reviewUrl']],['What to expect','Bring your report to a free review with Set Up Shop Online. We will discuss what is accurate, what needs confirming, and a sensible first step.'],['Your report is yours to keep','No booking or purchase is required. Detailed strategy, solution design, and implementation are paid services, agreed with you first.'],['Your contact','Vlad Gutenmakher\nAI Consultant and Value Architect\nSet Up Shop Online, Inc.\nVlad@SetupShopOnline.com | 201-757-0134\nhttps://setupshoponline.com/']]];
  return $pages;
 }
 function as_pdf_text(string $s): string {
@@ -28,12 +28,13 @@ function as_pdf_lines(string $text,int $limit=73): array {
 function as_report_pdf(array $row): string {
  $streams=[];$annotations=[];$links=[];$stream='';$y=0;$pageNo=0;
  $line=static function(string $text,float $size,bool $bold=false,string $color='0.098 0.196 0.286',float $x=54)use(&$stream,&$y){$stream.=$color." rg BT /".($bold?'F2':'F1')." $size Tf 1 0 0 1 $x $y Tm (".as_pdf_text($text).") Tj ET\n";$y-=$size+5;};
- $cta=static function()use(&$stream,&$y,&$links,$line){
+ $cta=static function()use(&$stream,&$y,&$links,$line,$row){
+  $agentic=$row['kind']==='agentic';
   $stream.="0.063 0.169 0.306 rg 54 584 487 190 re f\n";
   $y=745;$line('Turn your findings into your next step.',17,true,'1 1 1',70);
-  $y=716;foreach(['Bring your report to a free Strategy Review. We will review the findings,', 'discuss your first step, and see whether paid strategy work would help.'] as $t)$line($t,10,false,'0.88 0.93 1',70);
-  $stream.="1 0.6 0 rg 70 626 268 36 re f\n";$y=639;$line('Book Free Strategy Review',12,true,'0.063 0.169 0.306',84);
-  $links[]=['rect'=>[70,626,338,662],'url'=>as_definition()['reviewUrl']];
+  $y=716;foreach($agentic?['Bring your report to a free Agentic Readiness Assessment Review.', 'We will review your findings, readiness gaps, and practical next steps.']:['Bring your report to a free Strategy Review. We will review the findings,', 'discuss your first step, and see whether paid strategy work would help.'] as $t)$line($t,10,false,'0.88 0.93 1',70);
+  $stream.="1 0.6 0 rg 70 626 450 36 re f\n";$y=639;$line($agentic?'Book Free Agentic Readiness Assessment Review':'Book Free Strategy Review',12,true,'0.063 0.169 0.306',84);
+  $links[]=['rect'=>[70,626,520,662],'url'=>as_definition()['reviewUrl']];
   $y=604;$line('Your report is yours to keep. Booking is optional.',10,false,'0.88 0.93 1',70);
  };
  $start=static function(string $title,bool $showCta=false)use(&$streams,&$annotations,&$stream,&$links,&$y,&$pageNo,$line,$cta){
