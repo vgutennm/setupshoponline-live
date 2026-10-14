@@ -10,7 +10,7 @@ function as_report_sections(array $row): array {
  $blocks=[[$r['quick_win']['title'],'Start with a small action you can complete and review.']];foreach($r['quick_win']['steps'] as $i=>$s)$blocks[]=['Step '.($i+1),$s];$blocks[]=['How work happens today',$a['current_workflow']];$blocks[]=['A better way to work',$a['proposed_workflow']."\n".$a['human_role']];$pages[]=['title'=>'Your First Seven Days','blocks'=>$blocks];
  foreach($r['roadmap'] as $i=>$phase){$blocks=[['Focus',$phase['focus']]];foreach($phase['actions'] as $v)$blocks[]=[$v['action'],'Deliverable: '.$v['deliverable']."\nWho: ".$v['owner']."\nMeasure: ".$v['measure']];$blocks[]=$i===0?['What needs to be ready',$a['readiness']."\n".$a['dependencies']]:($i===1?['Risks and human controls',$a['risks_controls']]:['What to measure and decide',$a['impact_basis']."\n".$a['decision']]);$pages[]=['title'=>$phase['phase'],'blocks'=>$blocks];}
  $blocks=[];foreach($r['metrics'] as $m)$blocks[]=[$m['name'],'Starting point: '.$m['baseline']."\nHow to track: ".$m['method']];$blocks[]=['Strengths, gaps, opportunities and risks',$a['swot']];$blocks[]=['What still needs confirming',implode("\n",$r['assumptions'])];$pages[]=['title'=>'Track Progress and Confirm Details','blocks'=>$blocks];
- $pages[]=['title'=>'Turn Your Findings Into Action','blocks'=>[['Book Your Free Strategy Review',as_definition()['reviewUrl']],['What to expect','Bring your report to a free review with Set Up Shop Online. We will discuss what is accurate, what needs confirming, and a sensible first step.'],['Your report is yours to keep','No booking or purchase is required. Detailed strategy, solution design, and implementation are paid services, agreed with you first.'],['Set Up Shop Online, Inc.','Vlad@SetupShopOnline.com | 201-757-0134 | SetUpShopOnline.com']]];
+ $pages[]=['title'=>'Turn Your Findings Into Action','blocks'=>[['Book Your Free Strategy Review',as_definition()['reviewUrl']],['What to expect','Bring your report to a free review with Set Up Shop Online. We will discuss what is accurate, what needs confirming, and a sensible first step.'],['Your report is yours to keep','No booking or purchase is required. Detailed strategy, solution design, and implementation are paid services, agreed with you first.'],['Your contact','Vlad Gutenmakher\nAI Consultant and Value Architect\nSet Up Shop Online, Inc.\nVlad@SetupShopOnline.com | 201-757-0134\nhttps://setupshoponline.com/']]];
  return $pages;
 }
 function as_pdf_text(string $s): string {
@@ -26,11 +26,42 @@ function as_pdf_lines(string $text,int $limit=73): array {
  }$out[]=$line;}return $out;
 }
 function as_report_pdf(array $row): string {
- $streams=[];$stream='';$y=0;$pageNo=0;
- $line=static function(string $text,float $size,bool $bold=false,string $color='0.12 0.17 0.25')use(&$stream,&$y){$stream.=$color." rg BT /".($bold?'F2':'F1')." $size Tf 1 0 0 1 54 $y Tm (".as_pdf_text($text).") Tj ET\n";$y-=$size+5;};
- $start=static function(string $title)use(&$streams,&$stream,&$y,&$pageNo,$line){if($stream!=='')$streams[]=$stream;$stream='';if(++$pageNo>15)throw new LengthException('PDF page limit');$y=790;$line('SET UP SHOP ONLINE',11,true,'0.08 0.28 0.60');$y-=15;foreach(as_pdf_lines($title,42) as $t)$line($t,19,true);$y-=12;$stream.="0.75 0.82 0.9 RG 54 736 m 541 736 l S\n";$stream.="0.35 0.4 0.5 rg BT /F1 9 Tf 1 0 0 1 54 29 Tm (SetUpShopOnline.com | Private assessment report | $pageNo) Tj ET\n";};
- foreach(as_report_sections($row) as $section){$start($section['title']);foreach($section['blocks'] as [$title,$body]){if($y<125)$start($section['title'].' - continued');foreach(as_pdf_lines($title,65) as $t){if($y<65)$start($section['title'].' - continued');$line($t,12,true,'0.08 0.28 0.60');}foreach(as_pdf_lines($body) as $t){if($y<65)$start($section['title'].' - continued');$line($t,10);} $y-=12;}}
- if($stream!=='')$streams[]=$stream;
+ $streams=[];$annotations=[];$links=[];$stream='';$y=0;$pageNo=0;
+ $line=static function(string $text,float $size,bool $bold=false,string $color='0.098 0.196 0.286',float $x=54)use(&$stream,&$y){$stream.=$color." rg BT /".($bold?'F2':'F1')." $size Tf 1 0 0 1 $x $y Tm (".as_pdf_text($text).") Tj ET\n";$y-=$size+5;};
+ $cta=static function()use(&$stream,&$y,&$links,$line){
+  $stream.="0.063 0.169 0.306 rg 54 584 487 190 re f\n";
+  $y=745;$line('Turn your findings into your next step.',17,true,'1 1 1',70);
+  $y=716;foreach(['Bring your report to a free Strategy Review. We will review the findings,', 'discuss your first step, and see whether paid strategy work would help.'] as $t)$line($t,10,false,'0.88 0.93 1',70);
+  $stream.="1 0.6 0 rg 70 626 268 36 re f\n";$y=639;$line('Book Free Strategy Review',12,true,'0.063 0.169 0.306',84);
+  $links[]=['rect'=>[70,626,338,662],'url'=>as_definition()['reviewUrl']];
+  $y=604;$line('Your report is yours to keep. Booking is optional.',10,false,'0.88 0.93 1',70);
+ };
+ $start=static function(string $title,bool $showCta=false)use(&$streams,&$annotations,&$stream,&$links,&$y,&$pageNo,$line,$cta){
+  if($stream!==''){$streams[]=$stream;$annotations[]=$links;}$stream='';$links=[];
+  if(++$pageNo>15)throw new LengthException('PDF page limit');
+  $stream.="0.071 0.302 0.6 rg 0 832 595 10 re f\n";
+  if($showCta)$cta();
+  $top=$showCta?556:790;$logoY=$showCta?499:733;
+  $stream.="q 50 0 0 50 491 $logoY cm /Logo Do Q\n";
+  $y=$top;$line('SET UP SHOP ONLINE',10,true,'0.071 0.302 0.6');$y-=14;
+  foreach(as_pdf_lines($title,42) as $t)$line($t,19,true,'0.063 0.169 0.306');$y-=18;
+  $stream.="0.35 0.4 0.5 rg BT /F1 9 Tf 1 0 0 1 54 29 Tm (SetUpShopOnline.com | Private assessment report | $pageNo) Tj ET\n";
+  $links[]=['rect'=>[54,25,160,40],'url'=>'https://setupshoponline.com/'];
+ };
+ foreach(as_report_sections($row) as $i=>$section){
+  $start($section['title'],$i===0||$section['title']==='Turn Your Findings Into Action');
+  foreach($section['blocks'] as [$title,$body]){
+   $heading=as_pdf_lines($title,65);$bodyLines=as_pdf_lines($body);
+   if($y<65+count($heading)*17+min(count($bodyLines),3)*15)$start($section['title'].' continued');
+   foreach($heading as $t)$line($t,12,true,'0.071 0.302 0.6');
+   foreach($bodyLines as $t){if($y<65)$start($section['title'].' continued');$lineY=$y;$line($t,10);
+    if(str_contains($t,'calendly.com'))$links[]=['rect'=>[54,$lineY-3,541,$lineY+12],'url'=>as_definition()['reviewUrl']];
+    if(str_contains($t,'Vlad@SetupShopOnline.com'))$links[]=['rect'=>[54,$lineY-3,210,$lineY+12],'url'=>'mailto:Vlad@SetupShopOnline.com'];
+    if(str_contains($t,'201-757-0134'))$links[]=['rect'=>[220,$lineY-3,330,$lineY+12],'url'=>'tel:+12017570134'];
+   }$y-=12;
+  }
+ }
+ if($stream!==''){$streams[]=$stream;$annotations[]=$links;}
  $objects=[1=>'<< /Type /Catalog /Pages 2 0 R >>'];
  $fonts=json_decode(file_get_contents(__DIR__.'/fonts/metrics.json'),true);
  foreach(['regular','bold'] as $j=>$kind){$font=$fonts[$kind];$id=3+$j;$descriptor=5+$j*2;$file=$descriptor+1;$bytes=file_get_contents(__DIR__.'/fonts/'.$kind.'.ttf');$name=$font['name'];
@@ -38,7 +69,13 @@ function as_report_pdf(array $row): string {
  $objects[$descriptor]="<< /Type /FontDescriptor /FontName /$name /Flags 32 /FontBBox [".implode(' ',$font['bbox'])."] /ItalicAngle 0 /Ascent ".$font['ascent']." /Descent ".$font['descent']." /CapHeight ".$font['ascent']." /StemV 80 /FontFile2 $file 0 R >>";
  $objects[$file]='<< /Length '.strlen($bytes).' /Length1 '.strlen($bytes)." >>\nstream\n".$bytes."\nendstream";
  }
- $kids=[];
- foreach($streams as $i=>$s){$p=9+$i*2;$content=$p+1;$kids[]="$p 0 R";$objects[$p]="<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents $content 0 R >>";$objects[$content]='<< /Length '.strlen($s)." >>\nstream\n".$s."endstream";}
+ $logo=file_get_contents(__DIR__.'/fonts/report-logo.jpg');$info=getimagesize(__DIR__.'/fonts/report-logo.jpg');
+ $objects[9]='<< /Type /XObject /Subtype /Image /Width '.$info[0].' /Height '.$info[1].' /ColorSpace /DeviceRGB /BitsPerComponent 8 /Filter /DCTDecode /Length '.strlen($logo)." >>\nstream\n".$logo."\nendstream";
+ $kids=[];$next=10;
+ foreach($streams as $i=>$s){$p=$next++;$content=$next++;$kids[]="$p 0 R";$refs=[];
+  foreach($annotations[$i] as $link){$id=$next++;$refs[]="$id 0 R";$objects[$id]='<< /Type /Annot /Subtype /Link /Rect ['.implode(' ',$link['rect']).'] /Border [0 0 0] /A << /S /URI /URI ('.as_pdf_text($link['url']).') >> >>';}
+  $objects[$p]="<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> /XObject << /Logo 9 0 R >> >> /Annots [".implode(' ',$refs)."] /Contents $content 0 R >>";
+  $objects[$content]='<< /Length '.strlen($s)." >>\nstream\n".$s."endstream";
+ }
  $objects[2]='<< /Type /Pages /Count '.count($kids).' /Kids ['.implode(' ',$kids).'] >>';ksort($objects);$pdf="%PDF-1.4\n";$offsets=[0];foreach($objects as $id=>$obj){$offsets[$id]=strlen($pdf);$pdf.="$id 0 obj\n$obj\nendobj\n";}$pos=strlen($pdf);$n=count($objects)+1;$pdf.="xref\n0 $n\n0000000000 65535 f \n";for($i=1;$i<$n;$i++)$pdf.=sprintf("%010d 00000 n \n",$offsets[$i]);$pdf.="trailer\n<< /Size $n /Root 1 0 R >>\nstartxref\n$pos\n%%EOF\n";return $pdf;
 }

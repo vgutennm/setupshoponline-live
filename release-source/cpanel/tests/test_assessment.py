@@ -77,12 +77,26 @@ with tempfile.TemporaryDirectory(prefix='native-assessment-') as tmp:
  # PDF is generated from the same validated content, outside the HTTP response harness.
  code="require '"+str(app/ 'app.php')+"'; require '"+str(app/'assessment.php')+"';as_init();echo as_report_pdf(as_get('"+session['id']+"'));"
  pdf=subprocess.check_output(PHP+['-r',code]);assert pdf.startswith(b'%PDF-1.4') and b'Your Agentic Readiness Report' in pdf
- Path('/workspace/scratch/8687fed32f36/native-assessment-sample.pdf').write_bytes(pdf)
+ Path(os.environ.get('ASSESSMENT_SAMPLE_PDF','/tmp/native-assessment-sample.pdf')).write_bytes(pdf)
  for payload in [json.loads(x) for x in (root/'ai.jsonl').read_text().splitlines()]:
   assert contact['email'] not in json.dumps(payload) and contact['phone'] not in json.dumps(payload) and contact['full_name'] not in json.dumps(payload)
  assert call('mail')['code']==200
  messages=[json.loads(x)['message'] for x in (root/'sent.jsonl').read_text().splitlines()]
  assert len(messages)==2
+ user=next(m for m in messages if m['toRecipients'][0]['emailAddress']['address']==contact['email'])
+ owner=next(m for m in messages if m['toRecipients'][0]['emailAddress']['address']=='vlad@setupshoponline.com')
+ for m in messages:
+  assert m['body']['contentType']=='HTML'
+  assert 'SUSO Framework and Custom Assessment' in m['body']['content']
+  assert '1-hour-setupshoponline' in m['body']['content']
+  assert 'Reply to this email' in m['body']['content']
+  assert 'Disclaimer:' in m['body']['content']
+  assert m['attachments'][0]['name']=='Your_Agentic_Readiness_Report.pdf'
+ assert 'BIGIN CONTACT' not in user['body']['content']
+ assert 'NEW AGENTIC READINESS REPORT' in owner['body']['content']
+ assert all(v in owner['body']['content'] for v in ['KEY FINDINGS','BIGIN CONTACT','BIGIN COMPANY','BIGIN DEAL','CLIENT EMAIL COPY'])
+ assert b'/Subtype /Link' in pdf and b'Book Free Strategy Review' in pdf and b'/Logo' in pdf
+ assert b'https://calendly.com/meet_with_setupshoponline/1-hour-setupshoponline' in pdf
  assert {m['toRecipients'][0]['emailAddress']['address'] for m in messages}=={contact['email'],'vlad@setupshoponline.com'}
  assert all(base64.b64decode(m['attachments'][0]['contentBytes'])==pdf for m in messages)
  assert call('mail')['code']==200 and len((root/'sent.jsonl').read_text().splitlines())==2
