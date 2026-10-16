@@ -14,7 +14,7 @@ import {
   navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu";
 const headerAssessment = { label: siteConfig.agenticAssessmentLabel, href: siteConfig.agenticAssessmentUrl };
-const logoImg = "/images/setupshoponline-rectangle-logo.jpeg";
+const logoImg = "/images/setupshoponline-header-logo.png?v=prosperity20261016";
 
 type NavItem =
   | { label: string; href: string; kind: "internal" }
@@ -173,8 +173,8 @@ export function Navbar() {
             src={logoImg}
             alt="Set Up Shop Online Inc. logo"
             title="Set Up Shop Online | AI Consulting for Service Businesses"
-            width={1000}
-            height={480}
+            width={512}
+            height={512}
             decoding="async"
             className="h-14 w-auto object-contain"
           />
