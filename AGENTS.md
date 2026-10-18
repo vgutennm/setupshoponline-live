@@ -31,3 +31,6 @@ The /conversionkit form is a transactional request only. It must not enroll peop
 
 ## Primary assessment promotion
 Use Free Agentic Readiness Assessment and /free-agentic-readiness-assessment for all general website assessment calls to action. Keep Free Business Strategy Report promotion only in its Products catalog entry; preserve that product’s assessment flow. Agentic Readiness is the first Products offering. Keep booking and mobile intro actions separate. Audit shared sections, footers, contact, booking, and thank-you pages whenever updating assessment promotion.
+
+## Canonical company logo
+Use attached_assets/SUSOLogo-canonical.png as the unchanged canonical supplied company artwork. Use optimized placement copies for delivery; artifacts/website/public/logo.png is the 512 pixel metadata copy. Preserve its complete design, colors, transparency and proportions. For logo changes audit shared and standalone headers, footer, scroll control and arrow, browser and Apple icons, manifest, schema, sharing previews, both report generators, and downloadable PDFs. Preserve embedded artwork and client or partner logos.

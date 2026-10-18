@@ -14,7 +14,7 @@ import {
   navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu";
 const headerAssessment = { label: siteConfig.agenticAssessmentLabel, href: siteConfig.agenticAssessmentUrl };
-const logoImg = "/images/setupshoponline-header-logo.png?v=prosperity20261016";
+const logoImg = "/images/setupshoponline-header-logo.webp?v=canonical20261018opt";
 
 type NavItem =
   | { label: string; href: string; kind: "internal" }

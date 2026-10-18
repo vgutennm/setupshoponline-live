@@ -1,0 +1,86 @@
+{
+  "hero": {
+    "src": "/images/business-growth-consulting.webp",
+    "alt": "Business leaders reviewing an operations dashboard in an office overlooking mountains.",
+    "description": "Business consulting for established service firms, focused on capacity, profitability, and practical improvements to operations.",
+    "width": 1916,
+    "height": 821
+  },
+  "contact": {
+    "src": "/images/business-consultation.webp",
+    "alt": "Business video consultation in an office overlooking a mountain landscape.",
+    "description": "Discuss your business priorities with Vlad Gutenmakher of Set Up Shop Online.",
+    "width": 1916,
+    "height": 821
+  },
+  "portrait": {
+    "src": "/images/vlad-gutenmakher.webp",
+    "alt": "Vlad Gutenmakher, founder of Set Up Shop Online and AI Consultant and Value Architect.",
+    "description": "Vlad Gutenmakher brings more than 35 years of technology, engineering, solution architecture, technical sales, consulting, and implementation experience.",
+    "width": 600,
+    "height": 900
+  },
+  "logo": {
+    "src": "/images/setupshoponline-round-logo.webp?v=canonical20261018opt",
+    "alt": "Set Up Shop Online circular logo.",
+    "description": "Set Up Shop Online Inc. business and AI consulting brand.",
+    "width": 512,
+    "height": 512
+  },
+  "wordmark": {
+    "src": "/images/setupshoponline-wordmark.webp?v=canonical20261018opt",
+    "alt": "Set Up Shop Online Inc. logo.",
+    "description": "Set Up Shop Online home.",
+    "width": 512,
+    "height": 512
+  },
+  "partner": {
+    "src": "/images/godaddy-agency-partner.webp",
+    "alt": "GoDaddy Pro Trusted Agency Partner badge.",
+    "description": "GoDaddy agency partner badge displayed by Set Up Shop Online.",
+    "width": 384,
+    "height": 256
+  },
+  "reviewQr": {
+    "src": "/images/google-review-qr.png",
+    "alt": "QR code for leaving a Google review of Set Up Shop Online.",
+    "description": "Scan to open the Google review page for Set Up Shop Online.",
+    "width": 132,
+    "height": 132
+  },
+  "journey": {
+    "src": "/images/ai-consulting-implementation-journey.webp",
+    "alt": "AI consulting journey from understanding and prioritizing opportunities to implementation, adoption, and measurement.",
+    "description": "Consulting and solution architecture precede a separate approval and handoff to implementation, adoption, and measurement.",
+    "width": 2048,
+    "height": 768
+  },
+  "architecture": {
+    "src": "/images/business-solution-architecture.webp",
+    "alt": "Business solution architecture connecting data, systems, knowledge, marketing, analytics, governance, and security.",
+    "description": "Data foundations support connected systems, business knowledge, marketing, and analytics, with governance and security throughout.",
+    "width": 1672,
+    "height": 941
+  },
+  "assessment": {
+    "src": "/images/business-strategy-journey.webp",
+    "alt": "Share business priorities, answer ten questions, and receive a personalized business strategy report.",
+    "description": "The free Business Strategy Report includes findings and a 30\u201360\u201390-day action plan based on the selected business priority.",
+    "width": 1536,
+    "height": 1024
+  },
+  "workbook": {
+    "src": "/workbook/cover.png",
+    "alt": "Cover of the Set Up Shop Online business improvement workbook.",
+    "description": "Business improvement workbook from Set Up Shop Online.",
+    "width": 773,
+    "height": 1000
+  },
+  "agentic": {
+    "src": "/images/offerings/agentic-readiness.webp",
+    "alt": "Agentic readiness report with connected workflows and human approval.",
+    "description": "A free initial assessment of workflow fit, information readiness and human oversight.",
+    "width": 1448,
+    "height": 1086
+  }
+}

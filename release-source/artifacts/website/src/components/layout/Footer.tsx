@@ -1,7 +1,7 @@
 import { Link, useLocation } from "wouter";
 import { Star } from "lucide-react";
 import { siteConfig } from "@/lib/site-config";
-const logoImg = "/images/setupshoponline-round-logo.webp?v=prosperity20261016";
+const logoImg = "/images/setupshoponline-round-logo.webp?v=canonical20261018opt";
 const godaddyBadge = "/images/godaddy-agency-partner.webp";
 const googleReviewQr = "/images/google-review-qr.png";
 

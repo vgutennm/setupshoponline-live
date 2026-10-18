@@ -70,9 +70,10 @@ function as_report_pdf(array $row): string {
  $objects[$descriptor]="<< /Type /FontDescriptor /FontName /$name /Flags 32 /FontBBox [".implode(' ',$font['bbox'])."] /ItalicAngle 0 /Ascent ".$font['ascent']." /Descent ".$font['descent']." /CapHeight ".$font['ascent']." /StemV 80 /FontFile2 $file 0 R >>";
  $objects[$file]='<< /Length '.strlen($bytes).' /Length1 '.strlen($bytes)." >>\nstream\n".$bytes."\nendstream";
  }
- $logo=file_get_contents(__DIR__.'/fonts/report-logo.jpg');$info=getimagesize(__DIR__.'/fonts/report-logo.jpg');
- $objects[9]='<< /Type /XObject /Subtype /Image /Width '.$info[0].' /Height '.$info[1].' /ColorSpace /DeviceRGB /BitsPerComponent 8 /Filter /DCTDecode /Length '.strlen($logo)." >>\nstream\n".$logo."\nendstream";
- $kids=[];$next=10;
+ $logo=file_get_contents(__DIR__.'/fonts/report-logo.rgb');$alpha=file_get_contents(__DIR__.'/fonts/report-logo.alpha');
+ $objects[9]='<< /Type /XObject /Subtype /Image /Width 512 /Height 512 /ColorSpace /DeviceRGB /BitsPerComponent 8 /Filter /FlateDecode /SMask 10 0 R /Length '.strlen($logo)." >>\nstream\n".$logo."\nendstream";
+ $objects[10]='<< /Type /XObject /Subtype /Image /Width 512 /Height 512 /ColorSpace /DeviceGray /BitsPerComponent 8 /Filter /FlateDecode /Length '.strlen($alpha)." >>\nstream\n".$alpha."\nendstream";
+ $kids=[];$next=11;
  foreach($streams as $i=>$s){$p=$next++;$content=$next++;$kids[]="$p 0 R";$refs=[];
   foreach($annotations[$i] as $link){$id=$next++;$refs[]="$id 0 R";$objects[$id]='<< /Type /Annot /Subtype /Link /Rect ['.implode(' ',$link['rect']).'] /Border [0 0 0] /A << /S /URI /URI ('.as_pdf_text($link['url']).') >> >>';}
   $objects[$p]="<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> /XObject << /Logo 9 0 R >> >> /Annots [".implode(' ',$refs)."] /Contents $content 0 R >>";
