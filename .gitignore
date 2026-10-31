@@ -4,3 +4,6 @@
 config.php
 *.sqlite
 *.sqlite-*
+# Paid buyer files must never enter this public repository.
+server/alignable-files/*.pdf
+release-source/cpanel/server/alignable-files/*.pdf

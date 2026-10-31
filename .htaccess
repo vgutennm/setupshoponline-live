@@ -14,6 +14,13 @@ RewriteEngine On
 RewriteCond %{HTTP_HOST} !^(?:www\.)?setupshoponline\.com(?::[0-9]+)?$ [NC]
 RewriteRule ^ - [L]
 
+# Standalone Alignable purchase funnel; API PHP and direct routes.
+RewriteRule ^api/alignable-kit/index\.php$ - [END]
+RewriteRule ^api/alignable-kit(?:/.*)?$ api/alignable-kit/index.php [END]
+RewriteRule ^alignable-conversion-kit/thank-you/?$ alignable-conversion-kit/thank-you.html [END]
+RewriteRule ^alignable-conversion-kit/?$ alignable-conversion-kit.html [END]
+RewriteRule ^alignable-conversion-kit(?:/thank-you)?\.html$ - [END]
+
 # Force HTTPS
 RewriteCond %{HTTPS} off
 RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]

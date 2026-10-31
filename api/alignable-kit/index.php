@@ -1,0 +1,9 @@
+<?php
+declare(strict_types=1);
+ini_set('display_errors','0');
+$app=dirname(__DIR__,3).'/.setupshoponline-workbook/app';
+if(!is_file($app.'/app.php')||!is_file($app.'/alignable-kit.php')){
+ http_response_code(503);header('Content-Type: application/json');header('Cache-Control: no-store');
+ echo '{"error":"Purchasing is not open yet. Please contact vlad@setupshoponline.com."}';exit;
+}
+require $app.'/app.php';require $app.'/alignable-kit.php';ak_dispatch();

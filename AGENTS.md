@@ -34,3 +34,9 @@ Use Free Agentic Readiness Assessment and /free-agentic-readiness-assessment for
 
 ## Canonical company logo
 Use attached_assets/SUSOLogo-canonical.png as the unchanged canonical supplied company artwork. Use optimized placement copies for delivery; artifacts/website/public/logo.png is the 512 pixel metadata copy. Preserve its complete design, colors, transparency and proportions. For logo changes audit shared and standalone headers, footer, scroll control and arrow, browser and Apple icons, manifest, schema, sharing previews, both report generators, and downloadable PDFs. Preserve embedded artwork and client or partner logos.
+
+## Standalone paid Alignable funnel
+Keep /alignable-conversion-kit and /alignable-conversion-kit/thank-you out of all navigation, homepage, footer menus, unrelated pages, sitemap and public discovery documents. Both routes use noindex. Dedicated layout only, with essential privacy and contact links. No general sticky offers. $4.99 USD one time purchase. Do not collect payment or personal data in the private Sites preview. Production uses the private cPanel Stripe, durable queue, and token authorized files. Never publish paid PDFs in frontend assets. Preserve existing free /conversionkit separately.
+
+## Paid Alignable campaign
+Keep the campaign standalone and unlisted. Deliver the two paid PDFs only as email attachments after verified payment. Never commit paid PDFs to this public repository. Vlad authorized this release and Git push on October 31, 2026; production payment enablement still requires verified Stripe and sender configuration.

@@ -1,3 +1,4 @@
+import AlignableKit, { AlignableThankYou } from "@/pages/AlignableKit";
 import AgenticReadiness from "@/pages/AgenticReadiness";
 import { Switch, Route, Router as WouterRouter, useLocation } from "wouter";
 import { useEffect, useState } from "react";
@@ -46,7 +47,7 @@ function ScrollToTop() {
 
 function GlobalMobileStickyCTA() {
   const [location] = useLocation();
-  const hidden = ["/conversionkit", "/free-agentic-readiness-assessment", "/agentic-assessment", "/agentic-readiness-preview", "/growth-strategy-preview", "/free-business-strategy", "/growth-assessment", "/workbook-access", "/free-workbook", "/thank-you/workbook", "/book-a-call", "/contact-us", "/thank-you/booking", "/thank-you/contact"];
+  const hidden = ["/alignable-conversion-kit", "/conversionkit", "/free-agentic-readiness-assessment", "/agentic-assessment", "/agentic-readiness-preview", "/growth-strategy-preview", "/free-business-strategy", "/growth-assessment", "/workbook-access", "/free-workbook", "/thank-you/workbook", "/book-a-call", "/contact-us", "/thank-you/booking", "/thank-you/contact"];
   if (hidden.some(p => location === p || location.startsWith(p + "/"))) return null;
   return <MobileStickyCTA />;
 }
@@ -92,6 +93,8 @@ function Router() {
     <>
     <ScrollToTop />
     <Switch>
+      <Route path="/alignable-conversion-kit/thank-you" component={AlignableThankYou} />
+      <Route path="/alignable-conversion-kit" component={AlignableKit} />
       <Route path="/conversionkit" component={ConversionKit} />
       <Route path="/conversionkit/access" component={ConversionKitAccess} />
       <Route path="/" component={Home} />

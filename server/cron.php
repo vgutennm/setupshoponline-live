@@ -5,4 +5,6 @@ require __DIR__.'/app.php';
 require __DIR__.'/growth-runner.php';
 growth_run_background();
 wb_process(10);
+require __DIR__.'/alignable-kit.php';
+ak_process(8);
 echo "Workbook email queue checked.\n";
