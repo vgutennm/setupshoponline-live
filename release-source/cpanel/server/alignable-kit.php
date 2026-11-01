@@ -98,7 +98,7 @@ function ak_checkout(array $d): array {
       'payment_intent_data'=>['metadata'=>['ak_order'=>$id]],'payment_method_types'=>['card'],
       'success_url'=>AK_ORIGIN.'/alignable-conversion-kit/thank-you?session_id={CHECKOUT_SESSION_ID}',
       'cancel_url'=>AK_ORIGIN.'/alignable-conversion-kit?canceled=1',
-      'automatic_tax'=>['enabled'=>'false'],'allow_promotion_codes'=>'false',
+      'automatic_tax'=>['enabled'=>'false'],'allow_promotion_codes'=>'true',
       'custom_text'=>['submit'=>['message'=>'30 day money back guarantee. Email vlad@setupshoponline.com within 30 days if not delighted, not finding value, or not seeing results. No proof required.']]
     ],'alignable-checkout-'.$id);
     if(empty($session['id'])||!str_starts_with($session['url']??'','https://checkout.stripe.com/'))throw new RuntimeException('invalid_checkout_response');
@@ -107,26 +107,42 @@ function ak_checkout(array $d): array {
 }
 function ak_validate_session(array $s,array $order): bool {
     $items=$s['line_items']['data']??[];$item=$items[0]??[];
-    return ($s['payment_status']??'')==='paid'&&($s['mode']??'')==='payment'
-      && ($s['amount_total']??null)===499&&($s['currency']??'')==='usd'
+    $total=$s['amount_total']??null;$discount=$s['total_details']['amount_discount']??null;
+    return ($s['status']??'')==='complete' && ($s['mode']??'')==='payment'
+      && is_int($total)&&$total>=0&&$total<=499&&is_int($discount)&&$discount>=0&&$discount<=499
+      && ($s['amount_subtotal']??null)===499&&$total===499-$discount
+      && (($s['payment_status']??'')==='paid'||($total===0&&($s['payment_status']??'')==='no_payment_required'))
+      && ($s['currency']??'')==='usd'
       && ($s['livemode']??false)===((ak_config()['STRIPE_MODE']??'')==='live')
       && ($s['client_reference_id']??'')===$order['id']&&($s['metadata']['ak_order']??'')===$order['id']
       && count($items)===1&&($s['line_items']['has_more']??true)===false&&($item['quantity']??0)===1
       && ($item['price']['id']??'')===(ak_config()['STRIPE_PRICE_ID']??'')
-      && ($item['amount_total']??null)===499&&($s['total_details']['amount_tax']??0)===0;
+      && ($item['amount_subtotal']??null)===499&&($item['amount_total']??null)===$total
+      && ($item['amount_discount']??null)===$discount&&($item['amount_tax']??null)===0
+      && ($s['total_details']['amount_tax']??null)===0&&($s['total_details']['amount_shipping']??null)===0;
+}
+function ak_validate_payment(array $s): bool {
+    // Stripe does not create a PaymentIntent for a completed no-cost order.
+    if($s['amount_total']===0)return empty($s['payment_intent']);
+    $intent=$s['payment_intent']??[];$charge=$intent['latest_charge']??[];
+    return is_array($intent)&&($intent['status']??'')==='succeeded'
+      && ($intent['amount_received']??null)===$s['amount_total']&&($intent['currency']??'')==='usd'
+      && is_array($charge)&&($charge['paid']??false)===true
+      && ($charge['amount']??null)===$s['amount_total']&&($charge['currency']??'')==='usd'
+      && ($charge['amount_refunded']??0)===0&&!($charge['disputed']??false);
 }
 function ak_fulfill(string $sessionId): bool {
     if(!preg_match('/^cs_[A-Za-z0-9_]+$/D',$sessionId))return false;
     $s=ak_stripe('GET','checkout/sessions/'.rawurlencode($sessionId),['expand'=>['line_items','payment_intent.latest_charge']]);
     $row=ak_q('SELECT * FROM ak_orders WHERE id=?',[$s['client_reference_id']??''])->fetch();
     if(!$row||($row['session_id']!==null&&$row['session_id']!==$sessionId)||!ak_validate_session($s,$row))return false;
-    $intent=$s['payment_intent']??[];if(!is_array($intent)||($intent['status']??'')!=='succeeded'||($intent['amount_received']??null)!==499)return false;
-    $charge=$intent['latest_charge']??[];if(!is_array($charge)||($charge['paid']??false)!==true||($charge['amount_refunded']??0)>0||($charge['disputed']??false))return false;
+    if(!ak_validate_payment($s))return false;
+    $intent=$s['payment_intent']??[];$charge=$intent['latest_charge']??[];
     $db=wb_db();$db->exec('BEGIN IMMEDIATE');
     try{
       $row=ak_q('SELECT * FROM ak_orders WHERE id=?',[$row['id']])->fetch();
       if(in_array($row['status'],['refunded','disputed'],true)){$db->exec('COMMIT');return false;}
-      ak_q("UPDATE ak_orders SET status='paid',session_id=?,payment_intent=?,charge_id=?,receipt_url=?,paid_at=COALESCE(paid_at,?) WHERE id=?",[$sessionId,$intent['id'],$charge['id']??null,$charge['receipt_url']??null,time(),$row['id']]);
+      ak_q("UPDATE ak_orders SET status='paid',session_id=?,payment_intent=?,charge_id=?,receipt_url=?,amount=?,paid_at=COALESCE(paid_at,?) WHERE id=?",[$sessionId,$intent['id']??null,$charge['id']??null,$charge['receipt_url']??null,$s['amount_total'],time(),$row['id']]);
       foreach(['visitor','owner']as $kind)ak_q("INSERT OR IGNORE INTO ak_jobs(id,order_id,kind) VALUES(?,?,?)",[$row['id'].'-'.$kind,$row['id'],$kind]);
       ak_q("INSERT OR IGNORE INTO ak_metrics(id,order_id,kind,created_at) VALUES(?,?,'verified_purchase',?)",[$row['id'].'-paid',$row['id'],time()]);
       $db->exec('COMMIT');return true;
@@ -138,8 +154,8 @@ function ak_reconcile_charge(string $chargeId): void {
     $refunds=ak_stripe('GET','refunds',['charge'=>$chargeId,'limit'=>100]);$pending=false;$failed=false;$success=0;
     foreach($refunds['data']??[]as $r){ak_q('INSERT INTO ak_refunds VALUES(?,?,?,?) ON CONFLICT(id) DO UPDATE SET status=excluded.status,amount=excluded.amount',[$r['id'],$row['id'],$r['amount'],$r['status']]);$pending=$pending||in_array($r['status'],['pending','requires_action'],true);$failed=$failed||$r['status']==='failed';if($r['status']==='succeeded')$success+=(int)$r['amount'];}
     $amount=(int)($charge['amount_refunded']??$success);$disputeState=$row['dispute_state'];$disputed=(bool)($charge['disputed']??false)&&$disputeState!=='won';
-    $state=$amount>=499?'full':($pending?'pending':($amount>0?'partial':($failed?'failed':'none')));
-    $status=$disputed?'disputed':($amount>=499?'refunded':'paid');
+    $state=((int)$row['amount']>0&&$amount>=(int)$row['amount'])?'full':($pending?'pending':($amount>0?'partial':($failed?'failed':'none')));
+    $status=$disputed?'disputed':(((int)$row['amount']>0&&$amount>=(int)$row['amount'])?'refunded':'paid');
     $db=wb_db();$db->exec('BEGIN IMMEDIATE');try{
       ak_q('UPDATE ak_orders SET status=?,refunded_amount=?,refund_state=?,dispute_state=? WHERE id=?',[$status,$amount,$state,$disputed?($disputeState==='none'?'needs_response':$disputeState):($disputeState==='won'?'won':'none'),$row['id']]);
       if($status!=='paid')ak_q("UPDATE ak_jobs SET status='canceled',error_code='order_not_paid' WHERE order_id=? AND status IN ('pending','retry')",[$row['id']]);
@@ -153,13 +169,13 @@ function ak_event(array $event): void {
     if(ak_q('SELECT id FROM ak_events WHERE id=?',[$event['id']])->fetchColumn())return;
     $type=$event['type']??'';$obj=$event['data']['object']??[];
     if(in_array($type,['checkout.session.completed','checkout.session.async_payment_succeeded'],true)){
-      $fulfilled=ak_fulfill($obj['id']??'');if(!$fulfilled&&(($obj['payment_status']??'')==='paid'||$type==='checkout.session.async_payment_succeeded')){
+      $fulfilled=ak_fulfill($obj['id']??'');if(!$fulfilled&&(in_array($obj['payment_status']??'',['paid','no_payment_required'],true)||$type==='checkout.session.async_payment_succeeded')){
         $prior=ak_q('SELECT status FROM ak_orders WHERE session_id=?',[$obj['id']??''])->fetchColumn();if(!in_array($prior,['refunded','disputed'],true))throw new RuntimeException('paid_session_verification_pending');
       }
     }
     elseif(in_array($type,['checkout.session.async_payment_failed','checkout.session.expired'],true)){
       $s=ak_stripe('GET','checkout/sessions/'.rawurlencode($obj['id']));
-      if(($s['payment_status']??'')==='paid')ak_fulfill($s['id']);
+      if(($s['status']??'')==='complete'&&in_array($s['payment_status']??'',['paid','no_payment_required'],true))ak_fulfill($s['id']);
       else ak_q("UPDATE ak_orders SET status='payment_failed' WHERE session_id=? AND status='pending'",[$s['id']]);
     }elseif(in_array($type,['charge.refunded','refund.created','refund.updated','refund.failed','charge.dispute.created','charge.dispute.updated','charge.dispute.closed'],true)){
       $charge=str_starts_with($type,'charge.refunded')?$obj['id']:($obj['charge']??'');
@@ -171,18 +187,39 @@ function ak_event(array $event): void {
 function ak_email(array $job,array $order): array {
     $lead=json_decode($order['data'],true);
     $visitor=$job['kind']==='visitor';$refund=$job['kind']==='refund';$booking=(ak_config()['BOOKING_VERIFIED']??false)===true;
+    $paidAmount=number_format(((int)$order['amount'])/100,2,'.','');
     $subject=$visitor?'Your Alignable ebook and workbook are here':($refund?'Your Alignable kit refund confirmation':'New Alignable Conversion Kit purchase');
     if($visitor){
-      $text="Hi ".$lead['first_name'].",\n\nThank you for purchasing the Alignable Conversation to Client Kit.\n\nYour two PDFs are attached to this email:\n\n1. From Alignable Conversations to Booked Calls (ebook)\n2. Conversation to Client Conversion Kit (workbook)\n\nStart with the ebook, then use the workbook to practice your introduction, ask better questions, and guide promising conversations toward a clear next step.\n\nWant a second set of eyes on your approach?\n\nBook a complimentary 15 minute review with me. Bring your introduction or one recent networking conversation. We will focus on where it got stuck and identify a practical adjustment you can try. We can also discuss whether further support makes sense for your business.\n\n".($booking?'Book your free 15 minute review: '.AK_BOOKING:'To arrange your complimentary 15 minute review, reply to this email.')."\n\nWishing you great luck meeting new prospects and referral partners on Alignable. I hope the kit helps you turn more introductions into worthwhile conversations.\n\nVlad Gutenmakher\nSet Up Shop Online, Inc.\nvlad@setupshoponline.com\nhttps://www.setupshoponline.com\n\nP.S. Your purchase is covered by our 30 day money back guarantee. If you are not delighted, do not find value, or do not see results, reply within 30 days of purchase for a 100% refund. No proof of results or completed exercises is required. If either PDF attachment is missing or gives you trouble, reply and let me know. Refunds go to your original payment method; bank processing time may vary.\n\nOrder reference: ".$order['id']."\nTotal paid: $4.99 USD";
+      $text="Hi ".$lead['first_name'].",\n\nThank you for purchasing the Alignable Conversation to Client Kit.\n\nYour two PDFs are attached to this email:\n\n1. From Alignable Conversations to Booked Calls (ebook)\n2. Conversation to Client Conversion Kit (workbook)\n\nStart with the ebook, then use the workbook to practice your introduction, ask better questions, and guide promising conversations toward a clear next step.\n\nWant a second set of eyes on your approach?\n\nBook a complimentary 15 minute review with me. Bring your introduction or one recent networking conversation. We will focus on where it got stuck and identify a practical adjustment you can try. We can also discuss whether further support makes sense for your business.\n\n".($booking?'Book your free 15 minute review: '.AK_BOOKING:'To arrange your complimentary 15 minute review, reply to this email.')."\n\nWishing you great luck meeting new prospects and referral partners on Alignable. I hope the kit helps you turn more introductions into worthwhile conversations.\n\nVlad Gutenmakher\nSet Up Shop Online, Inc.\nvlad@setupshoponline.com\nhttps://www.setupshoponline.com\n\nP.S. Your purchase is covered by our 30 day money back guarantee. If you are not delighted, do not find value, or do not see results, reply within 30 days of purchase for a 100% refund. No proof of results or completed exercises is required. If either PDF attachment is missing or gives you trouble, reply and let me know. Refunds go to your original payment method; bank processing time may vary.\n\nOrder reference: ".$order['id']."\nTotal paid: $".$paidAmount." USD\n\nYour next step: get your free business strategy guide.\nVisit https://setupshoponline.com/free-business-strategy";
     }elseif($refund){$text="Hi ".$lead['first_name'].",\n\nA refund of $".number_format($order['refunded_amount']/100,2)." USD in total has been confirmed for your Alignable kit order ".$order['id'].". It is returned to your original payment method. Bank processing time may vary.\n\nQuestions? Reply to vlad@setupshoponline.com.\n\nVlad Gutenmakher\nSet Up Shop Online, Inc.";
     }else{
       $status=ak_q('SELECT status FROM ak_jobs WHERE id=?',[$order['id'].'-visitor'])->fetchColumn();
-      $text="Paid purchase confirmed. This is not a verified download or a qualified lead.\n\nOrder reference: ".$order['id']."\nAmount: 4.99 USD\nPayment status: paid\nFirst name: ".$lead['first_name']."\nEmail: ".$lead['email']."\nBusiness or website: ".$lead['business']."\nSubmitted at: ".$lead['submitted_at']."\nSource: ".$lead['source_page']."\nUTM attribution: ".json_encode($lead['campaign'])."\nMarketing consent: no, transactional fulfillment only\nVisitor email status: ".$status."\n\nFind this order in the private order CLI using its order reference. No public lead record link is exposed.";
+      $text="Paid purchase confirmed. This is not a verified download or a qualified lead.\n\nOrder reference: ".$order['id']."\nAmount: $".$paidAmount." USD\nPayment status: paid\nFirst name: ".$lead['first_name']."\nEmail: ".$lead['email']."\nBusiness or website: ".$lead['business']."\nSubmitted at: ".$lead['submitted_at']."\nSource: ".$lead['source_page']."\nUTM attribution: ".json_encode($lead['campaign'])."\nMarketing consent: no, transactional fulfillment only\nVisitor email status: ".$status."\n\nFind this order in the private order CLI using its order reference. No public lead record link is exposed.";
     }
     $escape=static fn($s)=>htmlspecialchars($s,ENT_QUOTES|ENT_SUBSTITUTE,'UTF-8');
-    $html='<html><body style="margin:0;background:#f2f6fc;font:16px Arial;color:#112e50"><main style="max-width:620px;margin:24px auto;padding:32px;background:white;border-top:6px solid #0759bf"><p style="font-size:12px;letter-spacing:2px;color:#0759bf">SET UP SHOP ONLINE</p><h1 style="font-size:25px">'.$escape($subject).'</h1>';
-    if($visitor){$html.='<p style="padding:16px;background:#f2f6fc"><strong>Your ebook and workbook are attached as two PDF files.</strong><br>PDF delivery is by email only.</p>';if($booking)$html.='<p><a style="display:inline-block;background:#ff9b00;padding:14px 20px;border-radius:6px;color:#112e50;text-decoration:none;font-weight:bold" href="'.AK_BOOKING.'">Book your free 15 minute review</a></p>';}
-    $html.='<div style="white-space:pre-wrap;line-height:1.6">'.$escape($text).'</div></main></body></html>';
+    $paragraph=static fn($content)=>'<tr><td style="padding:0 0 24px;font:16px/28px Arial,sans-serif;color:#243b53">'.$content.'</td></tr>';
+    $button=static fn($url,$label)=>'<table role="presentation" cellspacing="0" cellpadding="0"><tr><td bgcolor="#ff9b00" style="border-radius:6px;padding:16px 22px"><a href="'.$url.'" style="color:#112e50;font:700 16px/24px Arial,sans-serif;text-decoration:none">'.$label.'</a></td></tr></table>';
+    $html='<!doctype html><html lang="en"><head><meta name="viewport" content="width=device-width,initial-scale=1"></head><body style="margin:0;padding:0;background:#f2f6fc"><table role="presentation" width="100%" cellspacing="0" cellpadding="0" bgcolor="#f2f6fc"><tr><td align="center" style="padding:24px 12px"><table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="max-width:620px;background:#ffffff;border-top:6px solid #0759bf"><tr><td align="left" style="padding:32px 24px;text-align:left"><table role="presentation" width="100%" cellspacing="0" cellpadding="0">';
+    $html.=$paragraph('<span style="font-size:12px;font-weight:bold;letter-spacing:2px;color:#0759bf">SET UP SHOP ONLINE</span>');
+    $html.=$paragraph('<h1 style="margin:0;font:700 28px/36px Arial,sans-serif;color:#112e50">'.$escape($subject).'</h1>');
+    if($visitor){
+      $html.=$paragraph('Hi '.$escape($lead['first_name']).',');
+      $html.=$paragraph('Thank you for purchasing the <strong>Alignable Conversation to Client Kit.</strong> Your next better conversation starts here.');
+      $html.=$paragraph('<table role="presentation" width="100%" cellspacing="0" cellpadding="0" bgcolor="#edf4ff"><tr><td style="padding:24px;font:16px/28px Arial,sans-serif;color:#112e50"><strong style="font-size:20px">Your two PDFs are attached</strong><p style="margin:16px 0 0"><strong>1. Your ebook</strong><br>From Alignable Conversations to Booked Calls</p><p style="margin:16px 0 0"><strong>2. Your workbook</strong><br>Conversation to Client Conversion Kit</p></td></tr></table>');
+      $html.=$paragraph('<h2 style="margin:0 0 12px;font:700 20px/28px Arial,sans-serif;color:#0759bf">Start small. Put it into practice.</h2>Read the ebook first. Then use the workbook to practice your introduction, ask better questions, and guide promising conversations toward a clear next step.');
+      $html.=$paragraph('<h2 style="margin:0 0 12px;font:700 20px/28px Arial,sans-serif;color:#0759bf">Want a second set of eyes?</h2>Your kit includes an optional <strong>complimentary 15 minute review with me.</strong> Bring your introduction or one recent networking conversation. We will identify a practical adjustment you can try.');
+      $html.=$paragraph('We can also discuss whether further support makes sense for your business. There is no obligation to book.');
+      $html.=$paragraph($booking?$button(AK_BOOKING,'Book your free 15 minute review'):'Reply to this email to arrange your complimentary review.');
+      $html.=$paragraph('<table role="presentation" width="100%" cellspacing="0" cellpadding="0" bgcolor="#fff5df"><tr><td style="padding:24px;border-left:5px solid #ff9b00;font:16px/28px Arial,sans-serif;color:#112e50"><h2 style="margin:0 0 16px;font:700 22px/30px Arial,sans-serif">Your 30 day money back guarantee</h2><p style="margin:0 0 16px">Not delighted, not finding value, or not seeing results? <strong>Reply within 30 days of purchase for a refund of 100% of what you paid.</strong></p><p style="margin:0 0 16px"><strong>No hoops. No proof of results or completed exercises required.</strong></p><p style="margin:0;font-size:14px;line-height:24px">Refunds go to your original payment method. Bank processing time may vary.</p></td></tr></table>');
+      $html.=$paragraph('<strong>Need a hand with your PDFs?</strong><br>If either attachment is missing or gives you trouble, simply reply to this email.');
+      $html.=$paragraph('Wishing you great luck meeting new prospects and referral partners on Alignable. I hope the kit helps you turn more introductions into worthwhile conversations.');
+      $html.=$paragraph('<strong>Vlad Gutenmakher</strong><br>Set Up Shop Online, Inc.<br><a href="mailto:vlad@setupshoponline.com" style="color:#0759bf">vlad@setupshoponline.com</a>');
+      $html.=$paragraph('<span style="font-size:14px;color:#526577">Order reference: '.$escape($order['id']).'<br><strong>Total paid: $'.$paidAmount.' USD</strong></span>');
+      $html.=$paragraph('<table role="presentation" width="100%" cellspacing="0" cellpadding="0" bgcolor="#112e50"><tr><td style="padding:24px;font:16px/28px Arial,sans-serif;color:#ffffff"><h2 style="margin:0 0 16px;font:700 22px/30px Arial,sans-serif;color:#ffffff">Ready to take the next step for your business?</h2><p style="margin:0 0 24px;color:#ffffff">Explore your next opportunities with our <strong>free business strategy guide.</strong></p>'.$button(AK_ORIGIN.'/free-business-strategy','Get your free strategy guide').'</td></tr></table>');
+    }else{
+      foreach(explode("\n\n",$text)as $part)$html.=$paragraph(nl2br($escape($part)));
+    }
+    $html.='</table></td></tr></table></td></tr></table></body></html>';
     $boundary='ak_'.hash('sha256',$job['id']);$alt=$boundary.'_alt';$enc=static fn($s)=>rtrim(chunk_split(base64_encode($s),76,"\r\n"));
     $lines=['From: Vlad Gutenmakher <vlad@setupshoponline.com>','To: '.($visitor||$refund?$lead['email']:'vlad@setupshoponline.com'),'Reply-To: vlad@setupshoponline.com','Subject: =?UTF-8?B?'.base64_encode($subject).'?=','Message-ID: <'.$job['id'].'@setupshoponline.com>','MIME-Version: 1.0','Content-Type: multipart/mixed; boundary="'.$boundary.'"','','--'.$boundary,'Content-Type: multipart/alternative; boundary="'.$alt.'"','','--'.$alt,'Content-Type: text/plain; charset=UTF-8','Content-Transfer-Encoding: base64','',$enc($text),'--'.$alt,'Content-Type: text/html; charset=UTF-8','Content-Transfer-Encoding: base64','',$enc($html),'--'.$alt.'--'];
     if($visitor){foreach(ak_files()as $name=>$file){if(!is_file($file))throw new RuntimeException('missing_paid_resource');$filename=$name==='ebook'?'Alignable_Conversation_to_Client_Ebook.pdf':'Conversation_to_Client_Workbook.pdf';array_push($lines,'--'.$boundary,'Content-Type: application/pdf; name="'.$filename.'"','Content-Transfer-Encoding: base64','Content-Disposition: attachment; filename="'.$filename.'"','',$enc(file_get_contents($file)));}}
@@ -236,7 +273,7 @@ function ak_dispatch(): void {
       if($path==='/api/alignable-kit/status'){
         if($row['status']==='pending'&&$row['session_id']&&(!isset($d['session_id'])||$d['session_id']===$row['session_id'])){ak_fulfill($row['session_id']);$row=ak_q('SELECT * FROM ak_orders WHERE id=?',[$row['id']])->fetch();}
         ak_cookie($row['token']);$status=ak_q('SELECT status FROM ak_jobs WHERE id=?',[$row['id'].'-visitor'])->fetchColumn();
-        wb_json(['state'=>$row['status'],'emailStatus'=>$status?:'pending','orderReference'=>$row['id'],'receiptUrl'=>$row['status']==='paid'?$row['receipt_url']:null]);
+        wb_json(['state'=>$row['status'],'emailStatus'=>$status?:'pending','orderReference'=>$row['id'],'amount'=>(int)$row['amount'],'receiptUrl'=>$row['status']==='paid'?$row['receipt_url']:null]);
       }
       if($row['status']!=='paid')wb_json(['error'=>'Paid order access is required. Contact Vlad for help.'],403);
       if($path==='/api/alignable-kit/resend'){
@@ -245,3 +282,4 @@ function ak_dispatch(): void {
       wb_json(['error'=>'Not found'],404);
     }catch(Throwable $e){wb_json(['error'=>'This request is temporarily unavailable. Please try again or contact vlad@setupshoponline.com.'],503);}
 }
+
