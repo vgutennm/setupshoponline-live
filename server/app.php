@@ -69,7 +69,7 @@ function wb_subscribe(array $d, string $resource = "workbook"): array {
     if (strlen($name)<2 || strlen($name)>120 || preg_match('/[\x00-\x1f\x7f]/',$name)) $fields['full_name']='Please enter your full name.';
     if (strlen($email)>254 || !filter_var($email,FILTER_VALIDATE_EMAIL)) $fields['email']='Please enter a valid email address.';
     $digits=preg_replace('/\D/','',$phone);
-    if (strlen($phone)>40 || !preg_match('/^[+0-9 ().-]+$/D',$phone) || strlen($digits)<7 || strlen($digits)>15) $fields['phone']='Please enter a phone number with 7–15 digits.';
+    if ((!$isKit || $phone !== '') && (strlen($phone)>40 || !preg_match('/^[+0-9 ().-]+$/D',$phone) || strlen($digits)<7 || strlen($digits)>15)) $fields['phone']='Please enter a phone number with 7–15 digits.';
     if ($fields) return [400,['error'=>'Please check the highlighted fields.','fields'=>$fields]];
     if (!preg_match('/^[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}$/iD',$id)) return [400,['error'=>'Please refresh the form and try again.']];
     $requestHash=hash('sha256',json_encode($isKit ? [$name,$email,$phone,$resource] : [$name,$email,$phone]));
