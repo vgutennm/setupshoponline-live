@@ -2,7 +2,6 @@ import { Link, useLocation } from "wouter";
 import { Star } from "lucide-react";
 import { siteConfig } from "@/lib/site-config";
 const logoImg = "/images/setupshoponline-round-logo.webp?v=canonical20261018opt";
-const godaddyBadge = "/images/godaddy-agency-partner.webp";
 const googleReviewQr = "/images/google-review-qr.png";
 
 function SocialIcons({ size = "md" }: { size?: "sm" | "md" }) {
@@ -67,43 +66,6 @@ export function Footer() {
               Greater capacity. More freedom and choice.
             </p>
 
-            <div className="pt-2">
-              <p className="text-xs font-semibold text-muted-foreground uppercase tracking-wider mb-3">Follow Us</p>
-              <SocialIcons />
-            </div>
-
-            <div>
-              <p className="text-xs font-semibold text-muted-foreground uppercase tracking-wider mb-2">Elite Godaddy Agency Partner</p>
-              <a href="https://www.godaddy.com/en/pro/agency-partners" target="_blank" rel="noopener noreferrer" className="inline-block rounded-lg overflow-hidden">
-                <img
-                  src={godaddyBadge}
-                  alt="GoDaddy Pro Trusted Agency Partner badge - Set Up Shop Online is a verified GoDaddy agency partner"
-                  title="GoDaddy Pro Trusted Agency Partner | Set Up Shop Online"
-                  width={768}
-                  height={512}
-                  loading="lazy"
-                  decoding="async"
-                  className="h-14 w-auto hover:opacity-80 transition-opacity"
-                />
-              </a>
-            </div>
-
-
-          </div>
-          
-          <div>
-            <h4 className="font-semibold mb-4">Company</h4>
-            <ul className="space-y-3 text-sm text-muted-foreground">
-              {["Products", "Services", "Solutions"].map(label => <li key={label}><a href={`/products-services-solutions#${label.toLowerCase()}`} className="hover:text-primary transition-colors">{label}</a></li>)}
-              <li><Link href="/why-setupshoponline" className="hover:text-primary transition-colors">Why Vlad</Link></li>
-              <li><Link href="/contact-us" className="hover:text-primary transition-colors">Contact</Link></li>
-              <li><a href={siteConfig.agenticAssessmentUrl} className="hover:text-primary transition-colors">{siteConfig.agenticAssessmentLabel}</a></li>
-            </ul>
-            <div className="mt-8 space-y-2 text-sm text-foreground/80">
-              <p className="text-xs font-semibold text-muted-foreground uppercase tracking-wider">Get In Touch</p>
-              <p><a href={`mailto:${siteConfig.email}`} className="break-all hover:text-primary transition-colors">{siteConfig.email}</a></p>
-              <p><a href={`tel:${siteConfig.phone}`} className="hover:text-primary transition-colors">{siteConfig.phone}</a></p>
-              <p>Serving businesses across the United States and internationally through remote collaboration.</p><p>{siteConfig.address.street}<br />{siteConfig.address.city}, {siteConfig.address.state} {siteConfig.address.zip}</p>
               <div className="flex flex-wrap items-start gap-4 mt-3">
                 <a
                   href={siteConfig.googleReviewUrl}
@@ -139,18 +101,25 @@ export function Footer() {
                   </p>
                 </div>
               </div>
+
+            <div className="pt-2">
+              <p className="text-xs font-semibold text-muted-foreground uppercase tracking-wider mb-3">Follow Us</p>
+              <SocialIcons />
             </div>
+
+
+
+
           </div>
-
+          
           <div>
-            <h4 className="font-semibold mb-4">Resources & Legal</h4>
+            <h4 className="font-semibold mb-4">Company</h4>
             <ul className="space-y-3 text-sm text-muted-foreground">
-              <li><a href="/free-agentic-readiness-assessment" className="hover:text-primary transition-colors">{siteConfig.agenticAssessmentLabel}</a></li>
-              <li><a href="https://store.setupshoponline.com/" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">Login</a></li>
-              <li><Link href="/privacy" className="hover:text-primary transition-colors">Privacy Policy</Link></li>
-              <li><Link href="/terms" className="hover:text-primary transition-colors">Terms of Service</Link></li>
+              {["Products", "Services", "Solutions"].map(label => <li key={label}><a href={`/products-services-solutions#${label.toLowerCase()}`} className="hover:text-primary transition-colors">{label}</a></li>)}
+              <li><Link href="/why-setupshoponline" className="hover:text-primary transition-colors">Why Vlad</Link></li>
+              <li><Link href="/contact-us" className="hover:text-primary transition-colors">Contact</Link></li>
+              <li><a href={siteConfig.agenticAssessmentUrl} className="hover:text-primary transition-colors">{siteConfig.agenticAssessmentLabel}</a></li>
             </ul>
-
             <h4 className="font-semibold mb-4 mt-8">Scan to Connect</h4>
             <div className="bg-white p-2 rounded-lg inline-block shadow-sm">
               <img
@@ -167,6 +136,25 @@ export function Footer() {
             <p className="text-xs text-muted-foreground mt-3 leading-relaxed">
               Scan this code to open our contact form directly on your mobile device.
             </p>
+            <div className="mt-8 space-y-2 text-sm text-foreground/80">
+              <p className="text-xs font-semibold text-muted-foreground uppercase tracking-wider">Get In Touch</p>
+              <p><a href={`mailto:${siteConfig.email}`} className="break-all hover:text-primary transition-colors">{siteConfig.email}</a></p>
+              <p><a href={`tel:${siteConfig.phone}`} className="hover:text-primary transition-colors">{siteConfig.phone}</a></p>
+              <p>Serving businesses across the United States and internationally through remote collaboration.</p><p>{siteConfig.address.street}<br />{siteConfig.address.city}, {siteConfig.address.state} {siteConfig.address.zip}</p>
+
+            </div>
+          </div>
+
+          <div>
+            <h4 className="font-semibold mb-4">Resources & Legal</h4>
+            <ul className="space-y-3 text-sm text-muted-foreground">
+              <li><a href="/free-agentic-readiness-assessment" className="hover:text-primary transition-colors">{siteConfig.agenticAssessmentLabel}</a></li>
+              <li><a href="https://store.setupshoponline.com/" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">Login</a></li>
+              <li><Link href="/privacy" className="hover:text-primary transition-colors">Privacy Policy</Link></li>
+              <li><Link href="/terms" className="hover:text-primary transition-colors">Terms of Service</Link></li>
+            </ul>
+
+
           </div>
         </div>
         
