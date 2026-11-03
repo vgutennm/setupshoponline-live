@@ -1,3 +1,4 @@
+import { Footer } from "@/components/layout/Footer";
 import { useEffect, useRef, useState, type FormEvent } from "react";
 import { BookOpen, Check, Download, LockKeyhole, Mail, MessageCircle, Users } from "lucide-react";
 import { SEO } from "@/components/seo";
@@ -131,7 +132,7 @@ export default function ConversionKit() {
         ["Will you call me or add me to a mailing list?","No. Requesting this kit does not authorize sales calls, texts, or marketing subscriptions. Your details are used only for this request and any response you ask us for."]
       ].map(([q,a])=><details key={q} className="border-b border-slate-200 py-5"><summary className="cursor-pointer text-lg font-semibold">{q}</summary><p className="mt-4 text-base leading-relaxed text-slate-600">{a}</p></details>)}</div></section>
     </main>
-    <footer className="border-t border-slate-200 px-5 py-8"><div className="mx-auto flex max-w-6xl flex-col justify-between gap-4 text-sm text-slate-500 sm:flex-row"><p>© {new Date().getFullYear()} Set Up Shop Online, Inc.</p><div className="flex flex-wrap gap-5"><a href="mailto:vlad@setupshoponline.com" className="flex items-center gap-2 underline"><Mail className="h-4 w-4" aria-hidden="true" />Contact Vlad</a><a href="/privacy" className="underline">Privacy policy</a></div></div></footer>
+    <Footer />
   </div>;
 }
 
@@ -154,5 +155,5 @@ export function ConversionKitAccess() {
     open().catch(e => { if (active) setError(e.message || "Unable to open your kit. Please try again."); });
     return () => { active = false; };
   }, []);
-  return <div className="min-h-screen bg-slate-50 font-sans"><SEO noindex title="Open Your Conversion Kit | Set Up Shop Online" description="Open your saved Conversion Kit PDF." /><KitHeader /><main className="mx-auto max-w-xl px-5 py-20"><h1 className="text-3xl font-bold">{error ? "Open your conversion kit" : "Preparing your conversion kit…"}</h1><p role="status" className="mt-5 text-base leading-relaxed text-slate-600">{error || "Your PDF will open here as soon as your request is complete."}</p>{error && <p className="mt-6 text-base leading-relaxed text-slate-600">You can also open the PDF attachment in your confirmation email.</p>}</main></div>;
+  return <div className="min-h-screen bg-slate-50 font-sans"><SEO noindex title="Open Your Conversion Kit | Set Up Shop Online" description="Open your saved Conversion Kit PDF." /><KitHeader /><main className="mx-auto max-w-xl px-5 py-20"><h1 className="text-3xl font-bold">{error ? "Open your conversion kit" : "Preparing your conversion kit…"}</h1><p role="status" className="mt-5 text-base leading-relaxed text-slate-600">{error || "Your PDF will open here as soon as your request is complete."}</p>{error && <p className="mt-6 text-base leading-relaxed text-slate-600">You can also open the PDF attachment in your confirmation email.</p>}</main><Footer /></div>;
 }

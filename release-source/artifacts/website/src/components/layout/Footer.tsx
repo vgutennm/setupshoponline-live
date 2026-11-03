@@ -105,6 +105,10 @@ export function Footer() {
             <div className="pt-2">
               <p className="text-xs font-semibold text-muted-foreground uppercase tracking-wider mb-3">Follow Us</p>
               <SocialIcons />
+              <a href="https://www.godaddy.com/en/pro/agency-partners" target="_blank" rel="noopener noreferrer" className="mt-4 inline-flex items-center gap-3 text-sm font-medium hover:text-primary transition-colors">
+                <img src="/images/godaddy-agency-partner.webp" alt="GoDaddy" width={72} height={48} loading="lazy" className="h-10 w-auto object-contain" />
+                <span>Elite GoDaddy Agency Partner</span>
+              </a>
             </div>
 
 
