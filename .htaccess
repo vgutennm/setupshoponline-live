@@ -148,11 +148,11 @@ RewriteRule ^ - [R=404,L]
   # style-src allows Google Fonts and inline styles used by Calendly/Tailwind.
   # img-src is broad (https:) so social previews, partner logos, and Bigin QR
   # codes load without per-domain whitelisting.
-  # frame-src whitelists Calendly, Zoho Bigin, and Google Maps embeds only.
+  # frame-src permits the site's Lumen5, YouTube, Calendly, Zoho Bigin, and Google embeds.
   # connect-src allows Calendly's API + analytics calls.
   # form-action keeps native form posts on same origin (Bigin form posts inside
   # the iframe and is therefore not constrained by the parent's form-action).
   # frame-ancestors 'self' replaces X-Frame-Options on modern browsers.
-  Header always set Content-Security-Policy "default-src 'self'; base-uri 'self'; object-src 'none'; script-src 'self' 'unsafe-inline' https://assets.calendly.com https://www.google.com/recaptcha/ https://www.gstatic.com/recaptcha/; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://assets.calendly.com; font-src 'self' https://fonts.gstatic.com https://assets.calendly.com data:; img-src 'self' data: blob: https:; frame-src 'self' https://www.youtube.com https://calendly.com https://*.calendly.com https://us.bigin.online https://bigin.zoho.com https://www.google.com https://maps.google.com https://recaptcha.google.com/recaptcha/; connect-src 'self' https://calendly.com https://*.calendly.com https://www.google.com/recaptcha/; form-action 'self'; frame-ancestors 'self'; upgrade-insecure-requests"
+  Header always set Content-Security-Policy "default-src 'self'; base-uri 'self'; object-src 'none'; script-src 'self' 'unsafe-inline' https://assets.calendly.com https://www.google.com/recaptcha/ https://www.gstatic.com/recaptcha/; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://assets.calendly.com; font-src 'self' https://fonts.gstatic.com https://assets.calendly.com data:; img-src 'self' data: blob: https:; frame-src 'self' https://lumen5.com https://www.youtube.com https://calendly.com https://*.calendly.com https://us.bigin.online https://bigin.zoho.com https://www.google.com https://maps.google.com https://recaptcha.google.com/recaptcha/; connect-src 'self' https://calendly.com https://*.calendly.com https://www.google.com/recaptcha/; form-action 'self'; frame-ancestors 'self'; upgrade-insecure-requests"
 </IfModule>
 
