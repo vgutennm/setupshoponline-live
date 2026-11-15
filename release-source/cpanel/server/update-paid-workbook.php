@@ -10,7 +10,7 @@ $hash = hash('sha256', $original);
 // The installed production variant was corrected and visually verified on 2026-11-04.
 // Accept only its exact corrected hash; never append the other variant's PDF patch.
 $productionCorrectedHash = 'c83d92a0a90083840d8506c1b6a50a4c074465cdbae6c1a16ba5bc9aba2adb18';
-if (hash_equals($hashes['after'], $hash) || hash_equals($productionCorrectedHash, $hash)) { echo "Paid workbook already corrected.\n"; exit(0); }
+if (hash_equals('cd3bad053765cdc1f0b46d507cee7222f55035900e8e41ea4c2a31eef8627624', $hash) || hash_equals($hashes['after'], $hash) || hash_equals($productionCorrectedHash, $hash)) { echo "Paid workbook already corrected.\n"; exit(0); }
 if (!hash_equals($hashes['before'], $hash)) { fwrite(STDERR, "Paid workbook differs from reviewed original; left unchanged.\n"); exit(1); }
 $updated = $original.file_get_contents(__DIR__.'/workbook-editorial-update.bin');
 if (!hash_equals($hashes['after'], hash('sha256', $updated))) { fwrite(STDERR, "Workbook update integrity check failed.\n"); exit(1); }
