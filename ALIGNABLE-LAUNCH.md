@@ -4,7 +4,7 @@ The landing page and thank you page are standalone and unlisted. Neither is in n
 
 ## Prepared implementation
 
-* One time USD 499 cent Stripe Checkout. Server configured Price, fixed quantity one, card only. Delayed methods are not enabled; their payment success and failure events are still handled.
+* One time USD 4999 cent Stripe Checkout. Server configured Price, fixed quantity one, card only. Delayed methods are not enabled; their payment success and failure events are still handled.
 * Pending orders, Stripe event deduplication, server verification of amount, currency, mode, price, quantity, successful intent and charge before fulfillment.
 * Fulfillment works from the webhook even when the browser closes. Browser redirect alone cannot trigger fulfillment.
 * Two distinct PDFs in private `server/alignable-files/`, never frontend public assets or the Sites Worker. Actual cover previews are public images only.
@@ -16,8 +16,8 @@ The landing page and thank you page are standalone and unlisted. Neither is in n
 ## Production setup still required
 
 1. Copy `server/alignable-config.example.php` to the existing private `.setupshoponline-workbook/alignable-config.php`, outside public_html. Set permissions 600. Preserve all existing Outlook, Google reCAPTCHA, database and cron files. Never commit live credentials.
-2. In Stripe test mode create a one time USD 499 cent Price and enter its Price ID, test secret key and test webhook signing secret. Register `/api/alignable-kit/webhook` for checkout.session.completed, checkout.session.async_payment_succeeded, checkout.session.async_payment_failed, checkout.session.expired, charge.refunded, refund.created, refund.updated, refund.failed, charge.dispute.created, charge.dispute.updated and charge.dispute.closed.
-3. Confirm seller requirements and existing tax settings with Vlad. This implementation has a fixed $4.99 final total with automatic tax disabled only on its own Checkout Sessions. It does not change the Stripe account settings. Do not set TAX_TOTAL_CONFIRMED until the intended total and requirements are resolved. If taxes must change the total, update the validation and all offer copy before enabling purchases.
+2. In Stripe test mode create a one time USD 4999 cent Price and enter its Price ID, test secret key and test webhook signing secret. Register `/api/alignable-kit/webhook` for checkout.session.completed, checkout.session.async_payment_succeeded, checkout.session.async_payment_failed, checkout.session.expired, charge.refunded, refund.created, refund.updated, refund.failed, charge.dispute.created, charge.dispute.updated and charge.dispute.closed.
+3. Confirm seller requirements and existing tax settings with Vlad. This implementation has a fixed $49.99 final total with automatic tax disabled only on its own Checkout Sessions. It does not change the Stripe account settings. Do not set TAX_TOTAL_CONFIRMED until the intended total and requirements are resolved. If taxes must change the total, update the validation and all offer copy before enabling purchases.
 4. Verify the existing authenticated sender and send a controlled test only to Vlad. Confirm both distinct PDF attachments and separate owner notification. Set SENDER_VERIFIED only after production verification. Check cron runs at least once a minute and invokes the updated private `app/cron.php`.
 5. Complete real Stripe test mode checkout, canceled/failed payment, raw signature rejection, duplicate webhook, browser close, delivery retry and full refund reconciliation. Offline mocked tests pass, but do not replace these provider integration tests. No live charges or refunds as tests.
 6. Configure separate live Price, key and webhook endpoint after tests pass. Keep mode/key/Price aligned. Enable Stripe customer receipts; a receipt is separate from the kit delivery email.
@@ -45,7 +45,7 @@ References: https://docs.stripe.com/checkout/fulfillment and https://docs.stripe
 
 Vlad authorized publishing the review update and pushing the production repository. The conversion layout includes a shorter opening, video beside the offer, a two field form, actual PDF cover previews and a source verified ebook example, concise guarantee reminders, and a mobile purchase bar that hides around the opening and checkout form.
 
-Price ID: `price_1UWgduD6EfIksOoB9YbPNGAd`. It is recorded in the configuration template. Verify its account, mode, currency and amount through authenticated Stripe access before enablement. No separate Payment Link is needed.
+Price ID: `price_1UcRNPD6EfIksOoBoArlsA2B`. It is recorded in the configuration template. Verify its account, mode, currency and amount through authenticated Stripe access before enablement. No separate Payment Link is needed.
 
 Production enablement is incomplete: Stripe sign in returned incorrect credentials in the available browser. cPanel also requires sign in. No live credentials or webhook signing secret have been installed, no live email delivery test has been completed, and no charges or refunds were created. Offline payment and attachment tests pass. Do not enable purchases until the production setup above succeeds.
 

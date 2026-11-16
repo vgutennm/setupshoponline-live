@@ -9,6 +9,9 @@ with tempfile.TemporaryDirectory() as directory:
     app = base / 'app'
     app.mkdir()
     text = (root / 'server/alignable-kit.php').read_text().replace('function ak_stripe(', 'function ak_real_stripe(')
+    if os.environ.get('PHP_WASM') == '1':
+        # WASM uses its own SAPI; only the isolated fixture bypasses the CLI guard.
+        text = text.replace("PHP_SAPI!=='cli'", "false")
     (app / 'alignable-kit.php').write_text(text)
     private_files = os.environ.get('AK_PRIVATE_FILES')
     if private_files:
@@ -17,7 +20,7 @@ with tempfile.TemporaryDirectory() as directory:
         (app / 'alignable-files').mkdir()
         for name in ['ebook', 'workbook']:
             (app / 'alignable-files' / (name + '.pdf')).write_bytes(b'%PDF-1.4 test fixture ' + name.encode())
-    (base / 'alignable-config.php').write_text("<?php return ['STRIPE_MODE'=>'test','STRIPE_SECRET_KEY'=>'sk_test_mock','STRIPE_PRICE_ID'=>'price_mock','STRIPE_WEBHOOK_SECRET'=>'whsec_mock','TAX_TOTAL_CONFIRMED'=>true,'SENDER_VERIFIED'=>true,'BOOKING_VERIFIED'=>false];")
+    (base / 'alignable-config.php').write_text("<?php return ['STRIPE_MODE'=>'test','STRIPE_SECRET_KEY'=>'sk_test_mock','STRIPE_PRICE_ID'=>'price_1UcRNPD6EfIksOoBoArlsA2B','STRIPE_WEBHOOK_SECRET'=>'whsec_mock','TAX_TOTAL_CONFIRMED'=>true,'SENDER_VERIFIED'=>true,'BOOKING_VERIFIED'=>false];")
     (app / 'test.php').write_text(r'''<?php
 declare(strict_types=1);
 ob_start();
@@ -31,7 +34,7 @@ function wb_rate(string $key,int $limit,int $seconds):bool{global $rates;$n=$rat
 function wb_http(string $u,string $body,array $headers):array{global $mail,$sendCode;$mail[]=base64_decode($body);if($sendCode===0)throw new RuntimeException('ambiguous');return [$sendCode,''];}
 function ak_stripe(string $method,string $path,array $data=[],?string $idempotency=null):array{
  global $session,$charge,$refunds,$calls,$dispute;$calls[]=[$method,$path,$data,$idempotency];
- if(str_starts_with($path,'prices/'))return ['id'=>'price_mock','unit_amount'=>499,'currency'=>'usd','type'=>'one_time','active'=>true,'livemode'=>false];
+ if(str_starts_with($path,'prices/'))return ['id'=>'price_1UcRNPD6EfIksOoBoArlsA2B','product'=>'prod_VXmCcMuO6Bus9N','unit_amount'=>4999,'currency'=>'usd','type'=>'one_time','active'=>true,'livemode'=>false];
  if($method==='POST'&&$path==='checkout/sessions')return ['id'=>'cs_test_mock','url'=>'https://checkout.stripe.com/c/pay/cs_test_mock'];
  if(str_starts_with($path,'checkout/sessions/'))return $session;
  if(str_starts_with($path,'charges/'))return $charge;
@@ -40,7 +43,7 @@ function ak_stripe(string $method,string $path,array $data=[],?string $idempoten
  throw new RuntimeException('Unexpected Stripe operation');
 }
 function ok(bool $condition,string $message):void{if(!$condition)throw new RuntimeException($message);echo 'PASS '.$message."\n";}
-require __DIR__.'/alignable-kit.php';ak_init();$sendCode=202;$rates=[];$mail=[];$calls=[];
+require __DIR__.'/alignable-kit.php';ak_init();ak_init();$sendCode=202;$rates=[];$mail=[];$calls=[];
 $id='11111111-1111-4111-8111-111111111111';
 $input=['first_name'=>'Test','email'=>'buyer@example.test','business'=>'Sample','submission_id'=>$id,'started_at'=>microtime(true)*1000-3000,'recaptcha_token'=>'mock','campaign'=>['utm_source'=>'test']];
 ok(!ak_fields($input)[0],'first name and email only, no phone required');
@@ -54,15 +57,17 @@ $first=ak_checkout($input);$repeat=ak_checkout($input);
 ok($first[0]===200&&$repeat[1]['url']===$first[1]['url'],'duplicate submissions reuse a single Checkout');
 ok((int)ak_q('SELECT count(*) FROM ak_orders')->fetchColumn()===1,'one durable pending order');
 $post=array_values(array_filter($calls,fn($c)=>$c[0]==='POST'));
-ok(count($post)===1&&$post[0][2]['line_items'][0]===['price'=>'price_mock','quantity'=>1],'fixed configured price and quantity, not browser values');
+ok(count($post)===1&&$post[0][2]['line_items'][0]===['price'=>'price_1UcRNPD6EfIksOoBoArlsA2B','quantity'=>1],'fixed configured price and quantity, not browser values');
 ok($post[0][2]['mode']==='payment'&&$post[0][3]==='alignable-checkout-'.$id,'one time payment with stable provider idempotency key');
 ok($post[0][2]['allow_promotion_codes']==='true','checkout exposes promotion code field');
 $row=ak_q('SELECT * FROM ak_orders WHERE id=?',[$id])->fetch();$token=$row['token'];
+ok((int)$row['amount']===4999&&(int)$row['subtotal']===4999&&$row['price_id']===AK_PRICE_ID,'new order pins price and 4999 cent subtotal');
 ok((int)ak_q('SELECT count(*) FROM ak_jobs')->fetchColumn()===0,'pending or canceled payment cannot queue delivery');
-$session=['id'=>'cs_test_mock','status'=>'complete','amount_subtotal'=>499,'total_details'=>['amount_discount'=>0,'amount_tax'=>0,'amount_shipping'=>0],'payment_status'=>'unpaid','mode'=>'payment','amount_total'=>499,'currency'=>'usd','livemode'=>false,'client_reference_id'=>$id,'metadata'=>['ak_order'=>$id],'line_items'=>['has_more'=>false,'data'=>[['quantity'=>1,'price'=>['id'=>'price_mock'],'amount_subtotal'=>499,'amount_discount'=>0,'amount_tax'=>0,'amount_total'=>499]]],'payment_intent'=>['id'=>'pi_mock','status'=>'succeeded','amount_received'=>499,'currency'=>'usd','latest_charge'=>['id'=>'ch_mock','amount'=>499,'currency'=>'usd','paid'=>true,'amount_refunded'=>0,'disputed'=>false,'receipt_url'=>'https://pay.stripe.com/receipts/mock']]];
+$session=['id'=>'cs_test_mock','status'=>'complete','amount_subtotal'=>4999,'total_details'=>['amount_discount'=>0,'amount_tax'=>0,'amount_shipping'=>0],'payment_status'=>'unpaid','mode'=>'payment','amount_total'=>4999,'currency'=>'usd','livemode'=>false,'client_reference_id'=>$id,'metadata'=>['ak_order'=>$id],'line_items'=>['has_more'=>false,'data'=>[['quantity'=>1,'price'=>['id'=>'price_1UcRNPD6EfIksOoBoArlsA2B'],'amount_subtotal'=>4999,'amount_discount'=>0,'amount_tax'=>0,'amount_total'=>4999]]],'payment_intent'=>['id'=>'pi_mock','status'=>'succeeded','amount_received'=>4999,'currency'=>'usd','latest_charge'=>['id'=>'ch_mock','amount'=>4999,'currency'=>'usd','paid'=>true,'amount_refunded'=>0,'disputed'=>false,'receipt_url'=>'https://pay.stripe.com/receipts/mock']]];
 ok(!ak_fulfill('cs_test_mock'),'success redirect or unpaid session cannot fulfill');
-$session['payment_status']='paid';$session['amount_total']=500;ok(!ak_fulfill('cs_test_mock'),'incorrect amount rejected');$session['amount_total']=499;
-$session['line_items']['data'][0]['price']['id']='price_wrong';ok(!ak_fulfill('cs_test_mock'),'incorrect product price rejected');$session['line_items']['data'][0]['price']['id']='price_mock';
+$session['payment_status']='paid';$session['amount_total']=500;ok(!ak_fulfill('cs_test_mock'),'incorrect amount rejected');$session['amount_total']=4999;
+$session['line_items']['data'][0]['price']['id']='price_wrong';ok(!ak_fulfill('cs_test_mock'),'incorrect product price rejected');$session['line_items']['data'][0]['price']['id']='price_1UcRNPD6EfIksOoBoArlsA2B';
+$validPrice=$session; $session['line_items']['data'][0]['price']['id']=AK_LEGACY_PRICE_ID;ok(!ak_fulfill('cs_test_mock'),'new order cannot use legacy price');$session=$validPrice;
 $session['livemode']=true;ok(!ak_fulfill('cs_test_mock'),'test and live mode mismatch rejected');$session['livemode']=false;
 ok(ak_fulfill('cs_test_mock'),'server verified paid session fulfills without a browser return');
 ak_fulfill('cs_test_mock');
@@ -81,11 +86,11 @@ ak_q("UPDATE ak_jobs SET next_attempt=0 WHERE kind='visitor'");$sendCode=0;ak_pr
 $before=count($mail);ak_process();ok(count($mail)===$before,'uncertain provider outcomes do not automatically resend');
 $new=ak_reissue($id,'buyer@example.test');ok(!ak_order($token)&&ak_order($new)['status']==='paid','controlled verified buyer reissue revokes old access');
 try{ak_reissue($id,'stranger@example.test');ok(false,'wrong email must fail');}catch(RuntimeException $e){ok(true,'arbitrary email cannot recover another order');}
-$charge=['id'=>'ch_mock','payment_intent'=>'pi_mock','amount_refunded'=>0,'disputed'=>false];$refunds=[['id'=>'re_mock','amount'=>499,'status'=>'pending']];ak_reconcile_charge('ch_mock');
+$charge=['id'=>'ch_mock','payment_intent'=>'pi_mock','amount_refunded'=>0,'disputed'=>false];$refunds=[['id'=>'re_mock','amount'=>4999,'status'=>'pending']];ak_reconcile_charge('ch_mock');
 ok(ak_order($new)['refund_state']==='pending'&&ak_order($new)['status']==='paid','pending refund is not marked completed');
 $refunds[0]['status']='failed';ak_reconcile_charge('ch_mock');ok(ak_order($new)['refund_state']==='failed','failed refund accurately recorded');
 $refunds[0]['status']='succeeded';$charge['amount_refunded']=200;$refunds[0]['amount']=200;ak_reconcile_charge('ch_mock');ok(ak_order($new)['refund_state']==='partial','partial refund distinct from full');
-$charge['amount_refunded']=499;$refunds[0]['amount']=499;ak_reconcile_charge('ch_mock');ak_reconcile_charge('ch_mock');
+$charge['amount_refunded']=4999;$refunds[0]['amount']=4999;ak_reconcile_charge('ch_mock');ak_reconcile_charge('ch_mock');
 ok(ak_order($new)['status']==='refunded'&&(int)ak_q('SELECT count(*) FROM ak_refunds')->fetchColumn()===1,'full refund reconciled without duplicate reimbursement');
 ok(!ak_fulfill('cs_test_mock'),'late completed event cannot reopen refunded access');
 ok(count(array_filter($calls,fn($c)=>$c[0]==='POST'&&str_starts_with($c[1],'refunds')))===0,'no automatic refund creation or live reimbursement');
@@ -96,17 +101,17 @@ foreach([250,0,0] as $index=>$total){
  $discountId='discount-order-'.$index;
  $newSession='cs_test_discount'.$index;
  $tkn=hash('sha256',$discountId);
- ak_q("INSERT INTO ak_orders(id,request_hash,data,status,token_hash,token,session_id,created_at) VALUES(?,?,?,'pending',?,?,?,?)",[$discountId,'mock',json_encode(['first_name'=>'A <B>','email'=>'buyer@example.test','business'=>'','submitted_at'=>'test','source_page'=>'test','campaign'=>[]]),hash('sha256',$tkn),$tkn,$newSession,time()]);
+ ak_q("INSERT INTO ak_orders(id,request_hash,data,status,token_hash,token,session_id,created_at,price_id,subtotal) VALUES(?,?,?,'pending',?,?,?,?,?,?)",[$discountId,'mock',json_encode(['first_name'=>'A <B>','email'=>'buyer@example.test','business'=>'','submitted_at'=>'test','source_page'=>'test','campaign'=>[]]),hash('sha256',$tkn),$tkn,$newSession,time(),AK_PRICE_ID,AK_AMOUNT]);
  $session=$baseSession;$session['id']=$newSession;$session['client_reference_id']=$discountId;$session['metadata']['ak_order']=$discountId;
- $session['amount_total']=$total;$session['total_details']['amount_discount']=499-$total;
- $session['line_items']['data'][0]['amount_total']=$total;$session['line_items']['data'][0]['amount_discount']=499-$total;
+ $session['amount_total']=$total;$session['total_details']['amount_discount']=4999-$total;
+ $session['line_items']['data'][0]['amount_total']=$total;$session['line_items']['data'][0]['amount_discount']=4999-$total;
  if($total===0){$session['payment_status']='no_payment_required';$session['payment_intent']=null;}
  else{$session['payment_intent']['id']='pi_discount';$session['payment_intent']['amount_received']=$total;$session['payment_intent']['latest_charge']['id']='ch_discount';$session['payment_intent']['latest_charge']['amount']=$total;}
  $valid=$session;
  $session['status']='open';ok(!ak_fulfill($newSession),'incomplete discounted checkout rejected');$session=$valid;
  $session['total_details']['amount_discount']=0;ok(!ak_fulfill($newSession),'inconsistent discount rejected');$session=$valid;
  $session['payment_status']='unpaid';ok(!ak_fulfill($newSession),'unpaid discounted checkout rejected');$session=$valid;
- if($total>0){$session['payment_intent']['amount_received']=499;ok(!ak_fulfill($newSession),'wrong discounted payment amount rejected');$session=$valid;}
+ if($total>0){$session['payment_intent']['amount_received']=4999;ok(!ak_fulfill($newSession),'wrong discounted payment amount rejected');$session=$valid;}
  ok(ak_fulfill($newSession),'discounted order fulfills: '.$total);
  ak_fulfill($newSession);
  $discountOrder=ak_order($tkn);ok((int)$discountOrder['amount']===$total,'actual total persisted');
@@ -115,6 +120,28 @@ foreach([250,0,0] as $index=>$total){
  if($total>0){$charge=['id'=>'ch_discount','payment_intent'=>'pi_discount','amount_refunded'=>$total,'disputed'=>false];$refunds=[['id'=>'re_discount','amount'=>$total,'status'=>'succeeded']];ak_reconcile_charge('ch_discount');ok(ak_order($tkn)['status']==='refunded','discounted full refund uses actual amount paid');}
  else{ok($discountOrder['payment_intent']===null,'zero-cost order has no fabricated payment intent');}
 }
+
+// Simulate a database created by the prior release, retaining its 499 default.
+wb_db()->exec('ALTER TABLE ak_orders DROP COLUMN price_id');
+wb_db()->exec('ALTER TABLE ak_orders DROP COLUMN subtotal');
+$legacyId='legacy-order';$legacyToken=hash('sha256',$legacyId);
+ak_q("INSERT INTO ak_orders(id,request_hash,data,status,token_hash,token,session_id,amount,created_at) VALUES(?,?,?,'pending',?,?,?,?,?)",[$legacyId,'mock',$row['data'],hash('sha256',$legacyToken),$legacyToken,'cs_legacy',499,time()-86400]);
+ak_init();ak_init();
+$old=ak_order($legacyToken);ok($old['price_id']===null&&(int)$old['amount']===499,'migration preserves old pending amount and legacy marker');
+$session=$baseSession;$session['id']='cs_legacy';$session['client_reference_id']=$legacyId;$session['metadata']['ak_order']=$legacyId;
+$session['amount_total']=499;$session['amount_subtotal']=499;$session['total_details']['amount_discount']=0;
+$session['line_items']['data'][0]=['quantity'=>1,'price'=>['id'=>AK_LEGACY_PRICE_ID],'amount_subtotal'=>499,'amount_discount'=>0,'amount_tax'=>0,'amount_total'=>499];
+$session['payment_intent']['id']='pi_legacy';$session['payment_intent']['amount_received']=499;
+$session['payment_intent']['latest_charge']['id']='ch_legacy';$session['payment_intent']['latest_charge']['amount']=499;
+$session['payment_status']='unpaid';ok(!ak_fulfill('cs_legacy'),'legacy unpaid order cannot fulfill');
+$session['payment_status']='paid';ak_event(['id'=>'evt_legacy_delayed','livemode'=>false,'type'=>'checkout.session.async_payment_succeeded','data'=>['object'=>['id'=>'cs_legacy']]]);
+ok(ak_order($legacyToken)['status']==='paid','old pending order fulfills after new price configuration');
+ak_fulfill('cs_legacy');ok((int)ak_q('SELECT count(*) FROM ak_jobs WHERE order_id=?',[$legacyId])->fetchColumn()===2,'legacy fulfillment remains idempotent');
+file_put_contents(__DIR__.'/legacy.eml',base64_decode(ak_email(['id'=>'legacy-visitor','kind'=>'visitor'],ak_order($legacyToken))['mime']));
+$charge=['id'=>'ch_legacy','payment_intent'=>'pi_legacy','amount_refunded'=>499,'disputed'=>false];$refunds=[['id'=>'re_legacy','amount'=>499,'status'=>'succeeded']];ak_reconcile_charge('ch_legacy');
+ok(ak_order($legacyToken)['status']==='refunded','legacy refund compares against original amount');
+ok(!ak_fulfill('cs_legacy'),'late legacy webhook cannot reopen refunded order');
+
 echo "All offline payment and delivery tests passed. No provider calls made.\n";
 ''')
     subprocess.run([php, *flags, str(app/'test.php')], check=True)
@@ -128,6 +155,10 @@ $_SERVER['REQUEST_URI']=getenv('AK_ROUTE');$_SERVER['REQUEST_METHOD']=getenv('AK
 if(getenv('AK_SEED'))ak_q("UPDATE ak_orders SET status='paid',token=?,token_hash=? WHERE id=?",[str_repeat('a',64),hash('sha256',str_repeat('a',64)),'11111111-1111-4111-8111-111111111111']);
 ak_dispatch();
 ''')
+    legacy=email.message_from_bytes((app/'legacy.eml').read_bytes(),policy=email.policy.default)
+    assert len(list(legacy.iter_attachments()))==2
+    for kind in ['plain','html']:
+        assert 'Total paid: $4.99 USD' in legacy.get_body(preferencelist=(kind,)).get_content()
     message=email.message_from_bytes((app/'visitor.eml').read_bytes(),policy=email.policy.default)
     attachments=list(message.iter_attachments())
     assert len(attachments)==2 and all(part.get_content_type()=='application/pdf' for part in attachments)
@@ -135,6 +166,9 @@ ak_dispatch();
     plain=message.get_body(preferencelist=('plain',)).get_content()
     html=message.get_body(preferencelist=('html',)).get_content()
     assert '/api/alignable-kit/' not in plain+html and 'Download your' not in plain+html
+    assert plain.count('BR,')==1 and html.count('BR,')==1
+    assert 'Disclaimer: This email' in plain and 'Disclaimer: This email' in html
+    assert 'Total paid: $49.99 USD' in plain and 'Total paid: $49.99 USD' in html
     assert 'attached' in plain and 'attached' in html
     assert attachments[0].get_payload(decode=True)==(app/'alignable-files/ebook.pdf').read_bytes()
     assert attachments[1].get_payload(decode=True)==(app/'alignable-files/workbook.pdf').read_bytes()
@@ -166,4 +200,3 @@ ak_dispatch();
     assert json.loads(call('resend',{'token':token}))['code']==403
     assert json.loads(call('resend',{},cookie=token,origin='https://other.example.test'))['code']==403
     print('PASS paid browser cookie required for resend; cross origin requests and arbitrary emails rejected')
-
