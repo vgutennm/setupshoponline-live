@@ -7,7 +7,7 @@ import { HelmetProvider } from "react-helmet-async";
 import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import NotFound from "@/pages/not-found";
-import ConversionKit, { ConversionKitAccess } from "@/pages/ConversionKit";
+import { ConversionKitAccess } from "@/pages/ConversionKit";
 import WorkbookAccess from "@/pages/WorkbookAccess";
 import FreeWorkbook from "@/pages/FreeWorkbook";
 import GrowthStrategy from "@/pages/GrowthStrategy";
@@ -95,7 +95,7 @@ function Router() {
     <Switch>
       <Route path="/alignable-conversion-kit/thank-you" component={AlignableThankYou} />
       <Route path="/alignable-conversion-kit" component={AlignableKit} />
-      <Route path="/conversionkit" component={ConversionKit} />
+      <Route path="/conversionkit" component={() => { window.location.replace("/page-unavailable.html"); return null; }} />
       <Route path="/conversionkit/access" component={ConversionKitAccess} />
       <Route path="/" component={Home} />
       <Route path="/products-services-solutions" component={ProductsServicesSolutions} />

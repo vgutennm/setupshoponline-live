@@ -15,7 +15,8 @@ export function PositioningSections({ kind }: {kind: "home" | "why"}) {
           return split ? <div key={n} className="rounded-xl border border-slate-200 bg-white p-6"><h3 className="text-xl font-bold mb-3">{split[0]}</h3><p className="text-base leading-relaxed text-slate-600">{split.slice(1).join(" — ")}</p></div> : <p key={n} className="text-lg leading-relaxed text-slate-600">{p}</p>;
         })}
       </div>
-      {s.id === "method" && <p className="mt-6 text-base text-slate-500">Define the business outcome, design the improvement, and validate results before expanding.</p>}
+      {s.id === "service-introduction" && <p className="mt-5 text-lg">Networking on Alignable? Prepare for your next conversation with the <a className="text-blue-700 underline" href="/alignable-conversion-kit">Alignable ebook and companion workbook</a>.</p>}
+            {s.id === "method" && <p className="mt-6 text-base text-slate-500">Define the business outcome, design the improvement, and validate results before expanding.</p>}
       {s.button && <a className="inline-flex mt-7 rounded-lg bg-primary text-white px-6 py-3 text-base font-semibold" href={s.id === "service-introduction" ? "/products-services-solutions" : s.id === "about-preview" ? "/why-setupshoponline" : siteConfig.calendlyUrl}>{s.button}</a>}
       {s.id === "closing-invitation" && <a href={siteConfig.agenticAssessmentUrl} className="inline-block mt-5 sm:ml-6 text-primary underline text-base">{siteConfig.agenticAssessmentLabel}</a>}
     </div>

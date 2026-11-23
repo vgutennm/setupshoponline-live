@@ -29,6 +29,9 @@ RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 RewriteCond %{HTTP_HOST} ^www\.setupshoponline\.com$ [NC]
 RewriteRule ^(.*)$ https://setupshoponline.com/$1 [L,R=301]
 
+# Archived free offer. Keep existing recipient access and files available.
+RewriteRule ^(?:conversionkit(?:\.html)?|api/conversionkit/subscribe)/?$ - [R=404,END,NC]
+
 # Workbook API is handled by PHP; backend/data stay outside public_html.
 RewriteRule ^api/conversionkit/(?:config|subscribe|session|access|download)$ api/conversionkit/index.php [END]
 RewriteRule ^api/conversionkit/index\.php$ - [END]
